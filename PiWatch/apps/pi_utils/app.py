@@ -1,5 +1,5 @@
 """Defines the classes for the construction of PiWatch-apps."""
-from .base import *
+from .drawable import *
 
 
 class Activity:
