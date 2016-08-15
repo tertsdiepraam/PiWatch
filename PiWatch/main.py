@@ -1,8 +1,9 @@
 """"Main Program of the PiWatch"""
 import importlib
-import sys, os
+import os
+import sys
+
 import pygame
-import time
 
 appsfolder = 'apps'
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
@@ -20,6 +21,10 @@ else:
     os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
+
+
+def handle_requests():
+    pass
 
 
 def load_apps():
@@ -52,9 +57,13 @@ def run():
     else:
         screen = pygame.display.set_mode(screenres)
     eventqueue = Eventqueue()
+
     current_app = apps['home']
     print("Starting app: " + current_app.name)
     current_app.start(screen)
+
+    current_services = []
+    current_services.start(screen)
 
     fps = pygame.time.Clock()
     fpstext = Text(
@@ -67,16 +76,7 @@ def run():
     # mainloop
     while True:
         # events
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONUP:
-                eventqueue.add(MouseUpEvent(datetime.datetime.now().time(), event.pos))
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                eventqueue.add(MouseDownEvent(datetime.datetime.now().time(), event.pos))
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    sys.exit()
-            elif event.type == pygame.QUIT:
-                sys.exit()
+        eventqueue.handle_events()
         eventqueue.broadcast(current_app)
 
         # Draw
@@ -92,6 +92,7 @@ def run():
         fpstext.draw(screen)
 
         pygame.display.flip()
+
 
 # Call the main function
 run()

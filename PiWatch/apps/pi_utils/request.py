@@ -2,5 +2,11 @@
 
 
 class Request:
-    """A request that an app can send to the main program."""
-    pass
+    def __init__(self, app, requested_action):
+        self.app = app
+        self.action = requested_action
+
+
+class Requestqueue:
+    def __init__(self):
+        self.requests = []
