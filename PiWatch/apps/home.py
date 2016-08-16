@@ -1,3 +1,5 @@
+import os
+
 from pi_utils import *
 
 appsfolder = 'apps'
