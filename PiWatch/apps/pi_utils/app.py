@@ -1,5 +1,4 @@
 """Defines the classes for the construction of PiWatch-apps."""
-from .functions import *
 
 
 class Activity:
@@ -15,16 +14,6 @@ class Activity:
     def setup(self, parent):
         for object in self.objects:
             object.setup(parent)
-
-    def respond(self, pos):
-        response = []
-        for object in self.objects:
-            try:
-                response += object.respond(pos)
-            except AttributeError:
-                pass
-        for function in response:
-            call(function)
 
     def draw(self, surface):
         for object in self.objects:

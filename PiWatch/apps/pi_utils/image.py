@@ -5,8 +5,8 @@ from .drawable import *
 
 
 class ImageAttrs(AttrSet):
-    def setDefaults(self):
-        super().setDefaults()
+    def set_defaults(self):
+        super().set_defaults()
         self.attrs.update({
             'filename': None,
             'size_x': None,

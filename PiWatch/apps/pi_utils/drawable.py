@@ -1,17 +1,18 @@
 """This file defines the abstract classes which provide basic component functionality."""
 
+
 # AttributeSet is the object that gets passed to a drawable
 class AttrSet:
     def __init__(self, **kwargs):
         self.attrs = {}
-        self.setDefaults()
-        self.setAttrs(kwargs)
+        self.set_defaults()
+        self.set_attrs(kwargs)
 
-    def setAttrs(self, attrdict):
+    def set_attrs(self, attrdict):
         for attr, value in attrdict.items():
             setattr(self, attr, value)
 
-    def setDefaults(self):
+    def set_defaults(self):
         self.attrs.update(
             {'bg_color': None,
              'position': ('center', 0, 0),

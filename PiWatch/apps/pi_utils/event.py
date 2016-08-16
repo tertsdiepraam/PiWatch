@@ -1,9 +1,8 @@
 """Event classes"""
 import datetime
+import sys
 
 import pygame
-
-from .functions import call
 
 
 class Event:
@@ -13,6 +12,7 @@ class Event:
         self.key = key
         self.position = pos
         self.msg = msg
+
 
 class Eventqueue:
     def __init__(self):
@@ -27,9 +27,9 @@ class Eventqueue:
         self.events = []
 
     def handle_events(self):
-        newtime = datetime.datetime.now().time()
-        if self.time != newtime:
-            self.time = newtime
+        new_time = datetime.datetime.now().time()
+        if self.time != new_time:
+            self.time = new_time
             self.add(Event(self.time, 'time'))
 
         # pygame specific event handling
@@ -52,6 +52,6 @@ class Eventqueue:
             for target in targets:
                 if event.type in target.event_listeners.keys():
                     for func in target.event_listeners[event.type]:
-                        call(func)
+                        func(event)
         if clear:
             self.clear()

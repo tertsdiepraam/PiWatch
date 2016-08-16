@@ -39,7 +39,7 @@ def define_app():
     main.add(mainclock, textblock, cursor)
 
     @main.event_listener('mouse_down')
-    def settexttoBar():
+    def settexttoBar(event):
         textblock.update('Hello, PiWatch!')
 
     # Add the activity to the app

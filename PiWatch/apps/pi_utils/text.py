@@ -7,8 +7,8 @@ from .drawable import *
 
 
 class TextAttrs(AttrSet):
-    def setDefaults(self):
-        super().setDefaults()
+    def set_defaults(self):
+        super().set_defaults()
         self.attrs.update(
             {'size': 20,
              'color': (255, 255, 255),
@@ -36,8 +36,8 @@ class Text(PiDrawable):
 
 
 class ClockAttrs(TextAttrs):
-    def setDefaults(self):
-        super().setDefaults()
+    def set_defaults(self):
+        super().set_defaults()
         self.attrs.update({
             'twentyfour': False})
 
