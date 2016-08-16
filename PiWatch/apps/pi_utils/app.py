@@ -1,4 +1,5 @@
 """Defines the classes for the construction of PiWatch-apps."""
+import os
 
 
 class Activity:
@@ -36,6 +37,7 @@ class App:
         self.mainactivity = 'main'
         self.currentactivity = None
         self.app_event_listeners = {}
+        self.folder = 'apps' + os.sep + name + os.sep
 
     def start(self, parent):
         self.currentactivity = self.activities[self.mainactivity]
@@ -50,7 +52,7 @@ class App:
 
     def event_listener(self, event_type):
         def add_listener(func):
-            if not event_type in self.app_event_listeners.keys():
+            if event_type not in self.app_event_listeners.keys():
                 self.app_event_listeners[event_type] = []
             self.app_event_listeners[event_type].append(func)
         return add_listener

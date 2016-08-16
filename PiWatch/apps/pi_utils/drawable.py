@@ -59,3 +59,6 @@ class PiDrawable:
         if self.bg_color:
             surface.fill(self.bg_color, self.rect)
         surface.blit(self.image, self.rect)
+
+    def check_collision(self, point):
+        return self.rect.collidepoint(point)

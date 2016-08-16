@@ -60,8 +60,7 @@ def run():
     print("Starting app: " + current_app.name)
     current_app.start(screen)
 
-    #current_services = []
-    #current_services.start(screen)
+    current_services = []
 
     fps = pygame.time.Clock()
     fpstext = Text(
@@ -75,7 +74,7 @@ def run():
     while True:
         # events
         eventqueue.handle_events()
-        eventqueue.broadcast(current_app)
+        eventqueue.broadcast(current_app, *current_services)
 
         # Draw
         screen.fill(current_app.bg_color)

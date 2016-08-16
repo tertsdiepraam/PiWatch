@@ -6,7 +6,6 @@ appsfolder = 'apps'
 
 
 def define_app():
-
     # App object and settings
     app = App(
         name='home',
@@ -17,14 +16,15 @@ def define_app():
 
     # Components
     mainclock = Clock(
-        size=96,
+        size=96
     )
 
     textblock = Text(
         size=40,
         color=(0, 255, 255),
         position=('midbottom', 0, 0),
-        message='Hello, World!')
+        message='Hello, World!'
+    )
 
     cursor = TextCursor(
         TextAttrs(),
@@ -32,15 +32,22 @@ def define_app():
         color=(255, 255, 255),
         position='midbottom',
         font="Times New Roman",
-        message='O')
+        message='O'
+    )
 
     # Activities
     main = Activity(name='main')
     main.add(mainclock, textblock, cursor)
 
     @main.event_listener('mouse_down')
-    def settexttoBar(event):
-        textblock.update('Hello, PiWatch!')
+    def mouse_event(event):
+        if mainclock.check_collision(event.pos):
+            textblock.update('Hello, PiWatch!')
+            return Event(datetime.datetime.now().time(), 'blub')
+
+    @app.event_listener('blub')
+    def blub_event(event):
+        textblock.update('BLUB TAKEOVER')
 
     # Add the activity to the app
     app.add(main)

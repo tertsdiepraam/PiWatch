@@ -10,7 +10,7 @@ class Event:
         self.timestamp = timestamp
         self.type = event_type.lower()
         self.key = key
-        self.position = pos
+        self.pos = pos
         self.msg = msg
 
 
@@ -48,10 +48,16 @@ class Eventqueue:
                 sys.exit()
 
     def broadcast(self, *targets, clear=True):
+        returned_events = []
         for event in self.events:
             for target in targets:
                 if event.type in target.event_listeners.keys():
                     for func in target.event_listeners[event.type]:
-                        func(event)
+                        returned_event = func(event)
+                        print(returned_event)
+                        if returned_event:
+                            returned_events.append(returned_event)
         if clear:
             self.clear()
+        if returned_events:
+            self.add(*returned_events)
