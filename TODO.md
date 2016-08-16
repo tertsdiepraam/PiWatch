@@ -1,11 +1,12 @@
- V = implemented
- X = not going to be implemented OR functionality implemented in another way
-
- V Group
+Tasks:
  - Grid --> Rows
- X ImageClickable
  - Animation
  - Bluetooth
  - Text Wrapping --> Paragraph
- X Button
- - XML reader
+
+ Not going to be implemented:
+ - Button
+ - ImageClickable
+
+ Completed tasks:
+ - Group
