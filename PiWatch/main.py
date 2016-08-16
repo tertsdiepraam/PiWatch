@@ -22,11 +22,6 @@ else:
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
 
-
-def handle_requests():
-    pass
-
-
 def load_apps():
     """Read .py files from the apps folder"""
     print('Loading apps...')
@@ -40,7 +35,10 @@ def load_apps():
             spec.loader.exec_module(module)
             app = module.define_app()
             apps[app.name] = app
-    print(str(len(apps)) + ' apps loaded.\n')
+    if len(apps) == 1:
+        print(len(apps),'app loaded.\n')
+    else:
+        print(len(apps), 'apps loaded.\n')
     return apps
 
 
@@ -62,8 +60,8 @@ def run():
     print("Starting app: " + current_app.name)
     current_app.start(screen)
 
-    current_services = []
-    current_services.start(screen)
+    #current_services = []
+    #current_services.start(screen)
 
     fps = pygame.time.Clock()
     fpstext = Text(

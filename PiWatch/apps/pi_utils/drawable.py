@@ -1,15 +1,5 @@
 """This file defines the abstract classes which provide basic component functionality."""
 
-
-# for calling functions from clickables etc.
-def call(func):
-    try:
-        func()
-    except TypeError:
-        function, *args = func
-        function(*args)
-
-
 # AttributeSet is the object that gets passed to a drawable
 class AttrSet:
     def __init__(self, **kwargs):
@@ -40,9 +30,7 @@ class PiDrawable:
             for attrset in attrs:
                 self.set_attrs(attrset.attrs)
         else:
-            print(self.DEFAULTATTRS)
             self.set_attrs(self.DEFAULTATTRS.attrs)
-        print(self.font)
         self.set_attrs(kwargs)
         if type(self.padding) is int:
             self.padding = (self.padding, self.padding)

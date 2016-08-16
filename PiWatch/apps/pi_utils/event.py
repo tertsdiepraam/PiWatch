@@ -1,53 +1,18 @@
 """Event classes"""
+import datetime
+
+import pygame
+
+from .functions import call
 
 
 class Event:
-    def __init__(self, timestamp):
-        self.timestamp
-
-
-class MouseEvent(Event):
-    """Baseclass for MouseDownEvent and MouseUpEvent"""
-    def __init__(self, timestamp, position):
-        super().__init__(timestamp)
-        self.position = position
-
-
-class MouseDownEvent(MouseEvent):
-    """Event that is triggered if left mouse button is pressed."""
-    pass
-
-
-class MouseUpEvent(MouseEvent):
-    """Event that is triggered if left mouse button is released."""
-    pass
-
-
-class KeyEvent(Event):
-    """Baseclass for KeyDownEvent and KeyUpEvent."""
-    def __init__(self, timestamp, key):
-        super().__init__(timestamp)
+    def __init__(self, timestamp, event_type, key=None, pos=None, msg=None):
+        self.timestamp = timestamp
+        self.type = event_type.lower()
         self.key = key
-
-
-class KeyDownEvent(KeyEvent):
-    """Event that is triggered if a key is pressed."""
-    pass
-
-
-class KeyUpEvent(KeyEvent):
-    """Event that gets triggered if a key is released."""
-    pass
-
-
-class TimeEvent(Event):
-    """Event that is triggered if there is a change in time."""
-    pass
-
-class SignalEvent(Event):
-    def __init__(self, timestamp, signal):
-        super().__init__(timestamp)
-        self.signal = signal
+        self.position = pos
+        self.msg = msg
 
 class Eventqueue:
     def __init__(self):
@@ -65,15 +30,15 @@ class Eventqueue:
         newtime = datetime.datetime.now().time()
         if self.time != newtime:
             self.time = newtime
-            self.add(TimeEvent(self.time))
+            self.add(Event(self.time, 'time'))
 
         # pygame specific event handling
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONUP:
-                self.add(MouseUpEvent(self.time, event.pos))
+                self.add(Event(self.time, 'mouse_up', pos=event.pos))
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                self.add(MouseDownEvent(self.time, event.pos))
+                self.add(Event(self.time, 'mouse_down', pos=event.pos))
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
@@ -82,7 +47,11 @@ class Eventqueue:
             elif event.type == pygame.QUIT:
                 sys.exit()
 
-    def broadcast(self, *targets):
+    def broadcast(self, *targets, clear=True):
         for event in self.events:
             for target in targets:
-                target.respond(event)
+                if event.type in target.event_listeners.keys():
+                    for func in target.event_listeners[event.type]:
+                        call(func)
+        if clear:
+            self.clear()

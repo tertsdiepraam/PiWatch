@@ -1,13 +1,9 @@
-import time
-import sys
 from pi_utils import *
 
 appsfolder = 'apps'
 
 
 def define_app():
-    def settexttoBar():
-        quitbutton.update('Hello, PiWatch!')
 
     # App object and settings
     app = App(
@@ -39,6 +35,10 @@ def define_app():
     # Activities
     main = Activity(name='main')
     main.add(mainclock, textblock, cursor)
+
+    @main.event_listener('mouse_down')
+    def settexttoBar():
+        textblock.update('Hello, PiWatch!')
 
     # Add the activity to the app
     app.add(main)
