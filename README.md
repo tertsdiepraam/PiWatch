@@ -11,3 +11,4 @@ Current Features:
  - Draw text
  - Draw image
  - Create groups of components
+ - Event handling
