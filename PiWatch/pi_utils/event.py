@@ -53,6 +53,7 @@ class Eventqueue:
 
     def broadcast(self, *targets, clear=True):
         for event in self.events:
+            if not event: continue
             for target in targets:
                 if event.type in target.event_listeners.keys():
                     for func in target.event_listeners[event.type]:
