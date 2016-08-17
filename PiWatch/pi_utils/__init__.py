@@ -5,5 +5,6 @@ from .functions import *
 from .image import *
 from .layout import *
 from .text import *
+from .thread import *
 
 
