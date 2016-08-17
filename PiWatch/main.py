@@ -22,10 +22,12 @@ else:
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
 
+
 def load_apps():
     """Read .py files from the apps folder"""
     print('Loading apps...')
     apps = {}
+    services = {}
     for file in list(os.listdir(appsfolder)):
         if file.split('.')[-1] == 'py':
             appname = '.'.join(file.split('.')[:-1])
@@ -33,10 +35,19 @@ def load_apps():
             spec = importlib.util.find_spec(appname)
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
-            app = module.define_app()
-            apps[app.name] = app
+            if hasattr(module, 'define_app'):
+                app = module.define_app()
+                apps[app.name] = app
+            if hasattr(module, 'define_services'):
+                returned_service = module.define_services()
+                if type(returned_service) is list or type(returned_service) is tuple:
+                    for service in returned_service:
+                        services[service.name] = service
+                else:
+                    services[service.name] = service
+
     if len(apps) == 1:
-        print(len(apps),'app loaded.\n')
+        print(len(apps), 'app loaded.\n')
     else:
         print(len(apps), 'apps loaded.\n')
     return apps
@@ -54,7 +65,7 @@ def run():
         pygame.mouse.set_visible(False)
     else:
         screen = pygame.display.set_mode(screenres)
-    eventqueue = Eventqueue()
+    main_eventqueue = Eventqueue()
 
     current_app = apps['home']
     print("Starting app: " + current_app.name)
@@ -73,8 +84,9 @@ def run():
     # mainloop
     while True:
         # events
-        eventqueue.handle_events()
-        eventqueue.broadcast(current_app, *current_services)
+        main_eventqueue.import_events(current_app.eventqueue)
+        main_eventqueue.handle_events()
+        main_eventqueue.broadcast(current_app, *current_services)
 
         # Draw
         screen.fill(current_app.bg_color)

@@ -40,14 +40,16 @@ def define_app():
     main.add(mainclock, textblock, cursor)
 
     @main.event_listener('mouse_down')
+    @return_event(app)
     def mouse_event(event):
         if mainclock.check_collision(event.pos):
-            textblock.update('Hello, PiWatch!')
-            return Event(datetime.datetime.now().time(), 'blub')
+            return Event('blub')
+        if textblock.check_collision(event.pos):
+            return Event('blub')
 
     @app.event_listener('blub')
     def blub_event(event):
-        textblock.update('BLUB TAKEOVER')
+        textblock.update(time_to_str(event.timestamp))
 
     # Add the activity to the app
     app.add(main)

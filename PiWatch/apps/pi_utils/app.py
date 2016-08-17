@@ -1,6 +1,8 @@
 """Defines the classes for the construction of PiWatch-apps."""
 import os
 
+from .event import Eventqueue
+
 
 class Activity:
     def __init__(self, name):
@@ -38,6 +40,7 @@ class App:
         self.currentactivity = None
         self.app_event_listeners = {}
         self.folder = 'apps' + os.sep + name + os.sep
+        self.eventqueue = Eventqueue()
 
     def start(self, parent):
         self.currentactivity = self.activities[self.mainactivity]
@@ -68,3 +71,17 @@ class App:
             else:
                 d1[key] = value
         return dict(d1)
+
+class Service:
+    def __init__(self, name='Anonymous Service'):
+        self.name = name
+        self.event_listeners = {}
+
+    def start(self):
+        raise NotImplementedError()
+
+    def stop(self):
+        raise NotImplementedError()
+
+    def pause(self):
+        raise NotImplementedError()
