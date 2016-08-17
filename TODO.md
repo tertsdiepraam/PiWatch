@@ -4,11 +4,11 @@ Tasks in order of priority:
  3. Grid --> Rows
  4. Animation
  5. Text Wrapping --> Paragraph
- 
- Not going to be implemented:
+
+Not going to be implemented:
  - Button
  - ImageClickable
 
- Completed tasks:
+Completed tasks:
  - Group
  - Better event handling
