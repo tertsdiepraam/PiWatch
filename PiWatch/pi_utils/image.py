@@ -19,12 +19,11 @@ class Image(PiDrawable):
     def setup(self, parent):
         self.parent = parent
         self.file = pygame.image.load(self.filename)
-        self.image = pygame.image.load(self.filename)
         self.rect = self.image.get_rect()
-        self.set_size()
-        self.set_pos()
+        self.render_image()
+        self.set_position()
 
-    def set_size(self):
+    def render_image(self):
         if not (self.size_x or self.size_y):
             size_x = self.rect.width
             size_y = self.rect.height
@@ -38,11 +37,10 @@ class Image(PiDrawable):
             size_x = self.size_x
             size_y = self.size_y
         self.image = pygame.transform.scale(self.file, (size_x, size_y))
-        self.rect = self.image.get_rect()
 
     def update(self, filename=None):
         if filename:
             self.filename = filename
-            self.image = pygame.image.load(self.filename)
-        self.set_size()
-        self.set_pos()
+            self.file = pygame.image.load(self.filename)
+        self.render_image()
+        self.set_position()

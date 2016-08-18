@@ -1,4 +1,3 @@
-import bluetooth
 from pi_utils import *
 
 def define_services():
@@ -14,13 +13,14 @@ def define_services():
     @service.event_listener('bl discover')
     @thread
     def discover_devices(event):
-        print('Discovering Devices')
-        nearby_devices = bluetooth.discover_devices()
-        return_value = ""
-        for bdaddr in nearby_devices:
-            return_value += bluetooth.lookup_name(bdaddr) + '\n'
-            print('Done with Discovering')
-            service.global_eventqueue.add(Event('bl devices discovered', msg=return_value))
+        service.global_eventqueue.add(Event('bl devices discovered', msg=['Moto X Play']))
+        # print('Discovering Devices')
+        # nearby_devices = bluetooth.discover_devices()
+        # return_value = []
+        # for bdaddr in nearby_devices:
+        #     return_value.append(bluetooth.lookup_name(bdaddr))
+        #     print('Done with Discovering')
+        #     service.global_eventqueue.add(Event('bl devices discovered', msg=return_value))
 
     return service
 
@@ -37,15 +37,18 @@ def define_app():
         bg_color=(50,50,50)
     )
 
-    discovered_devices = Text(
-        message='No Devices Discovered',
-        size=20,
+    discovered_devices = List(
         position=('midtop', 0, 45)
     )
+    discovered_devices.add(Text(message='No Discovered Devices'))
 
     @app.event_listener('bl devices discovered')
     def bl_discovered_handler(event):
-        discovered_devices.update(event.msg)
+        adapter = []
+        for bl_device in event.msg:
+            adapter.append(str_to_text(bl_device))
+        discovered_devices.clear()
+        discovered_devices.add(*adapter)
 
     @app.event_listener('mouse_down')
     def mouse_down_handler(event):

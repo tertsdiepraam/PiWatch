@@ -1,5 +1,4 @@
 """This file provides the text classes for PiWatch-apps."""
-import time
 
 import pygame
 
@@ -23,48 +22,47 @@ class Text(PiDrawable):
         """Called when the app is opened"""
         self.parent = parent
         self.pyfont = pygame.font.SysFont(self.font, self.size)
-        self.update()
+        self.render_image()
+        self.set_position()
 
-    def update(self, message=None):
-        if message:
-            self.message = message
+    def render_image(self):
         if self.bg_color:
             self.image = self.pyfont.render(self.message, True, self.color, self.bg_color)
         else:
             self.image = self.pyfont.render(self.message, True, self.color)
-        self.set_pos()
+        self.set_position()
 
 
-class ClockAttrs(TextAttrs):
-    def set_defaults(self):
-        super().set_defaults()
-        self.attrs.update({
-            'twentyfour': False})
-
-
-class Clock(Text):
-    DEFAULTATTRS = ClockAttrs()
-
-    def update(self):
-        """Only called when the time has changed"""
-        self.time = time.localtime()[3:5]
-        hours = str(self.time[0]) if self.twentyfour else str(self.time[0] % 12)
-        minutes = str(self.time[1]) if len(str(self.time[1])) > 1 else '0' + str(self.time[1])
-        self.message = hours + ':' + minutes
-        super().update()
-
-    def draw(self, surface):
-        """Called every frame"""
-        if self.time != time.localtime()[3:5]:
-            self.update()
-        super().draw(surface)
+# class ClockAttrs(TextAttrs):
+#     def set_defaults(self):
+#         super().set_defaults()
+#         self.attrs.update({
+#             'twentyfour': False})
+#
+#
+# class Clock(Text):
+#     DEFAULTATTRS = ClockAttrs()
+#
+#     def update(self):
+#         """Only called when the time has changed"""
+#         self.time = time.localtime()[3:5]
+#         hours = str(self.time[0]) if self.twentyfour else str(self.time[0] % 12)
+#         minutes = str(self.time[1]) if len(str(self.time[1])) > 1 else '0' + str(self.time[1])
+#         self.message = hours + ':' + minutes
+#         super().update()
+#
+#     def draw(self, surface):
+#         """Called every frame"""
+#         if self.time != time.localtime()[3:5]:
+#             self.update()
+#         super().draw(surface)
 
 
 class TextCursor(Text):  # just for testing. Provides a cursor when pygame.mouse.get_visible == False
-    def set_pos(self):
+    def set_position(self):
         self.rect = self.image.get_rect()
         self.rect.center = pygame.mouse.get_pos()
 
     def draw(self, surface):
-        self.set_pos()
+        self.set_position()
         super().draw(surface)

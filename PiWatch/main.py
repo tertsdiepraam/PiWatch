@@ -97,9 +97,9 @@ def run():
         # fps counter
         fps.tick()
         try:
-            fpstext.update(str(int(fps.get_fps())))
+            fpstext.update(message=str(int(fps.get_fps())))
         except OverflowError:
-            fpstext.update("Infinity, BITCH!!!!!")
+            fpstext.update(message="Infinity, BITCH!!!!!")
         fpstext.draw(screen)
 
         pygame.display.flip()

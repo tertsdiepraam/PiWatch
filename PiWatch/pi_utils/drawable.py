@@ -23,7 +23,7 @@ class AttrSet:
 
 # All drawable classes must inherit from this class
 class PiDrawable:
-    '''Base class for drawables, takes an AttrSet object and additional kwargs as arguments'''
+    """Base class for drawables, takes an AttrSet object and additional kwargs as arguments"""
     DEFAULTATTRS = AttrSet()
 
     def __init__(self, *attrs, **kwargs):
@@ -40,18 +40,24 @@ class PiDrawable:
         for attr, value in attrdict.items():
             setattr(self, attr, value)
 
-    def set_pos(self, addpos_x=None, addpos_y=None):
-        if not addpos_x:
-            addpos_x = 0
-        if not addpos_y:
-            addpos_y = 0
+    def setup(self, parent):
+        self.parent = parent
+        self.set_position()
+
+    def update(self, **kwargs):
+        if kwargs:
+            self.set_attrs(kwargs)
+        self.render_image()
+        if 'position' in kwargs.keys():
+            self.set_position()
+
+    def set_position(self):
         self.rect = self.image.get_rect()
         self.parent_rect = self.parent.get_rect()
         if type(self.position) is str:
             exec('self.rect.' + self.position + ' = self.parent_rect.' + self.position)
         elif type(self.position) is tuple:
             exec('self.rect.' + self.position[0] + ' = self.parent_rect.' + self.position[0])
-            self.rect.move_ip(self.position[1] + addpos_x, self.position[2] + addpos_y)
         else:
             raise AttributeError
 
