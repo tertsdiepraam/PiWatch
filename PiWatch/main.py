@@ -23,7 +23,7 @@ else:
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
 
 
-def load_apps():
+def load_apps_and_services():
     """Read .py files from the apps folder"""
     print('Loading apps...')
     apps = {}
@@ -44,13 +44,13 @@ def load_apps():
                     for service in returned_service:
                         services[service.name] = service
                 else:
-                    services[service.name] = service
+                    services[returned_service.name] = returned_service
 
     if len(apps) == 1:
         print(len(apps), 'app loaded.\n')
     else:
         print(len(apps), 'apps loaded.\n')
-    return apps
+    return apps, services
 
 
 def run():
@@ -58,7 +58,7 @@ def run():
     Main function of the PiWatch
     """
     # PiWatch boot procedure
-    apps = load_apps()
+    apps, services = load_apps_and_services()
     pygame.init()
     if sys.platform == 'linux':
         screen = pygame.display.set_mode(screenres, pygame.FULLSCREEN)
@@ -66,12 +66,14 @@ def run():
     else:
         screen = pygame.display.set_mode(screenres)
     main_eventqueue = Eventqueue()
+    main_eventqueue.add(Event('boot'))
 
-    current_app = apps['home']
+    current_app = apps['bluetooth app']
     print("Starting app: " + current_app.name)
     current_app.start(screen)
 
     current_services = []
+    current_services.append(services['bluetooth service'])
 
     fps = pygame.time.Clock()
     fpstext = Text(
@@ -84,7 +86,7 @@ def run():
     # mainloop
     while True:
         # events
-        main_eventqueue.import_events(current_app.eventqueue)
+        main_eventqueue.import_events(current_app, *current_services)
         main_eventqueue.handle_events()
         main_eventqueue.broadcast(current_app, *current_services)
 

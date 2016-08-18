@@ -72,7 +72,6 @@ def define_app():
             time.sleep(0.1)
         print('done')
 
-
     # Add the activity to the app
     app.add(main)
 
