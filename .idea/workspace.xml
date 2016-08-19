@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="IDK">
+    <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="Updated TODO">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TODO.md" afterPath="$PROJECT_DIR$/TODO.md" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -629,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1471612524612</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Updated TODO">
+      <created>1471612620386</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1471612620386</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -698,7 +704,6 @@
     <MESSAGE value="Added Event-classes and a template for requests." />
     <MESSAGE value="Started implementation of Events" />
     <MESSAGE value="Cleaned up some code and finished first draft of event implementation" />
-    <MESSAGE value="Updated TODO" />
     <MESSAGE value="Imported os in Home" />
     <MESSAGE value="deleted call(), cleaned up" />
     <MESSAGE value="Decorators for event calls, removed time argument for Event class" />
@@ -711,7 +716,8 @@
     <MESSAGE value="Fixed List and added optional direction" />
     <MESSAGE value="Fixed clock and event listeners" />
     <MESSAGE value="IDK" />
-    <option name="LAST_COMMIT_MESSAGE" value="IDK" />
+    <MESSAGE value="Updated TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated TODO" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
