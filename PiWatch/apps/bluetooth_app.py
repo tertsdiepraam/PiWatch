@@ -18,13 +18,14 @@ def define_services():
         try:
             nearby_devices = bluetooth.discover_devices()
         except OSError:
+            print('No devices found')
             service.global_eventqueue.add(Event('bl no devices found'))
         else:
             return_value = []
             for bdaddr in nearby_devices:
                 return_value.append(bluetooth.lookup_name(bdaddr))
                 print('Done with Discovering')
-                service.global_eventqueue.add(Event('bl devices discovered', data=return_value))
+                service.global_eventqueue.add(Event('bl discovered', data=return_value))
 
     return service
 
@@ -33,20 +34,23 @@ def define_app():
     app = App(
         name='bluetooth app'
     )
+    main = Activity(
+        name='main'
+    )
 
     discover_bttn = Text(
         message='Discover Devices',
         size=30,
         position=('midtop', 0, 10),
-        bg_color=(50, 50, 50)
+        bg_color=(50, 50, 50),
     )
 
     discovered_devices = List(
-        position=('center', 0, 0),
+        position=('midtop', 0, 50),
     )
     discovered_devices.add(Text(message='No Discovered Devices'))
 
-    @app.event_listener('mouse_down')
+    @main.event_listener('mouse_down')
     def mouse_down_handler(event):
         if discover_bttn.check_collision(event.pos):
             app.global_eventqueue.add(Event('bl discover'))
@@ -57,7 +61,7 @@ def define_app():
         discovered_devices.clear()
         discovered_devices.add(*adapter)
 
-    main = Activity(name='main')
+
     main.add(discover_bttn, discovered_devices)
     app.add(main)
 
