@@ -58,6 +58,7 @@ class PiDrawable:
             exec('self.rect.' + self.position + ' = self.parent_rect.' + self.position)
         elif type(self.position) is tuple:
             exec('self.rect.' + self.position[0] + ' = self.parent_rect.' + self.position[0])
+            self.rect.move_ip(self.position[1], self.position[2])
         else:
             raise AttributeError
 

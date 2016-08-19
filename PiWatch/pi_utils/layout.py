@@ -16,6 +16,8 @@ class Group(PiDrawable):
             self.children.append(child)
             if hasattr(self, 'parent'):
                 child.setup(self.parent)
+        if hasattr(self, 'parent'):
+            self.set_position()
 
     def clear(self):
         self.children = []
@@ -37,15 +39,32 @@ class Group(PiDrawable):
         for child in self.children:
             child.draw(surface)
 
+class ListAttrs(GroupAttrs):
+    def set_defaults(self):
+        super().set_defaults()
+        self.attrs.update({
+            'direction': 'down'
+        })
 
 class List(Group):
     def set_position(self):
-        offset = 0
+        offset_x = 0
+        offset_y = 0
         if self.children:
             for child in self.children:
                 if type(child) is str:
                     child = str_to_text(child)
-                child.update(position=(self.position[0], self.position[1], self.position[2]+offset))
+                child.update(position=(self.position[0], self.position[1]+offset_x, self.position[2]+offset_y))
+                if self.direction == 'down':
+                    offset_y += child.rect.height
+                elif self.direction == 'up':
+                    offset_y -= child.rect.height
+                elif self.direction == 'right':
+                    offset_x += child.rect.width
+                elif self.direction == 'left':
+                    offset_x -= child.rect.width
+                else:
+                    raise AttributeError('List.direction must be up, down, left or right')
             self.rect = self.children[0].rect.unionall([child.rect for child in self.children[1:]])
         else:
             self.rect = None
