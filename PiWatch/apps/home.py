@@ -65,7 +65,7 @@ def define_app():
     def blub_event(event):
         hello_text.update(time_to_str(event.timestamp))
 
-    @thread
+    @threaded
     def yippie(counter=1):
         for i in range(counter):
             print(i, 'Yippie Ki-Yay Motherfucker!')

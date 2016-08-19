@@ -11,7 +11,7 @@ def define_services():
         pass
 
     @service.event_listener('bl discover')
-    @thread
+    @threaded
     def discover_devices(event):
         service.global_eventqueue.add(Event('bl devices discovered', msg=['Moto X Play']))
         # print('Discovering Devices')

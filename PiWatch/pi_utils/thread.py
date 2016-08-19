@@ -1,12 +1,12 @@
 import threading
 
 
-def thread(func):
-    func_thread = ThreadFunction(target=func)
+def threaded(func):
+    func_thread = ThreadedFunction(target=func)
     return func_thread
 
 
-class ThreadFunction():
+class ThreadedFunction():
     def __init__(self, target=None, *args, **kwargs):
         self.target = target
         self.args = args
