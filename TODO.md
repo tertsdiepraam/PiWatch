@@ -1,10 +1,8 @@
 Tasks in order of priority:
- 1. Services
- 2. MultiThreading
- 3. Bluetooth
- 4. Grid --> Rows
- 5. Animation
- 6. Text Wrapping --> Paragraph
+ 1. Bluetooth
+ 2. Grid --> Rows
+ 3. Animation
+ 4. Text Wrapping --> Paragraph
 
 Not going to be implemented:
  - Button
@@ -13,3 +11,5 @@ Not going to be implemented:
 Completed tasks:
  - Group
  - Better event handling
+ - Services
+ - Multithreading
