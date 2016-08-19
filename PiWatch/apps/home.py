@@ -16,9 +16,9 @@ def define_app():
     appfolder = 'apps' + os.sep + app.name + os.sep
 
     # Components
-    # mainclock = Clock(
-    #     size=96
-    # )
+    mainclock = Clock(
+        size=96
+    )
 
     hello_text = Text(
         size=40,
@@ -45,7 +45,7 @@ def define_app():
 
     # Activities
     main = Activity(name='main')
-    main.add(hello_text, other_text, cursor)
+    main.add(mainclock, hello_text, other_text, cursor)
 
     @main.event_listener('mouse_down')
     @return_event(app)

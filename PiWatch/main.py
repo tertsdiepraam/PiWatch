@@ -68,7 +68,7 @@ def run():
     main_eventqueue = Eventqueue()
     main_eventqueue.add(Event('boot'))
 
-    current_app = apps['bluetooth app']
+    current_app = apps['home']
     print("Starting app: " + current_app.name)
     current_app.start(screen)
 

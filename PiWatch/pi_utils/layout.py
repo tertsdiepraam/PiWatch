@@ -47,6 +47,8 @@ class ListAttrs(GroupAttrs):
         })
 
 class List(Group):
+    DEFAULTATTRS = ListAttrs()
+
     def set_position(self):
         offset_x = 0
         offset_y = 0

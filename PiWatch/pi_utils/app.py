@@ -49,13 +49,13 @@ class App(EventHandler):
     def get_event_listeners(self):
         d1 = self.event_listeners.copy()
         d1_keys = d1.keys()
-        d2 = self.currentactivity.event_listeners.items()
+        d2 = self.currentactivity.get_event_listeners().items()
         for key, value in d2:
             if key in d1_keys:
                 d1[key] += value
             else:
                 d1[key] = value
-        return dict(d1)
+        return d1
 
 
 class Service(EventHandler):

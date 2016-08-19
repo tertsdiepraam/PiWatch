@@ -3,7 +3,6 @@ from pi_utils import *
 
 
 def define_services():
-
     service = Service(
         name='bluetooth service'
     )
@@ -16,17 +15,21 @@ def define_services():
     @threaded
     def discover_devices(event):
         print('Discovering Devices')
-        nearby_devices = bluetooth.discover_devices()
-        return_value = []
-        for bdaddr in nearby_devices:
-            return_value.append(bluetooth.lookup_name(bdaddr))
-            print('Done with Discovering')
-            service.global_eventqueue.add(Event('bl devices discovered', msg=return_value))
+        try:
+            nearby_devices = bluetooth.discover_devices()
+        except OSError:
+            service.global_eventqueue.add(Event('bl no devices found'))
+        else:
+            return_value = []
+            for bdaddr in nearby_devices:
+                return_value.append(bluetooth.lookup_name(bdaddr))
+                print('Done with Discovering')
+                service.global_eventqueue.add(Event('bl devices discovered', data=return_value))
 
     return service
 
-def define_app():
 
+def define_app():
     app = App(
         name='bluetooth app'
     )
@@ -35,7 +38,7 @@ def define_app():
         message='Discover Devices',
         size=30,
         position=('midtop', 0, 10),
-        bg_color=(50,50,50)
+        bg_color=(50, 50, 50)
     )
 
     discovered_devices = List(
@@ -46,10 +49,13 @@ def define_app():
     @app.event_listener('mouse_down')
     def mouse_down_handler(event):
         if discover_bttn.check_collision(event.pos):
-            adapter = ['Moto X play', 'Blub je moeder']
-            adapter = [str_to_text(string) for string in adapter]
-            discovered_devices.clear()
-            discovered_devices.add(*adapter)
+            app.global_eventqueue.add(Event('bl discover'))
+
+    @app.event_listener('bl discovered')
+    def bl_discovered(event):
+        adapter = [str_to_text(string) for string in event.data]
+        discovered_devices.clear()
+        discovered_devices.add(*adapter)
 
     main = Activity(name='main')
     main.add(discover_bttn, discovered_devices)

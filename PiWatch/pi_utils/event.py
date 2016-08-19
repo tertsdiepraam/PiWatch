@@ -6,12 +6,12 @@ import pygame
 
 
 class Event:
-    def __init__(self, event_type, key=None, pos=None, msg=None):
+    def __init__(self, event_type, key=None, pos=None, data=None):
         self.timestamp = datetime.datetime.now().time()
         self.type = event_type.lower()
         self.key = key
         self.pos = pos
-        self.msg = msg
+        self.data = data
 
 
 class Eventqueue:
@@ -62,7 +62,7 @@ class Eventqueue:
             if not event: continue
             for target in targets:
                 if event.type in target.get_event_listeners().keys():
-                    for func in target.event_listeners[event.type]:
+                    for func in target.get_event_listeners()[event.type]:
                         func(event)
         if clear:
             self.clear()
