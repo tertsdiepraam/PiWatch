@@ -1,10 +1,11 @@
 # PiWatch
-The PiWatch project: A smartwatch build on a Raspberry Pi 2 using python 3 and pygame.
+The PiWatch project: A smartwatch built on a Raspberry Pi 2 using python 3 and pygame.
 
 Dependencies:
  - Python 3.x
  - Pygame
  - SDL
+ - pybluez
 
 Current Features:
  - Load custom apps
