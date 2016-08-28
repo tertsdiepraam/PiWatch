@@ -33,13 +33,13 @@ def load_apps_and_services():
             appname = '.'.join(file.split('.')[:-1])
             print('  - ' + appname)
             spec = importlib.util.find_spec(appname)
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
-            if hasattr(module, 'define_app'):
-                app = module.define_app()
+            app_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(app_module)
+            if hasattr(app_module, 'define_app'):
+                app = app_module.define_app()
                 apps[app.name] = app
-            if hasattr(module, 'define_services'):
-                returned_service = module.define_services()
+            if hasattr(app_module, 'define_services'):
+                returned_service = app_module.define_services()
                 if type(returned_service) is list or type(returned_service) is tuple:
                     for service in returned_service:
                         services[service.name] = service
