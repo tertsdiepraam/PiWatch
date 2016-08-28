@@ -3,9 +3,9 @@ from .drawable import *
 class GroupAttrs(AttrSet):
     def set_defaults(self):
         super().set_defaults()
-        self.attrs.update({
-            'children': []
-        })
+        self.attrs.update(
+            children=[]
+        )
 
 
 class Group(PiDrawable):
@@ -42,9 +42,10 @@ class Group(PiDrawable):
 class ListAttrs(GroupAttrs):
     def set_defaults(self):
         super().set_defaults()
-        self.attrs.update({
-            'direction': 'down'
-        })
+        self.attrs.update(
+            direction='down',
+            padding=0,
+        )
 
 class List(Group):
     DEFAULTATTRS = ListAttrs()
@@ -58,13 +59,13 @@ class List(Group):
                     child = str_to_text(child)
                 child.update(position=(self.position[0], self.position[1]+offset_x, self.position[2]+offset_y))
                 if self.direction == 'down':
-                    offset_y += child.rect.height
+                    offset_y += child.rect.height + self.padding[0]
                 elif self.direction == 'up':
-                    offset_y -= child.rect.height
+                    offset_y -= child.rect.height - self.padding[0]
                 elif self.direction == 'right':
-                    offset_x += child.rect.width
+                    offset_x += child.rect.width + self.padding[1]
                 elif self.direction == 'left':
-                    offset_x -= child.rect.width
+                    offset_x -= child.rect.width - self.padding[1]
                 else:
                     raise AttributeError('List.direction must be up, down, left or right')
             self.rect = self.children[0].rect.unionall([child.rect for child in self.children[1:]])
