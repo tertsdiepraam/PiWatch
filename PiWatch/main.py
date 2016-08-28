@@ -22,8 +22,6 @@ else:
     os.putenv('SDL_MOUSEDRV', 'TSLIB')
     os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
-
 if sys.version_info >= (3,5):
     def load_module(name):
         """Load module for Python 3.5+"""
@@ -35,6 +33,7 @@ else:
     def load_module(name):
         """Load module for Python 3.3 and 3.4"""
         return importlib.machinery.SourceFileLoader(name, appsfolder + os.sep + name + '.py').load_module()
+
 
 def load_apps_and_services():
     """Read .py files from the apps folder"""
@@ -79,7 +78,7 @@ def run():
     main_eventqueue = Eventqueue()
     main_eventqueue.add(Event('boot'))
 
-    current_app = apps['bluetooth app']
+    current_app = apps['home']
     print("Starting app: " + current_app.name)
     current_app.start(screen)
 

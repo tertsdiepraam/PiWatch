@@ -20,6 +20,10 @@ def define_app():
         size=96
     )
 
+    maindate = Date(
+        position=('center', 0, 45)
+    )
+
     hello_text = Text(
         size=40,
         color=(0, 255, 255),
@@ -45,7 +49,7 @@ def define_app():
 
     # Activities
     main = Activity(name='main')
-    main.add(mainclock, hello_text, other_text, cursor)
+    main.add(mainclock, maindate, hello_text, other_text, cursor)
 
     @main.event_listener('mouse_down')
     @return_event(app)

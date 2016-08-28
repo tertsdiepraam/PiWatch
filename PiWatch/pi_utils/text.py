@@ -38,8 +38,8 @@ class Text(PiDrawable):
 class ClockAttrs(TextAttrs):
     def set_defaults(self):
         super().set_defaults()
-        self.attrs.update({
-            'twentyfour': False})
+        self.attrs.update(
+            twentyfour=False)
 
 
 class Clock(Text):
@@ -66,4 +66,29 @@ class TextCursor(Text):  # just for testing. Provides a cursor when pygame.mouse
 
     def draw(self, surface):
         self.set_position()
+        super().draw(surface)
+
+class DateAttrs(TextAttrs):
+    def set_defaults(self):
+        super().set_defaults()
+        self.attrs.update()
+
+
+class Date(Text):
+    DEFAULTATTTRS = DateAttrs()
+
+    def __init__(self, *attrs, **kwargs):
+        super().__init__(*attrs, **kwargs)
+
+    def setup(self, parent):
+        super().setup(parent)
+        newtime = time.localtime()
+        self.time = (newtime[2], newtime[1])
+        self.update(message=time.strftime("%A, %d %B",newtime))
+
+    def draw(self, surface):
+        newtime = time.localtime()
+        if self.time[0] != newtime[2] or self.time[1] != newtime[1]:
+            self.time = (newtime[2], newtime[1])
+            self.update(message=time.strftime("%A, %d %B",newtime))
         super().draw(surface)
