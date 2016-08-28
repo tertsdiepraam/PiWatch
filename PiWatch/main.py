@@ -34,7 +34,7 @@ if sys.version_info >= (3,5):
 else:
     def load_module(name):
         """Load module for Python 3.3 and 3.4"""
-        return importlib.machinery.SourceFileLoader(name, appsfolder).load_module()
+        return importlib.machinery.SourceFileLoader(name, appsfolder + os.sep + name + '.py').load_module()
 
 def load_apps_and_services():
     """Read .py files from the apps folder"""
