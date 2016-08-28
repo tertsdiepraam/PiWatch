@@ -3,6 +3,8 @@ import importlib
 import os
 import sys
 
+assert sys.version_info >= (3,0)
+
 import pygame
 
 appsfolder = 'apps'
@@ -22,6 +24,17 @@ else:
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
 
+if sys.version_info >= (3,5):
+    def load_module(name):
+        """Load module for Python 3.5+"""
+        spec = importlib.util.find_spec(name)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+else:
+    def load_module(name):
+        """Load module for Python 3.3 and 3.4"""
+        return importlib.machinery.SourceFileLoader(appname, appsfolder).load_module()
 
 def load_apps_and_services():
     """Read .py files from the apps folder"""
@@ -32,9 +45,7 @@ def load_apps_and_services():
         if file.split('.')[-1] == 'py':
             appname = '.'.join(file.split('.')[:-1])
             print('  - ' + appname)
-            spec = importlib.util.find_spec(appname)
-            app_module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(app_module)
+            app_module = load_module(appname)
             if hasattr(app_module, 'define_app'):
                 app = app_module.define_app()
                 apps[app.name] = app
