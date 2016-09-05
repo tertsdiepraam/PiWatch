@@ -7,9 +7,52 @@ def define_services():
         name='bluetooth service'
     )
 
-    @service.event_listener('boot')
-    def boot_bluetooth(event):
-        pass
+    @service.event_listener('bl start rfcomm server')
+    @threaded
+    def start_rfcomm_server(event):
+        """Starts a threaded RFCOMM server, which keeps listening
+            to incoming data."""
+        socket = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+        port = 0
+        data_size = 1024
+        socket.bind(("",port))
+        socket.listen(1)
+
+        uuid = "bcfa2015-0e37-429b-8907-5b434f9b9093"
+        bl_service_name = "PiWatch Android Connection"
+        bluetooth.advertise_service(socket, bl_service_name,
+                                    service_id=uuid,
+                                    service_classes=[uuid, bluetooth.SERIAL_PORT_CLASS],
+                                    profiles=[bluetooth.SERIAL_PORT_PROFILE])
+        print("Advertising bl service: ", bl_service_name)
+
+        try:
+            client_sock, client_address = socket.accept()
+            print("Accepted connection from ", client_address)
+            while True:
+                data = client.recv(data_size)
+                if data:
+                    print(data)
+                    client.send(data)
+        except:
+            print('Bluetooth Error: Closing socket')
+            client_sock.close()
+            socket.close()
+
+    @service.event_listener('bl start rfcomm client')
+    @threaded
+    def start_rfcomm_client(event):
+        uuid = "bcfa2015-0e37-429b-8907-5b434f9b9093"
+        service_matches = bluetooth.find_service(uuid=uuid)
+        if len(service_matches) == 0:
+            print('No bl services found')
+        else:
+            match = service_matches[0]
+            print('Connecting to {0}, on {1}'.format(match['name'], match['host']))
+            client_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+            client_sock.connect(match['host'], match['port'])
+            client_sock.send('Holadios!')
+
 
     @service.event_listener('bl discover')
     @threaded
@@ -45,6 +88,13 @@ def define_app():
         bg_color=(50, 50, 50),
     )
 
+    server_bttn = Text(
+        message='Start server',
+        size=30,
+        position=('midbottom', 0, -10),
+        bg_color=(50,50,50)
+    )
+
     discovered_devices = List(
         position=('midtop', 0, 50),
     )
@@ -54,6 +104,8 @@ def define_app():
     def mouse_down_handler(event):
         if discover_bttn.check_collision(event.pos):
             app.global_eventqueue.add(Event('bl discover'))
+        if server_bttn.check_collision(event.pos):
+            app.global_eventqueue.add(Event('bl start rfcomm server'))
 
     @app.event_listener('bl discovered')
     def bl_discovered(event):
@@ -62,7 +114,7 @@ def define_app():
         discovered_devices.add(*adapter)
 
 
-    main.add(discover_bttn, discovered_devices)
+    main.add(discover_bttn, server_bttn, discovered_devices)
     app.add(main)
 
     return app

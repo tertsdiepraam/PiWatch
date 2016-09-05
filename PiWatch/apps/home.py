@@ -21,7 +21,8 @@ def define_app():
     )
 
     maindate = Date(
-        position=('center', 0, 45)
+        position=('center', 0, 50),
+        size = 30
     )
 
     hello_text = Text(
