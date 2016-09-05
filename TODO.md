@@ -1,11 +1,11 @@
 Tasks in order of priority:
- 1. Bluetooth
- 2. Starting apps + appdrawer
- 3. Notification Alert
- 4. GPIO keys and PC counterparts for emulation
- 5. Grid --> Rows (Almost done: List)
- 6. Animation
- 7. Text Wrapping --> Paragraph
+ 1. Bluetooth                                       (Terts)
+ 2. Starting apps + appdrawer                       (Sjoerd)
+ 3. Notification Alert                              (Terts/Sjoerd)
+ 4. GPIO keys and PC counterparts for emulation     (Sjoerd)
+ 5. Grid --> Rows (Almost done: List)               (Terts/Sjoerd)
+ 6. Animation                                       (Terts)
+ 7. Text Wrapping --> Paragraph                     (Terts)
 
 Not going to be implemented:
  - Button
