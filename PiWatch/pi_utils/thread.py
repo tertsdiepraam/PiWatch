@@ -7,7 +7,6 @@ def threaded(func):
 
 
 def close_all_threads():
-    print(threading.enumerate())
     for thread in threading.enumerate()[1:]:
         thread.event.set()
 
