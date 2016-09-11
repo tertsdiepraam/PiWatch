@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="tried some more bluetooth shit">
+    <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="Bluetooth works">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" afterPath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/main.py" afterPath="$PROJECT_DIR$/PiWatch/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TODO.md" afterPath="$PROJECT_DIR$/TODO.md" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,13 +27,13 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
+            <state relative-caret-position="675">
+              <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
               <folding>
                 <element signature="e#35#51#0" expanded="true" />
-                <element signature="e#680#907#0" expanded="false" />
-                <element signature="e#918#1097#0" expanded="false" />
-                <element signature="e#1267#2276#0" expanded="false" />
+                <element signature="e#660#887#0" expanded="false" />
+                <element signature="e#898#1077#0" expanded="false" />
+                <element signature="e#1247#2256#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TODO.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TODO.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TODO.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
@@ -83,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bluetooth_app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bluetooth_app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+            <state relative-caret-position="480">
+              <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -185,8 +183,8 @@
         <option value="$PROJECT_DIR$/PiWatch/apps/home.py" />
         <option value="$PROJECT_DIR$/PiWatch/pi_utils/drawable.py" />
         <option value="$PROJECT_DIR$/PiWatch/main.py" />
-        <option value="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
         <option value="$PROJECT_DIR$/TODO.md" />
+        <option value="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
       </list>
     </option>
   </component>
@@ -724,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473596394017</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Bluetooth works">
+      <created>1473611849319</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1473611849319</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -790,7 +795,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Event-classes and a template for requests." />
     <MESSAGE value="Started implementation of Events" />
     <MESSAGE value="Cleaned up some code and finished first draft of event implementation" />
     <MESSAGE value="Imported os in Home" />
@@ -815,7 +819,8 @@
     <MESSAGE value="Updated TODO" />
     <MESSAGE value="Updated TODO with assignments" />
     <MESSAGE value="tried some more bluetooth shit" />
-    <option name="LAST_COMMIT_MESSAGE" value="tried some more bluetooth shit" />
+    <MESSAGE value="Bluetooth works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bluetooth works" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -899,9 +904,9 @@
           <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#680#907#0" expanded="false" />
-            <element signature="e#918#1097#0" expanded="false" />
-            <element signature="e#1267#2276#0" expanded="false" />
+            <element signature="e#660#887#0" expanded="false" />
+            <element signature="e#898#1077#0" expanded="false" />
+            <element signature="e#1247#2256#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -987,9 +992,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#680#907#0" expanded="false" />
-            <element signature="e#918#1097#0" expanded="false" />
-            <element signature="e#1267#2276#0" expanded="false" />
+            <element signature="e#660#887#0" expanded="false" />
+            <element signature="e#898#1077#0" expanded="false" />
+            <element signature="e#1247#2256#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1037,9 +1042,9 @@
           <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#680#907#0" expanded="false" />
-            <element signature="e#918#1097#0" expanded="false" />
-            <element signature="e#1267#2276#0" expanded="false" />
+            <element signature="e#660#887#0" expanded="false" />
+            <element signature="e#898#1077#0" expanded="false" />
+            <element signature="e#1247#2256#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1087,9 +1092,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#680#907#0" expanded="false" />
-            <element signature="e#918#1097#0" expanded="false" />
-            <element signature="e#1267#2276#0" expanded="false" />
+            <element signature="e#660#887#0" expanded="false" />
+            <element signature="e#898#1077#0" expanded="false" />
+            <element signature="e#1247#2256#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1220,29 +1225,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
-          <folding>
-            <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#680#907#0" expanded="false" />
-            <element signature="e#918#1097#0" expanded="false" />
-            <element signature="e#1267#2276#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TODO.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
@@ -1260,6 +1242,29 @@
         <state relative-caret-position="0">
           <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+          <folding>
+            <element signature="e#35#51#0" expanded="true" />
+            <element signature="e#660#887#0" expanded="false" />
+            <element signature="e#898#1077#0" expanded="false" />
+            <element signature="e#1247#2256#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

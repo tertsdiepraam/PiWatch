@@ -43,6 +43,7 @@ def define_services():
                 data = client_sock.recv(data_size)
                 if data:
                     service.global_eventqueue.add(Event('Bluetooth Data Received', data=data))
+                    client_sock.send(data)
                     print("Received bluetooth data: " + data)
 
     @service.event_listener('bl start rfcomm client')
