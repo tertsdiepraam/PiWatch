@@ -19,7 +19,7 @@ def define_services():
         socket.listen(1)
 
         uuid = "bcfa2015-0e37-429b-8907-5b434f9b9093"
-        bl_service_name = "PiWatch Android Connection"
+        bl_service_name = "PiWatch Android Connection Server"
         bluetooth.advertise_service(socket, bl_service_name,
                                     service_id=uuid,
                                     service_classes=[uuid, bluetooth.SERIAL_PORT_CLASS],
@@ -33,7 +33,7 @@ def define_services():
                 data = client.recv(data_size)
                 if data:
                     print(data)
-                    client.send(data)
+                    #client.send(data)
         except:
             print('Bluetooth Error: Closing socket')
             client_sock.close()
@@ -112,7 +112,6 @@ def define_app():
         adapter = [str_to_text(string) for string in event.data]
         discovered_devices.clear()
         discovered_devices.add(*adapter)
-
 
     main.add(discover_bttn, server_bttn, discovered_devices)
     app.add(main)

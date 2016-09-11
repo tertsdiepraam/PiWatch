@@ -34,6 +34,12 @@ else:
         """Load module for Python 3.3 and 3.4"""
         return importlib.machinery.SourceFileLoader(name, appsfolder + os.sep + name + '.py').load_module()
 
+def start_app(appname):
+    global apps
+    global current_app
+    current_app = apps[appname]
+    print("Startung app {0} with {1}".format(appname, current_app.current_activity))
+    current_app.start()
 
 def load_apps_and_services():
     """Read .py files from the apps folder"""
@@ -78,12 +84,9 @@ def run():
     main_eventqueue = Eventqueue()
     main_eventqueue.add(Event('boot'))
 
-    current_app = apps['bluetooth app']
-    print("Starting app: " + current_app.name)
-    current_app.start(screen)
+    start_app('bluetooth app')
 
-    current_services = []
-    current_services.append(services['bluetooth service'])
+    current_services = [services['bluetooth service']]
 
     fps = pygame.time.Clock()
     fpstext = Text(
@@ -92,11 +95,16 @@ def run():
         size=15
     )
     fpstext.setup(screen)
-
     # mainloop
     while True:
         # events
         main_eventqueue.import_events(current_app, *current_services)
+        events_for_main = filter(lambda event: event.type[:4] == 'main', main_eventqueue.events)
+        for event in events_for_main:
+            if event.type[:10] == 'main start':
+                start_app(event.type[11:])
+            if event.type[:10] == 'main close':
+                sys.exit()
         main_eventqueue.handle_events()
         main_eventqueue.broadcast(current_app, *current_services)
 
