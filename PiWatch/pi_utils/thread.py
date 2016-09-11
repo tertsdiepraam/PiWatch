@@ -6,11 +6,6 @@ def threaded(func):
     return func_thread
 
 
-def close_all_threads():
-    for thread in threading.enumerate()[1:]:
-        thread.event.set()
-
-
 class ThreadedFunction:
     def __init__(self, target=None, *args, **kwargs):
         self.target = target
@@ -21,5 +16,5 @@ class ThreadedFunction:
         self.args = args
         self.kwargs = kwargs
         self.thread = threading.Thread(target=self.target, args=self.args, kwargs=self.kwargs)
-        self.thread.event = threading.Event()
+        self.thread.daemon = True
         self.thread.start()

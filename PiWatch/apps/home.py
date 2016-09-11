@@ -61,14 +61,14 @@ def define_app():
             print('Starting thread yippie(4)')
             yippie(4)
         if hello_text.check_collision(event.pos):
-            return Event('blub')
+            app.global_eventqueue.add(Event('blub'))
         if other_text.check_collision(event.pos):
             print('Starting thread yippie()')
             yippie()
 
     @app.event_listener('blub')
     def blub_event(event):
-        hello_text.update(time_to_str(event.timestamp))
+        hello_text.update(message=time_to_str(event.timestamp))
 
     @threaded
     def yippie(counter=1):

@@ -39,12 +39,15 @@ def define_services():
             self_sock.close()
         else:
             print("Accepted connection from ", client_address)
-            while not self.event.is_set():
+            while True:
                 data = client_sock.recv(data_size)
                 if data:
                     service.global_eventqueue.add(Event('Bluetooth Data Received', data=data))
                     client_sock.send(data)
-                    print("Received bluetooth data: " + data)
+                    print("Received bluetooth data: " + str(data))
+                    service.global_eventqueue.add(Event("main start home"))
+            self_sock.close()
+            client_sock.close()
 
     @service.event_listener('bl start rfcomm client')
     @threaded

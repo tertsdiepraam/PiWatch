@@ -1,17 +1,20 @@
 """"Main Program of the PiWatch"""
 import importlib
 import os
+import subprocess
 import sys
 
-assert sys.version_info >= (3,0)
+assert sys.version_info >= (3, 0)
 
 import pygame
 
 appsfolder = 'apps'
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
 from pi_utils import *
+current_app = None
+current_services = None
 apps = {}
-sevices = {}
+services = {}
 
 # Settings
 screenres = (320, 240)  # Resolution of our TFT touchscreen
@@ -23,6 +26,7 @@ else:
     os.putenv('SDL_FBDEV', '/dev/fb1')
     os.putenv('SDL_MOUSEDRV', 'TSLIB')
     os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
+    subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan']) # make bluetooth discoverable
 
 if sys.version_info >= (3,5):
     def load_module(name):
@@ -36,11 +40,13 @@ else:
         """Load module for Python 3.3 and 3.4"""
         return importlib.machinery.SourceFileLoader(name, appsfolder + os.sep + name + '.py').load_module()
 
+
 def start_app(appname, screen):
     global apps
     global current_app
     current_app = apps[appname]
     current_app.start(screen)
+
 
 def load_apps_and_services():
     """Read .py files from the apps folder"""
@@ -75,8 +81,7 @@ def run():
     Main function of the PiWatch
     """
     # PiWatch boot procedure
-    global apps
-    global services
+    global apps, services, current_app, current_services
     apps, services = load_apps_and_services()
     pygame.init()
     if sys.platform == 'linux':
