@@ -21,7 +21,6 @@ screenres = (320, 240)  # Resolution of our TFT touchscreen
 if sys.platform in ['win32', 'win64']:
     openappcommand = 'python'
 else:
-    openappcommand = 'python3'
     os.putenv('SDL_VIDEODRIVER', 'fbcon')
     os.putenv('SDL_FBDEV', '/dev/fb1')
     os.putenv('SDL_MOUSEDRV', 'TSLIB')
