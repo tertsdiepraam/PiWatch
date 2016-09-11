@@ -1,6 +1,8 @@
 import bluetooth
 from pi_utils import *
 
+self_sock = None
+client_sock = None
 
 def define_services():
     service = Service(
@@ -12,32 +14,36 @@ def define_services():
     def start_rfcomm_server(event):
         """Starts a threaded RFCOMM server, which keeps listening
             to incoming data."""
-        socket = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+        global client_sock
+        global self_sock
+        self_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         port = 0
         data_size = 1024
-        socket.bind(("",port))
-        socket.listen(1)
+        self_sock.bind(("",port))
+        self_sock.listen(1)
 
         uuid = "bcfa2015-0e37-429b-8907-5b434f9b9093"
         bl_service_name = "PiWatch Android Connection Server"
-        bluetooth.advertise_service(socket, bl_service_name,
+        bluetooth.advertise_service(self_sock, bl_service_name,
                                     service_id=uuid,
                                     service_classes=[uuid, bluetooth.SERIAL_PORT_CLASS],
                                     profiles=[bluetooth.SERIAL_PORT_PROFILE])
         print("Advertising bl service: ", bl_service_name)
 
         try:
-            client_sock, client_address = socket.accept()
-            print("Accepted connection from ", client_address)
-            while True:
-                data = client.recv(data_size)
-                if data:
-                    print(data)
-                    #client.send(data)
+            client_sock, client_address = self_sock.accept()
         except:
             print('Bluetooth Error: Closing socket')
+            print()
             client_sock.close()
-            socket.close()
+            self_sock.close()
+        else:
+            print("Accepted connection from ", client_address)
+            while True:
+                data = client_sock.recv(data_size)
+                if data:
+                    service.global_eventqueue.add(Event('Bluetooth Data Received', data=data))
+                    print("Received bluetooth data: " + data)
 
     @service.event_listener('bl start rfcomm client')
     @threaded

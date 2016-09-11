@@ -10,6 +10,8 @@ import pygame
 appsfolder = 'apps'
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
 from pi_utils import *
+apps = {}
+sevices = {}
 
 # Settings
 screenres = (320, 240)  # Resolution of our TFT touchscreen
@@ -34,12 +36,11 @@ else:
         """Load module for Python 3.3 and 3.4"""
         return importlib.machinery.SourceFileLoader(name, appsfolder + os.sep + name + '.py').load_module()
 
-def start_app(appname):
+def start_app(appname, screen):
     global apps
     global current_app
     current_app = apps[appname]
-    print("Startung app {0} with {1}".format(appname, current_app.current_activity))
-    current_app.start()
+    current_app.start(screen)
 
 def load_apps_and_services():
     """Read .py files from the apps folder"""
@@ -74,6 +75,8 @@ def run():
     Main function of the PiWatch
     """
     # PiWatch boot procedure
+    global apps
+    global services
     apps, services = load_apps_and_services()
     pygame.init()
     if sys.platform == 'linux':
@@ -84,7 +87,7 @@ def run():
     main_eventqueue = Eventqueue()
     main_eventqueue.add(Event('boot'))
 
-    start_app('bluetooth app')
+    start_app('bluetooth app', screen)
 
     current_services = [services['bluetooth service']]
 
@@ -102,7 +105,7 @@ def run():
         events_for_main = filter(lambda event: event.type[:4] == 'main', main_eventqueue.events)
         for event in events_for_main:
             if event.type[:10] == 'main start':
-                start_app(event.type[11:])
+                start_app(event.type[11:], screen)
             if event.type[:10] == 'main close':
                 sys.exit()
         main_eventqueue.handle_events()

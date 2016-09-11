@@ -1,5 +1,5 @@
 Tasks in order of priority:
- 1. Bluetooth                                       (Terts)
+ 1. Streamline Bluetooth                            (Terts)
  2. Starting apps (+ appdrawer)                     (Sjoerd)
  3. Notification Alert                              (Terts/Sjoerd)
  4. GPIO keys and PC counterparts for emulation     (Sjoerd)
@@ -16,3 +16,4 @@ Completed tasks:
  - Better event handling
  - Services
  - Multithreading
+ - Bluetooth Basics
