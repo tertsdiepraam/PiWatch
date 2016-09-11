@@ -39,7 +39,7 @@ def define_services():
             self_sock.close()
         else:
             print("Accepted connection from ", client_address)
-            while True:
+            while not self.event.is_set():
                 data = client_sock.recv(data_size)
                 if data:
                     service.global_eventqueue.add(Event('Bluetooth Data Received', data=data))

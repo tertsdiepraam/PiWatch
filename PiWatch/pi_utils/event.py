@@ -4,6 +4,8 @@ import sys
 
 import pygame
 
+from .thread import close_all_threads
+
 
 class Event:
     def __init__(self, event_type, key=None, pos=None, data=None):
@@ -42,9 +44,11 @@ class Eventqueue:
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
+                    close_all_threads()
                     sys.exit()
 
             elif event.type == pygame.QUIT:
+                close_all_threads()
                 sys.exit()
 
     def import_events(self, *event_handlers, clear=True):
