@@ -25,9 +25,9 @@ else:
     os.putenv('SDL_FBDEV', '/dev/fb1')
     os.putenv('SDL_MOUSEDRV', 'TSLIB')
     os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
-    subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan']) # make bluetooth discoverable
+    subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan'])  # make bluetooth discoverable
 
-if sys.version_info >= (3,5):
+if sys.version_info >= (3, 5):
     def load_module(name):
         """Load module for Python 3.5+"""
         spec = importlib.util.find_spec(name)
