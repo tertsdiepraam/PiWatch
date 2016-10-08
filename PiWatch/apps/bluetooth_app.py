@@ -49,31 +49,6 @@ def define_services():
             self_sock.close()
             client_sock.close()
 
-    @service.event_listener('bl start rfcomm client')
-    @threaded
-    def start_rfcomm_client(event):
-        global client_sock
-        data_size = 1024
-        print("Starting rfcomm client")
-        uuid = "bcfa2015-0e37-429b-8907-5b434f9b9093"
-        service_matches = bluetooth.find_service(uuid=uuid)
-        if len(service_matches) == 0:
-            print('No bl services found')
-            return
-        match = service_matches[0]
-        print(service_matches)
-        print('Connecting to {0}, on {1}'.format(str(match['name']), match['host']))
-        client_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-        client_sock.connect((match['host'], match['port']))
-        client_sock.send('Holadios!')
-        while True:
-            data = client_sock.recv(data_size)
-            if data:
-                service.global_eventqueue.add(Event('Bluetooth Data Received', data=data))
-                client_sock.send(data)
-                print("Received bluetooth data: " + str(data))
-                service.global_eventqueue.add(Event('main start home'))
-
     @service.event_listener('bl discover')
     @threaded
     def discover_devices(event):
@@ -109,7 +84,7 @@ def define_app():
     )
 
     server_bttn = Text(
-        message='Connect to server',
+        message='Start server',
         size=30,
         position=('midbottom', 0, -10),
         bg_color=(50,50,50)
@@ -125,7 +100,7 @@ def define_app():
         if discover_bttn.check_collision(event.pos):
             app.global_eventqueue.add(Event('bl discover'))
         if server_bttn.check_collision(event.pos):
-            app.global_eventqueue.add(Event('bl start rfcomm client'))
+            app.global_eventqueue.add(Event('bl start rfcomm server'))
 
     @app.event_listener('bl discovered')
     def bl_discovered(event):
