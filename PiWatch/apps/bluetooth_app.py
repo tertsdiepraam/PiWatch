@@ -4,12 +4,13 @@ from pi_utils import *
 self_sock = None
 client_sock = None
 
+
 def define_services():
     service = Service(
         name='bluetooth service'
     )
 
-    @service.event_listener('bl start rfcomm server')
+    @service.event_listener('bt start rfcomm server')
     @threaded
     def start_rfcomm_server(event):
         """Starts a threaded RFCOMM server, which keeps listening
@@ -19,16 +20,16 @@ def define_services():
         self_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         port = 0
         data_size = 1024
-        self_sock.bind(("",port))
+        self_sock.bind(("", port))
         self_sock.listen(1)
 
         uuid = "bcfa2015-0e37-429b-8907-5b434f9b9093"
-        bl_service_name = "PiWatch Android Connection Server"
-        bluetooth.advertise_service(self_sock, bl_service_name,
+        bt_service_name = "PiWatch Android Connection Server"
+        bluetooth.advertise_service(self_sock, bt_service_name,
                                     service_id=uuid,
                                     service_classes=[uuid, bluetooth.SERIAL_PORT_CLASS],
                                     profiles=[bluetooth.SERIAL_PORT_PROFILE])
-        print("Advertising bl service: ", bl_service_name)
+        print("Advertising bt service: ", bt_service_name)
 
         try:
             client_sock, client_address = self_sock.accept()
@@ -42,14 +43,14 @@ def define_services():
             while True:
                 data = client_sock.recv(data_size)
                 if data:
-                    service.global_eventqueue.add(Event('Bluetooth Data Received', data=data))
+                    service.global_eventqueue.add(Event('Bt Data Received', data=data))
                     client_sock.send(data)
                     print("Received bluetooth data: " + str(data))
                     service.global_eventqueue.add(Event('main start home'))
             self_sock.close()
             client_sock.close()
 
-    @service.event_listener('bl discover')
+    @service.event_listener('bt discover')
     @threaded
     def discover_devices(event):
         print('Discovering Devices')
@@ -57,13 +58,18 @@ def define_services():
             nearby_devices = bluetooth.discover_devices()
         except OSError:
             print('No devices found')
-            service.global_eventqueue.add(Event('bl no devices found'))
+            service.global_eventqueue.add(Event('bt no devices found'))
         else:
             return_value = []
             for bdaddr in nearby_devices:
                 return_value.append(bluetooth.lookup_name(bdaddr))
                 print('Done with Discovering')
-                service.global_eventqueue.add(Event('bl discovered', data=return_value))
+                service.global_eventqueue.add(Event('bt discovered', data=return_value))
+
+    @service.event_listener('bt send')
+    def send_bt_message(event):
+        print('sending string:', event.data)
+        client_sock.send(event.data)
 
     return service
 
@@ -87,23 +93,24 @@ def define_app():
         message='Start server',
         size=30,
         position=('midbottom', 0, -10),
-        bg_color=(50,50,50)
+        bg_color=(50, 50, 50)
     )
 
     discovered_devices = List(
         position=('midtop', 0, 50),
     )
+
     discovered_devices.add(Text(message='No Discovered Devices'))
 
     @main.event_listener('mouse_down')
     def mouse_down_handler(event):
         if discover_bttn.check_collision(event.pos):
-            app.global_eventqueue.add(Event('bl discover'))
+            app.global_eventqueue.add(Event('bt discover'))
         if server_bttn.check_collision(event.pos):
-            app.global_eventqueue.add(Event('bl start rfcomm server'))
+            app.global_eventqueue.add(Event('bt start rfcomm server'))
 
-    @app.event_listener('bl discovered')
-    def bl_discovered(event):
+    @app.event_listener('bt discovered')
+    def bt_discovered(event):
         adapter = [str_to_text(string) for string in event.data]
         discovered_devices.clear()
         discovered_devices.add(*adapter)

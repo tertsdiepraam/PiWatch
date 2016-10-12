@@ -1,15 +1,13 @@
 """"Main Program of the PiWatch"""
 import importlib
 import os
-# import subprocess
 import sys
-
-assert sys.version_info >= (3, 0)
 
 import pygame
 
-debug_mode = "-d" in sys.argv
+assert sys.version_info >= (3, 0)
 
+debug_mode = "-d" in sys.argv
 appsfolder = 'apps'
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
 from pi_utils import *
@@ -25,7 +23,6 @@ if not sys.platform in ['win32', 'win64']:
     os.putenv('SDL_FBDEV', '/dev/fb1')
     os.putenv('SDL_MOUSEDRV', 'TSLIB')
     os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
-    # subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan'])  # make bluetooth discoverable
 
 if sys.version_info >= (3, 5):
     def load_module(name):
@@ -106,7 +103,7 @@ def run():
     while True:
         # events
         main_eventqueue.import_events(current_app, *current_services)
-        events_for_main = filter(lambda event: event.type[:4] == 'main', main_eventqueue.events)
+        events_for_main = filter(lambda e: e.type[:4] == 'main', main_eventqueue.events)
         for event in events_for_main:
             if event.type[:10] == 'main start':
                 start_app(event.type[11:], screen)
