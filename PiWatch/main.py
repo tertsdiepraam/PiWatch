@@ -1,7 +1,7 @@
 """"Main Program of the PiWatch"""
 import importlib
 import os
-import subprocess
+# import subprocess
 import sys
 
 assert sys.version_info >= (3, 0)
@@ -18,14 +18,12 @@ services = {}
 
 # Settings
 screenres = (320, 240)  # Resolution of our TFT touchscreen
-if sys.platform in ['win32', 'win64']:
-    openappcommand = 'python'
-else:
+if not sys.platform in ['win32', 'win64']:
     os.putenv('SDL_VIDEODRIVER', 'fbcon')
     os.putenv('SDL_FBDEV', '/dev/fb1')
     os.putenv('SDL_MOUSEDRV', 'TSLIB')
     os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
-    subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan'])  # make bluetooth discoverable
+    # subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan'])  # make bluetooth discoverable
 
 if sys.version_info >= (3, 5):
     def load_module(name):
@@ -83,7 +81,7 @@ def run():
     global apps, services, current_app, current_services
     apps, services = load_apps_and_services()
     pygame.init()
-    if sys.platform == 'linux':
+    if sys.platform == 'linux' and not sys.argv[1].lower() == "-d":
         screen = pygame.display.set_mode(screenres, pygame.FULLSCREEN)
         pygame.mouse.set_visible(False)
     else:
