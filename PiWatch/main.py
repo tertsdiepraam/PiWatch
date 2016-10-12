@@ -8,6 +8,8 @@ assert sys.version_info >= (3, 0)
 
 import pygame
 
+debug_mode = "-d" in sys.argv
+
 appsfolder = 'apps'
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
 from pi_utils import *
@@ -81,7 +83,7 @@ def run():
     global apps, services, current_app, current_services
     apps, services = load_apps_and_services()
     pygame.init()
-    if sys.platform == 'linux' and not sys.argv[1].lower() == "-d":
+    if sys.platform == 'linux' and not debug_mode:
         screen = pygame.display.set_mode(screenres, pygame.FULLSCREEN)
         pygame.mouse.set_visible(False)
     else:
