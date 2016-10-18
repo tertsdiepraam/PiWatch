@@ -13,7 +13,7 @@ class TextAttrs(AttrSet):
         self.attrs.update(
             {'size': 20,
              'color': (255, 255, 255),
-             'font': 'Arial',
+             'font': 'yugothicyugothicuilight',
              'message': 'Example Text'})
 
 
