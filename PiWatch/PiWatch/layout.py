@@ -1,5 +1,6 @@
 from .drawable import *
 
+
 class GroupAttrs(AttrSet):
     def set_defaults(self):
         super().set_defaults()
@@ -29,13 +30,15 @@ class Group(PiDrawable):
         self.set_position()
 
     def set_position(self):
-        for child in self.chilren:
+
+        for child in self.children:
             child.set_position()
+            child.rect.x
         self.rect = self.children[0].rect.unionall([child.rect for child in self.children[1:]])
 
     def draw(self, surface):
         if self.bg_color:
-            surface.fill(self.bg_color, self.rect)
+            surface.fill(self.bg_color, self.rect.inflate(self.padding[0], self.padding[1]))
         for child in self.children:
             child.draw(surface)
 

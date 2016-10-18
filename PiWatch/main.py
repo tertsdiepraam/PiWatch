@@ -10,9 +10,11 @@ assert sys.version_info >= (3, 0)
 debug_mode = "-d" in sys.argv
 appsfolder = 'apps'
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + os.sep + appsfolder)
-from pi_utils import *
 current_app = None
+current_overlays = None
 current_services = None
+screen = None
+main_eventqueue = None
 apps = {}
 services = {}
 
@@ -38,10 +40,21 @@ else:
 
 
 def start_app(appname, screen):
-    global apps
-    global current_app
+    global apps, current_app
     current_app = apps[appname]
     current_app.start(screen)
+
+
+def start_service(service_name):
+    global services, current_services
+    current_services.append(services[service_name])
+
+
+def start_overlay(overlay_name, screen):
+    global apps, current_overlays
+    overlay = apps[overlay_name]
+    current_overlays.append(overlay)
+    overlay.start(screen)
 
 
 def load_apps_and_services():
@@ -72,12 +85,36 @@ def load_apps_and_services():
     return apps, services
 
 
+def handle_main_events(main_events):
+    for event in main_events:
+        if event.type == 'main start app':
+            start_app(event.data, screen)
+        elif event.type == 'main start service':
+            start_service(event.data)
+        elif event.type == 'main close service':
+            for service in filter(lambda s: s.name == event.data, current_services):
+                current_services.remove(service)
+        elif event.type == 'main start overlay':
+            start_overlay(event.data, screen)
+        elif event.type == 'main close overlay':
+            print("Closing:", event.data)
+            for overlay in filter(lambda o: o.name == event.data, current_overlays):
+                current_overlays.remove(overlay)
+        elif event.type == 'main notification':
+            start_overlay('notification', screen)
+            main_eventqueue.add(Event('notification', data=event.data))
+        elif event.type == 'main exit':
+            sys.exit()
+        else:
+            print("Main event not recognised:", event)
+
+
 def run():
     """
     Main function of the PiWatch
     """
     # PiWatch boot procedure
-    global apps, services, current_app, current_services
+    global apps, services, current_app, current_services, current_overlays, screen, main_eventqueue
     apps, services = load_apps_and_services()
     pygame.init()
     if sys.platform == 'linux' and not debug_mode:
@@ -91,10 +128,10 @@ def run():
     start_app('bluetooth app', screen)
 
     current_services = [services['bluetooth service']]
+    current_overlays = []
 
     fps = pygame.time.Clock()
     fpstext = Text(
-        TextAttrs(),
         position='topleft',
         size=15
     )
@@ -104,17 +141,15 @@ def run():
         # events
         main_eventqueue.import_events(current_app, *current_services)
         events_for_main = filter(lambda e: e.type[:4] == 'main', main_eventqueue.events)
-        for event in events_for_main:
-            if event.type[:10] == 'main start':
-                start_app(event.type[11:], screen)
-            if event.type[:10] == 'main close':
-                sys.exit()
+        handle_main_events(events_for_main)
         main_eventqueue.handle_events()
-        main_eventqueue.broadcast(current_app, *current_services)
+        main_eventqueue.broadcast(current_app, *current_services, *current_overlays)
 
         # Draw
         screen.fill(current_app.bg_color)
         current_app.draw(screen)
+        for overlay in current_overlays:
+            overlay.draw(screen)
 
         # fps counter
         fps.tick()

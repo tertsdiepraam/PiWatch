@@ -1,5 +1,4 @@
 import bluetooth
-from pi_utils import *
 
 self_sock = None
 client_sock = None
@@ -38,17 +37,32 @@ def define_services():
             print()
             client_sock.close()
             self_sock.close()
-        else:
-            print("Accepted connection from ", client_address)
+            self_sock, client_sock = None, None
+            return
+        print("Accepted connection from ", client_address)
+        try:
+            client_sock.send("Hey There!")
             while True:
                 data = client_sock.recv(data_size)
                 if data:
-                    service.global_eventqueue.add(Event('Bt Data Received', data=data))
+                    service.global_eventqueue.add(Event('bt data received', data=data))
                     client_sock.send(data)
                     print("Received bluetooth data: " + str(data))
-                    service.global_eventqueue.add(Event('main start home'))
+        except:
+            print("Stopped listening")
             self_sock.close()
             client_sock.close()
+        finally:
+            self_sock, client_sock = None, None
+
+    @service.event_listener('bt data received')
+    def send_notifications(event):
+        info = event.data.decode("utf-8").split("|")
+        if info[0] == 'notification posted':
+            app = info[1].split(".")[1]
+            title = info[2]
+            text = info[3] if info[3] != 'null' else ""
+            service.global_eventqueue.add(Event('main notification', data=[app, title, text]))
 
     @service.event_listener('bt discover')
     @threaded
@@ -68,8 +82,9 @@ def define_services():
 
     @service.event_listener('bt send')
     def send_bt_message(event):
-        print('sending string:', event.data)
-        client_sock.send(event.data)
+        if client_sock:
+            print('sending string:', event.data)
+            client_sock.send(event.data)
 
     return service
 

@@ -1,5 +1,3 @@
-from pi_utils import *
-
 appsfolder = 'apps'
 
 

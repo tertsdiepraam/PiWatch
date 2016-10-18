@@ -64,7 +64,7 @@ class PiDrawable:
 
     def draw(self, surface):
         if self.bg_color:
-            surface.fill(self.bg_color, self.rect)
+            surface.fill(self.bg_color, self.rect.inflate(self.padding[0], self.padding[1]))
         surface.blit(self.image, self.rect)
 
     def check_collision(self, point):
