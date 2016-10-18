@@ -144,7 +144,7 @@ def run():
         events_for_main = filter(lambda e: e.type[:4] == 'main', main_eventqueue.events)
         handle_main_events(events_for_main)
         main_eventqueue.handle_events()
-        main_eventqueue.broadcast(current_app, *current_services, *current_overlays)
+        main_eventqueue.broadcast(current_app, *(current_services + current_overlays))
 
         # Draw
         screen.fill(current_app.bg_color)
