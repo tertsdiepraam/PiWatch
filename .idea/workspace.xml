@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="notification first thingy thingy">
+    <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" afterPath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/home.py" afterPath="$PROJECT_DIR$/PiWatch/apps/home.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/notification.py" afterPath="$PROJECT_DIR$/PiWatch/apps/notification.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/main.py" afterPath="$PROJECT_DIR$/PiWatch/main.py" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -495,13 +491,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00009" summary="deleted call(), cleaned up">
-      <created>1471372155438</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1471372155438</updated>
-    </task>
     <task id="LOCAL-00010" summary="deleted call(), cleaned up">
       <created>1471372181389</created>
       <option name="number" value="00010" />
@@ -838,7 +827,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476785782568</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="fuck you pycharm">
+      <created>1476786442206</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1476786442206</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView">
@@ -904,7 +900,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reordered TODO" />
     <MESSAGE value="Added ThreadFunction" />
     <MESSAGE value="Added first bluetooth app, global eventqueues" />
     <MESSAGE value="Lots of changes to Drawable, Group and added List" />
@@ -929,8 +924,8 @@
     <MESSAGE value="back to bluetooth basics" />
     <MESSAGE value="Fixed them BLUETOOTH FINALLY, cleaned up home and update TODO" />
     <MESSAGE value="notification first thingy thingy" />
-    <option name="LAST_COMMIT_MESSAGE" value="notification first thingy thingy" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="fuck you pycharm" />
+    <option name="LAST_COMMIT_MESSAGE" value="fuck you pycharm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
