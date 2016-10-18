@@ -1,3 +1,5 @@
+from piwatch import *
+
 appsfolder = 'apps'
 
 

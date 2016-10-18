@@ -1,5 +1,5 @@
 import bluetooth
-
+from piwatch import *
 self_sock = None
 client_sock = None
 

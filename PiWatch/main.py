@@ -2,7 +2,7 @@
 import importlib
 import os
 import sys
-
+from piwatch import *
 import pygame
 
 assert sys.version_info >= (3, 0)
