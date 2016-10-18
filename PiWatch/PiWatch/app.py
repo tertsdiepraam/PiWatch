@@ -31,25 +31,25 @@ class App(EventHandler):
         self.bg_color = bg_color
         self.activities = {}
         self.mainactivity = 'main'
-        self.currentactivity = None
+        self.current_activity = None
         self.folder = 'apps' + os.sep + name + os.sep
         EventHandler.__init__(self)
 
     def start(self, parent):
-        self.currentactivity = self.activities[self.mainactivity]
-        self.currentactivity.setup(parent)
+        self.current_activity = self.activities[self.mainactivity]
+        self.current_activity.setup(parent)
 
     def add(self, *args):
         for activity in args:
             self.activities[activity.name] = activity
 
     def draw(self, surface):
-        self.currentactivity.draw(surface)
+        self.current_activity.draw(surface)
 
     def get_event_listeners(self):
         d1 = self.event_listeners.copy()
         d1_keys = d1.keys()
-        d2 = self.currentactivity.get_event_listeners().items()
+        d2 = self.current_activity.get_event_listeners().items()
         for key, value in d2:
             if key in d1_keys:
                 d1[key] += value

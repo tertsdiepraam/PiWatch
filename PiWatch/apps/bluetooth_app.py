@@ -38,6 +38,7 @@ def define_services():
             client_sock.close()
             self_sock.close()
             self_sock, client_sock = None, None
+            service.global_eventqueue.add(Event('bt failed'))
             return
         print("Accepted connection from ", client_address)
         try:
@@ -52,6 +53,7 @@ def define_services():
             print("Stopped listening")
             self_sock.close()
             client_sock.close()
+            service.global_eventqueue.add(Event('bt stopped'))
         finally:
             self_sock, client_sock = None, None
 
@@ -85,6 +87,8 @@ def define_services():
         if client_sock:
             print('sending string:', event.data)
             client_sock.send(event.data)
+        else:
+            service.global_eventqueue.add(Event('bt send failed'))
 
     return service
 
@@ -121,7 +125,7 @@ def define_app():
     def mouse_down_handler(event):
         if discover_bttn.check_collision(event.pos):
             app.global_eventqueue.add(Event('bt discover'))
-        if server_bttn.check_collision(event.pos):
+        elif server_bttn.check_collision(event.pos):
             app.global_eventqueue.add(Event('bt start rfcomm server'))
 
     @app.event_listener('bt discovered')

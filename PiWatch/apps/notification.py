@@ -7,14 +7,12 @@ def define_app():
         name="notification"
     )
     title = Text(
-        message="Message from Maria",
         color=(0, 0, 0),
         size=20,
         position=('midtop', 0, 0)
     )
 
     text = Text(
-        message="Trololololo",
         color=(0, 0, 0),
         size=17,
         position=('midtop', 0, 25)
@@ -29,20 +27,24 @@ def define_app():
         name='main'
     )
 
-    @app.event_listener('start')
-    def on_start(event):
-        app.id = random.randInt(0, 1000)
+    empty = Activity(
+        name='empty'
+    )
+    app.thread_count = 0
 
     @app.event_listener('notification')
     @threaded
     def display_notification(event):
+        app.thread_count += 1
         title.update(message=event.data[1])
         text.update(message=event.data[2])
-        time.sleep(1)
-        print("Closing overlay")
-        app.global_eventqueue.add(Event('main close overlay', data='notification'))
+        app.current_activity = main
+        time.sleep(3)
+        if app.thread_count == 1:
+            app.current_activity = empty
+        app.thread_count -= 1
 
     main.add(notification)
-    app.add(main)
+    app.add(main, empty)
 
     return app

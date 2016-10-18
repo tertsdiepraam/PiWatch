@@ -101,7 +101,8 @@ def handle_main_events(main_events):
             for overlay in filter(lambda o: o.name == event.data, current_overlays):
                 current_overlays.remove(overlay)
         elif event.type == 'main notification':
-            start_overlay('notification', screen)
+            if 'notification' not in (overlay.name for overlay in current_overlays):
+                start_overlay('notification', screen)
             main_eventqueue.add(Event('notification', data=event.data))
         elif event.type == 'main exit':
             sys.exit()
