@@ -50,29 +50,26 @@ def define_services():
             else:
                 service.global_eventqueue.add(Event('bt connection failed'))
             bt_clean_up()
-        except Exception as e:
-            print(type(e))
-            print('Bluetooth Error: Closing socket')
-            print()
-            bt_clean_up()
+        except:
             service.global_eventqueue.add(Event('bt connection failed'))
-            return
+            bt_clean_up()
         else:
             print("Accepted connection from ", client_address[0])
             service.global_eventqueue.add(Event('bt connection active', data=bluetooth.lookup_name(client_address[0])))
             try:
                 client_sock.send("Hey There!")
-                while not abort_connection:
+                while True:
+                    print(abort_connection)
                     data = client_sock.recv(data_size)
                     if data:
                         service.global_eventqueue.add(Event('bt data received', data=data))
                         client_sock.send(data)
                         print("Received bluetooth data: " + str(data))
             except:
-                print("Stopped listening")
+                pass
             finally:
                 bt_clean_up()
-                service.global_eventqueue(Event('bt connection aborted'))
+                service.global_eventqueue.add(Event('bt connection aborted'))
 
     @service.event_listener('bt abort connection')
     def abort_connection(event):
@@ -81,6 +78,8 @@ def define_services():
         abort_connection = True
         if self_sock:
             self_sock.close()
+        if client_sock:
+            client_sock.close()
 
     @service.event_listener('bt data received')
     def send_notifications(event):
@@ -130,7 +129,7 @@ def define_app():
     title = Text(
         message='Bluetooth Settings',
         size=30,
-        position=('midtop', 0, 10)
+        position=('midtop', 0, 15)
     )
 
     status = Text(
@@ -195,7 +194,7 @@ def define_app():
     @main.event_listener('bt connection aborted')
     def bt_connection_aborted(event):
         status.update(message='Connection aborted')
-        instructions.update(message='')
+        instructions.update(message='Press button to try again')
         bttn_connection_not_active()
 
     main.add(title, status, instructions, server_bttn)
