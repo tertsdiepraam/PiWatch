@@ -1,21 +1,32 @@
 import bluetooth
 from piwatch import *
+
 self_sock = None
 client_sock = None
-
+client_address = None
+abort_connection = False
+connection_active = False
 
 def define_services():
     service = Service(
         name='bluetooth service'
     )
 
+    def bt_clean_up():
+        global self_sock, client_sock, client_address, abort_connection, connection_active
+        if self_sock: self_sock.close()
+        if client_sock: client_sock.close()
+        self_sock, client_sock = None, None
+        abort_connection = False
+        connection_active = False
+
     @service.event_listener('bt start rfcomm server')
     @threaded
     def start_rfcomm_server(event):
         """Starts a threaded RFCOMM server, which keeps listening
             to incoming data."""
-        global client_sock
-        global self_sock
+        global client_sock, self_sock, abort_connection, connection_active
+        connection_active = True
         self_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         port = 0
         data_size = 1024
@@ -31,31 +42,45 @@ def define_services():
         print("Advertising bt service: ", bt_service_name)
 
         try:
+            global client_address
             client_sock, client_address = self_sock.accept()
-        except:
+        except OSError:
+            if abort_connection:
+                service.global_eventqueue.add(Event('bt connection aborted'))
+            else:
+                service.global_eventqueue.add(Event('bt connection failed'))
+            bt_clean_up()
+        except Exception as e:
+            print(type(e))
             print('Bluetooth Error: Closing socket')
             print()
-            client_sock.close()
-            self_sock.close()
-            self_sock, client_sock = None, None
-            service.global_eventqueue.add(Event('bt failed'))
+            bt_clean_up()
+            service.global_eventqueue.add(Event('bt connection failed'))
             return
-        print("Accepted connection from ", client_address)
-        try:
-            client_sock.send("Hey There!")
-            while True:
-                data = client_sock.recv(data_size)
-                if data:
-                    service.global_eventqueue.add(Event('bt data received', data=data))
-                    client_sock.send(data)
-                    print("Received bluetooth data: " + str(data))
-        except:
-            print("Stopped listening")
+        else:
+            print("Accepted connection from ", client_address[0])
+            service.global_eventqueue.add(Event('bt connection active', data=bluetooth.lookup_name(client_address[0])))
+            try:
+                client_sock.send("Hey There!")
+                while not abort_connection:
+                    data = client_sock.recv(data_size)
+                    if data:
+                        service.global_eventqueue.add(Event('bt data received', data=data))
+                        client_sock.send(data)
+                        print("Received bluetooth data: " + str(data))
+            except:
+                print("Stopped listening")
+            finally:
+                bt_clean_up()
+                service.global_eventqueue(Event('bt connection aborted'))
+
+    @service.event_listener('bt abort connection')
+    def abort_connection(event):
+        print('Aborting connection')
+        global abort_connection
+        abort_connection = True
+        if self_sock:
             self_sock.close()
-            client_sock.close()
-            service.global_eventqueue.add(Event('bt stopped'))
-        finally:
-            self_sock, client_sock = None, None
 
     @service.event_listener('bt data received')
     def send_notifications(event):
@@ -88,6 +113,7 @@ def define_services():
             print('sending string:', event.data)
             client_sock.send(event.data)
         else:
+            print("bt send failed: No Connection")
             service.global_eventqueue.add(Event('bt send failed'))
 
     return service
@@ -101,40 +127,78 @@ def define_app():
         name='main'
     )
 
-    discover_bttn = Text(
-        message='Discover Devices',
+    title = Text(
+        message='Bluetooth Settings',
         size=30,
-        position=('midtop', 0, 10),
-        bg_color=(50, 50, 50),
+        position=('midtop', 0, 10)
+    )
+
+    status = Text(
+        message='Not Connected',
+        size=20,
+        position=('midtop', 0, 60),
+    )
+
+    instructions = Text(
+        message='Touch "start server"',
+        size=20,
+        position=('midtop', 0, 90)
     )
 
     server_bttn = Text(
-        message='Start server',
+        message='start server',
         size=30,
-        position=('midbottom', 0, -10),
-        bg_color=(50, 50, 50)
+        position=('midbottom', 0, -30),
+        bg_color=(0, 0, 70),
+        padding=(30, 10)
     )
 
-    discovered_devices = List(
-        position=('midtop', 0, 50),
-    )
+    def bttn_connection_active():
+        global connection_active
+        connection_active = True
+        server_bttn.update(
+            message='abort connection',
+            bg_color=(70, 0, 0)
+        )
 
-    discovered_devices.add(Text(message='No Discovered Devices'))
+    def bttn_connection_not_active():
+        global connection_active
+        connection_active = False
+        server_bttn.update(
+            message='start server',
+            bg_color=(0, 0, 70)
+        )
 
     @main.event_listener('mouse_down')
     def mouse_down_handler(event):
-        if discover_bttn.check_collision(event.pos):
-            app.global_eventqueue.add(Event('bt discover'))
-        elif server_bttn.check_collision(event.pos):
-            app.global_eventqueue.add(Event('bt start rfcomm server'))
+        global connection_active
+        if server_bttn.check_collision(event.pos):
+            if connection_active:
+                app.global_eventqueue.add(Event('bt abort connection'))
+            else:
+                app.global_eventqueue.add(Event('bt start rfcomm server'))
+                status.update(message='Waiting for connection')
+                instructions.update(message='connect using the app')
+                bttn_connection_active()
 
-    @app.event_listener('bt discovered')
-    def bt_discovered(event):
-        adapter = [str_to_text(string) for string in event.data]
-        discovered_devices.clear()
-        discovered_devices.add(*adapter)
+    @main.event_listener('bt connection active')
+    def bt_connection_active(event):
+        status.update(message="Connected to:")
+        instructions.update(message=event.data)
 
-    main.add(discover_bttn, server_bttn, discovered_devices)
+    @main.event_listener('bt connection failed')
+    def bt_connection_failed(event):
+        status.update(message='Connection failed')
+        instructions.update(message='try again')
+        bttn_connection_not_active()
+
+    @main.event_listener('bt connection aborted')
+    def bt_connection_aborted(event):
+        status.update(message='Connection aborted')
+        instructions.update(message='')
+        bttn_connection_not_active()
+
+    main.add(title, status, instructions, server_bttn)
     app.add(main)
 
     return app

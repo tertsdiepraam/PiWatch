@@ -14,6 +14,7 @@ current_app = None
 current_overlays = None
 current_services = None
 screen = None
+main_variables = None
 main_eventqueue = None
 apps = {}
 services = {}
@@ -104,6 +105,10 @@ def handle_main_events(main_events):
             if 'notification' not in (overlay.name for overlay in current_overlays):
                 start_overlay('notification', screen)
             main_eventqueue.add(Event('notification', data=event.data))
+        elif event.type == 'main get variable':
+            main_eventqueue.add(Event('variable return', data=(event.data, main_variables[event.data])))
+        elif event.type == 'main set variable':
+            main_variables[event.data[0]] = event.data[1]
         elif event.type == 'main exit':
             sys.exit()
         else:
@@ -115,7 +120,7 @@ def run():
     Main function of the PiWatch
     """
     # PiWatch boot procedure
-    global apps, services, current_app, current_services, current_overlays, screen, main_eventqueue
+    global apps, services, current_app, current_services, current_overlays, screen, main_variables, main_eventqueue
     apps, services = load_apps_and_services()
     pygame.init()
     if sys.platform == 'linux' and not debug_mode:
@@ -123,6 +128,7 @@ def run():
         pygame.mouse.set_visible(False)
     else:
         screen = pygame.display.set_mode(screenres)
+    main_variables = {}
     main_eventqueue = Eventqueue()
     main_eventqueue.add(Event('boot'))
 
