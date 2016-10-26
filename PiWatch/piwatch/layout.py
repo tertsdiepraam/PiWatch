@@ -1,5 +1,5 @@
 from .drawable import *
-
+import pygame
 
 class Group(PiDrawable):
     DEFAULTATTRS = dict(
@@ -24,11 +24,13 @@ class Group(PiDrawable):
             child.setup(parent)
         self.set_position()
 
-    def set_position(self):
+    def render_image(self):
+        for child in self.children:
+            child.render_image()
 
+    def set_position(self):
         for child in self.children:
             child.set_position()
-            child.rect.x
         self.rect = self.children[0].rect.unionall([child.rect for child in self.children[1:]])
 
     def draw(self, surface):
@@ -42,27 +44,52 @@ class List(Group):
     DEFAULTATTRS = dict(
         Group.DEFAULTATTRS,
         direction='down',
-        padding=0
+        padding=0,
+        alignment='midtop'
     )
 
+    def get_standalone_rect(self):
+        child_rects = [child.get_standalone_rect() for child in self.children]
+        if self.direction in ['left', 'right']:
+            return pygame.Rect(0, 0,
+                               sum(rect.width for rect in child_rects)
+                               + (len(self.children)-1) * self.padding[0],
+                               max(rect.height for rect in child_rects)
+                               )
+        elif self.direction in ['up', 'down']:
+            return pygame.Rect(0, 0,
+                               max(rect.width for rect in child_rects),
+                               sum(rect.height for rect in child_rects)
+                               + (len(self.children)-1) * self.padding[1]
+                               )
+
     def set_position(self):
-        offset_x = 0
-        offset_y = 0
-        if self.children:
-            for child in self.children:
-                if type(child) is str:
-                    child = str_to_text(child)
-                child.update(position=(self.position[0], self.position[1]+offset_x, self.position[2]+offset_y))
-                if self.direction == 'down':
-                    offset_y += child.rect.height + self.padding[0]
-                elif self.direction == 'up':
-                    offset_y -= child.rect.height - self.padding[0]
-                elif self.direction == 'right':
-                    offset_x += child.rect.width + self.padding[1]
-                elif self.direction == 'left':
-                    offset_x -= child.rect.width - self.padding[1]
-                else:
-                    raise AttributeError('List.direction must be up, down, left or right')
-            self.rect = self.children[0].rect.unionall([child.rect for child in self.children[1:]])
+        self.rect = self.get_standalone_rect()
+        self.parent_rect = self.parent.get_rect()
+        if type(self.position) is str:
+            setattr(self.rect, self.position[0], getattr(self.parent_rect, self.position[0]))
+        elif type(self.position) is tuple:
+            setattr(self.rect, self.position[0], getattr(self.parent_rect, self.position[0]))
+            self.rect.move_ip(self.position[1], self.position[2])
         else:
-            self.rect = None
+            raise AttributeError
+        self.set_pos_from_rect_children()
+
+    def set_pos_from_rect_children(self):
+        if self.direction == 'right':
+            offset = self.rect.left
+            for child in self.children:
+                child.set_pos_from_rect(
+                    pygame.Rect(offset, self.rect.top, child.get_standalone_rect().width, self.rect.height), self.alignment)
+                offset += child.get_standalone_rect().width + self.padding[0]
+        elif self.direction == 'down':
+            offset = self.rect.top
+            for child in self.children:
+                child.set_pos_from_rect(
+                    pygame.Rect(self.rect.left, offset, self.rect.width, child.get_standalone_rect().height), self.alignment)
+                offset += child.get_standalone_rect().height + self.padding[1]
+
+    def set_pos_from_rect(self, rect, alignment):
+        self.rect = self.get_standalone_rect()
+        setattr(self.rect, alignment, getattr(rect, alignment))
+        self.set_pos_from_rect_children()

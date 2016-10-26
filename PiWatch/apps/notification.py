@@ -2,7 +2,7 @@ import time
 from piwatch import *
 
 
-def define_app():
+def define_overlay():
 
     app = App(
         name="notification"

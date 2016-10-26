@@ -1,6 +1,6 @@
 """This file defines the abstract classes which provide basic component functionality."""
 from piwatch.base_functions import classproperty
-
+import pygame
 
 # All drawable classes must inherit from this class
 class PiDrawable:
@@ -48,6 +48,14 @@ class PiDrawable:
             self.rect.move_ip(self.position[1], self.position[2])
         else:
             raise AttributeError
+
+    def get_standalone_rect(self):
+        rect = self.image.get_rect()
+        return pygame.Rect(0, 0, rect.width, rect.height)
+
+    def set_pos_from_rect(self, rect, alignment):
+        self.rect = self.get_standalone_rect()
+        setattr(self.rect, alignment, getattr(rect, alignment))
 
     def draw(self, surface):
         if self.bg_color:

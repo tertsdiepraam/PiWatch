@@ -41,22 +41,26 @@ else:
         return importlib.machinery.SourceFileLoader(name, appsfolder + os.sep + name + '.py').load_module()
 
 
-def start_app(appname, screen):
-    global apps, current_app
-    current_app = apps[appname]
+def start_app(app_name, screen):
+    global apps, current_app, main_eventqueue
+    print(apps)
+    current_app = apps[app_name]
     current_app.start(screen)
+    main_eventqueue.add(Event('start app ' + app_name))
 
 
 def start_service(service_name):
-    global services, current_services
+    global services, current_services, main_eventqueue
     current_services.append(services[service_name])
+    main_eventqueue.add(Event('start service ' + service_name))
 
 
 def start_overlay(overlay_name, screen):
-    global overlays, current_overlays
+    global overlays, current_overlays, main_eventqueue
     overlay = overlays[overlay_name]
     current_overlays.append(overlay)
     overlay.start(screen)
+    main_eventqueue.add(Event('start overlay ' + overlay_name))
 
 
 def load_apps_and_services():
@@ -142,20 +146,25 @@ def run():
         pygame.mouse.set_visible(False)
     else:
         screen = pygame.display.set_mode(screenres)
-    main_variables = {}
+    main_variables = {
+        'apps': apps,
+        'overlays': overlays,
+        'services': services
+    }
     main_eventqueue = Eventqueue()
     main_eventqueue.add(Event('boot'))
 
-    current_services = [services['bluetooth service']]
+    current_services = []
     current_overlays = []
 
     fps = pygame.time.Clock()
     main_variables['fps'] = 0
 
     # boot apps and services
-    start_app('bluetooth app', screen)
+    start_app('appdrawer', screen)
     start_overlay('fps counter', screen)
     start_overlay('bluetooth_overlay', screen)
+    start_service('bluetooth service')
 
     # mainloop
     while True:
