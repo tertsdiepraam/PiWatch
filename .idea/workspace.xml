@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" afterPath="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" afterPath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/home.py" afterPath="$PROJECT_DIR$/PiWatch/apps/home.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -518,13 +514,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00028" summary="Rpi Testing">
-      <created>1472380515668</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1472380515668</updated>
-    </task>
     <task id="LOCAL-00029" summary="New module loading for python 3.3 and 3.4">
       <created>1472381578628</created>
       <option name="number" value="00029" />
@@ -861,7 +850,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477499976508</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Added icons for home and bluetooth&#10;">
+      <created>1477503489551</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1477503489551</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TodoView">
@@ -927,7 +923,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New module loading for python 3.3 and 3.4" />
     <MESSAGE value="Commented out bluetooth" />
     <MESSAGE value="uncommented bluetooth" />
     <MESSAGE value="updated README" />
@@ -952,7 +947,8 @@
     <MESSAGE value="Added the overlay type alias and differentiated them from normal apps in main.py" />
     <MESSAGE value="Got rid of the horrible AttrSets, which were a terrible idea in the first place" />
     <MESSAGE value="Fixed lists" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed lists" />
+    <MESSAGE value="Added icons for home and bluetooth&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added icons for home and bluetooth&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
