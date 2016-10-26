@@ -17,6 +17,7 @@ screen = None
 main_variables = None
 main_eventqueue = None
 apps = {}
+overlays = {}
 services = {}
 
 # Settings
@@ -52,8 +53,8 @@ def start_service(service_name):
 
 
 def start_overlay(overlay_name, screen):
-    global apps, current_overlays
-    overlay = apps[overlay_name]
+    global overlays, current_overlays
+    overlay = overlays[overlay_name]
     current_overlays.append(overlay)
     overlay.start(screen)
 
@@ -71,6 +72,9 @@ def load_apps_and_services():
             if hasattr(app_module, 'define_app'):
                 app = app_module.define_app()
                 apps[app.name] = app
+            if hasattr(app_module, 'define_overlay'):
+                overlay = app_module.define_overlay()
+                overlays[overlay.name] = overlay
             if hasattr(app_module, 'define_services'):
                 returned_service = app_module.define_services()
                 if type(returned_service) is list or type(returned_service) is tuple:
@@ -138,9 +142,11 @@ def run():
     fps = pygame.time.Clock()
     main_variables['fps'] = 0
 
+    # boot apps and services
     start_app('bluetooth app', screen)
     start_overlay('fps counter', screen)
     start_overlay('bluetooth_overlay', screen)
+
     # mainloop
     while True:
         # events

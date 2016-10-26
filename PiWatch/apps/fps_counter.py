@@ -1,8 +1,8 @@
 from piwatch import *
 
 
-def define_app():
-    app = App(
+def define_overlay():
+    overlay = Overlay(
         name='fps counter'
     )
 
@@ -15,10 +15,10 @@ def define_app():
         size=15
     )
 
-    @app.event_listener('new frame')
+    @overlay.event_listener('new frame')
     def new_frame(event):
         fps_counter.update(message=str(event.data))
 
     main.add(fps_counter)
-    app.add(main)
-    return app
+    overlay.add(main)
+    return overlay

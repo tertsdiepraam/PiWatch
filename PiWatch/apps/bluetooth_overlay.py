@@ -1,7 +1,7 @@
 from piwatch import *
 
-def define_app():
-    app = App(
+def define_overlay():
+    overlay = Overlay(
         name='bluetooth_overlay'
     )
 
@@ -10,27 +10,27 @@ def define_app():
     )
 
     bt_icon = Image(
-        filename=app.folder + '0.png',
+        filename=overlay.folder + '0.png',
         size_x=16,
         position=('topright', -5, 5)
     )
 
-    @app.event_listener('bt start rfcomm server')
+    @overlay.event_listener('bt start rfcomm server')
     def start_rfcomm_server(event):
-        bt_icon.update(filename=app.folder + '1.png')
+        bt_icon.update(filename=overlay.folder + '1.png')
 
-    @app.event_listener('bt connection active')
+    @overlay.event_listener('bt connection active')
     def connection_active(event):
-        bt_icon.update(filename=app.folder + '2.png')
+        bt_icon.update(filename=overlay.folder + '2.png')
 
-    @app.event_listener('bt connection failed')
+    @overlay.event_listener('bt connection failed')
     def connection_failed(event):
-        bt_icon.update(filename=app.folder + '0.png')
+        bt_icon.update(filename=overlay.folder + '0.png')
 
-    @app.event_listener('bt connection aborted')
+    @overlay.event_listener('bt connection aborted')
     def connection_aborted(event):
-        bt_icon.update(filename=app.folder + '0.png')
+        bt_icon.update(filename=overlay.folder + '0.png')
 
     main.add(bt_icon)
-    app.add(main)
-    return app
+    overlay.add(main)
+    return overlay
