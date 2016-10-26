@@ -97,7 +97,6 @@ def load_apps_and_services():
     else:
         print(len(_services), 'services loaded.')
     print()
-    print(_overlays)
     return _apps, _services, _overlays
 
 
