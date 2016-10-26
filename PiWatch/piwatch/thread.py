@@ -2,11 +2,13 @@ import threading
 
 
 def threaded(func):
+    """A decorator which converts a function to a ThreadedFunction."""
     func_thread = ThreadedFunction(target=func)
     return func_thread
 
 
 class ThreadedFunction:
+    """A thread which calls a function every time it is called."""
     def __init__(self, target=None, *args, **kwargs):
         self.target = target
         self.args = args

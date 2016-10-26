@@ -22,7 +22,6 @@ def define_app():
     )
 
     cursor = TextCursor(
-        TextAttrs(),
         size=30,
         color=(255, 255, 255),
         position='midbottom',

@@ -1,16 +1,11 @@
 from .drawable import *
 
 
-class GroupAttrs(AttrSet):
-    def set_defaults(self):
-        super().set_defaults()
-        self.attrs.update(
-            children=[]
-        )
-
-
 class Group(PiDrawable):
-    DEFAULTATTRS = GroupAttrs()
+    DEFAULTATTRS = dict(
+        PiDrawable.DEFAULTATTRS,
+        children=[]
+    )
 
     def add(self, *args):
         for child in args:
@@ -42,16 +37,13 @@ class Group(PiDrawable):
         for child in self.children:
             child.draw(surface)
 
-class ListAttrs(GroupAttrs):
-    def set_defaults(self):
-        super().set_defaults()
-        self.attrs.update(
-            direction='down',
-            padding=0,
-        )
 
 class List(Group):
-    DEFAULTATTRS = ListAttrs()
+    DEFAULTATTRS = dict(
+        Group.DEFAULTATTRS,
+        direction='down',
+        padding=0
+    )
 
     def set_position(self):
         offset_x = 0

@@ -7,18 +7,14 @@ import pygame
 from .drawable import *
 
 
-class TextAttrs(AttrSet):
-    def set_defaults(self):
-        super().set_defaults()
-        self.attrs.update(
-            {'size': 20,
-             'color': (255, 255, 255),
-             'font': 'yugothicyugothicuilight',
-             'message': 'Example Text'})
-
-
 class Text(PiDrawable):
-    DEFAULTATTRS = TextAttrs()
+    DEFAULTATTRS = dict(
+        PiDrawable.DEFAULTATTRS,
+        size=20,
+        color=(255, 255, 255),
+        font='yugothicyugothicuilight',
+        message='Example Text'
+    )
 
     def setup(self, parent):
         """Called when the app is opened"""
@@ -35,15 +31,11 @@ class Text(PiDrawable):
         self.set_position()
 
 
-class ClockAttrs(TextAttrs):
-    def set_defaults(self):
-        super().set_defaults()
-        self.attrs.update(
-            twentyfour=False)
-
-
 class Clock(Text):
-    DEFAULTATTRS = ClockAttrs()
+    DEFAULTATTRS = dict(
+        Text.DEFAULTATTRS,
+        twentyfour=False
+    )
 
     def __init__(self, *attrs, **kwargs):
         super().__init__(*attrs, **kwargs)
@@ -68,14 +60,9 @@ class TextCursor(Text):  # just for testing. Provides a cursor when pygame.mouse
         self.set_position()
         super().draw(surface)
 
-class DateAttrs(TextAttrs):
-    def set_defaults(self):
-        super().set_defaults()
-        self.attrs.update()
-
 
 class Date(Text):
-    DEFAULTATTTRS = DateAttrs()
+    DEFAULTATTTRS = Text.DEFAULTATTRS
 
     def __init__(self, *attrs, **kwargs):
         super().__init__(*attrs, **kwargs)

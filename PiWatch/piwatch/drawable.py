@@ -1,37 +1,24 @@
 """This file defines the abstract classes which provide basic component functionality."""
-
-
-# AttributeSet is the object that gets passed to a drawable
-class AttrSet:
-    def __init__(self, **kwargs):
-        self.attrs = {}
-        self.set_defaults()
-        self.set_attrs(kwargs)
-
-    def set_attrs(self, attrdict):
-        for attr, value in attrdict.items():
-            setattr(self, attr, value)
-
-    def set_defaults(self):
-        self.attrs.update(
-            {'bg_color': None,
-             'position': ('center', 0, 0),
-             'image': None,
-             'function': None,
-             'padding': (0, 0)})
+from piwatch.base_functions import classproperty
 
 
 # All drawable classes must inherit from this class
 class PiDrawable:
     """Base class for drawables, takes an AttrSet object and additional kwargs as arguments"""
-    DEFAULTATTRS = AttrSet()
+    DEFAULTATTRS = dict(
+        bg_color=None,
+        position=('center', 0, 0),
+        image=None,
+        function=None,
+        padding=(0, 0)
+    )
 
     def __init__(self, *attrs, **kwargs):
         if attrs:
             for attrset in attrs:
-                self.set_attrs(attrset.attrs)
+                self.set_attrs(attrset)
         else:
-            self.set_attrs(self.DEFAULTATTRS.attrs)
+            self.set_attrs(self.DEFAULTATTRS)
         self.set_attrs(kwargs)
         if type(self.padding) is int:
             self.padding = (self.padding, self.padding)
@@ -69,3 +56,11 @@ class PiDrawable:
 
     def check_collision(self, point):
         return self.rect.collidepoint(point)
+
+    @property
+    def attributes(self):
+        return self.DEFAULTATTRS
+
+    @classproperty
+    def attributes(self):
+        return self.DEFAULTATTRS

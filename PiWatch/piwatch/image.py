@@ -4,17 +4,13 @@ import pygame
 from .drawable import *
 
 
-class ImageAttrs(AttrSet):
-    def set_defaults(self):
-        super().set_defaults()
-        self.attrs.update({
-            'filename': None,
-            'size_x': None,
-            'size_y': None})
-
-
 class Image(PiDrawable):
-    DEFAULTATTRS = ImageAttrs()
+    DEFAULTATTRS = dict(
+        PiDrawable.DEFAULTATTRS,
+        filename=None,
+        size_x=None,
+        size_y=None
+    )
 
     def setup(self, parent):
         self.file = pygame.image.load(self.filename)

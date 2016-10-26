@@ -62,8 +62,9 @@ def start_overlay(overlay_name, screen):
 def load_apps_and_services():
     """Read .py files from the apps folder"""
     print('Loading apps...')
-    apps = {}
-    services = {}
+    _apps = {}
+    _services = {}
+    _overlays = {}
     for file in list(os.listdir(appsfolder)):
         if file.split('.')[-1] == 'py':
             appname = '.'.join(file.split('.')[:-1])
@@ -71,23 +72,33 @@ def load_apps_and_services():
             app_module = load_module(appname)
             if hasattr(app_module, 'define_app'):
                 app = app_module.define_app()
-                apps[app.name] = app
+                _apps[app.name] = app
             if hasattr(app_module, 'define_overlay'):
                 overlay = app_module.define_overlay()
-                overlays[overlay.name] = overlay
+                _overlays[overlay.name] = overlay
             if hasattr(app_module, 'define_services'):
                 returned_service = app_module.define_services()
                 if type(returned_service) is list or type(returned_service) is tuple:
                     for service in returned_service:
-                        services[service.name] = service
+                        _services[service.name] = service
                 else:
-                    services[returned_service.name] = returned_service
+                    _services[returned_service.name] = returned_service
 
-    if len(apps) == 1:
-        print(len(apps), 'app loaded.\n')
+    if len(_apps) == 1:
+        print(len(_apps), 'app loaded.')
     else:
-        print(len(apps), 'apps loaded.\n')
-    return apps, services
+        print(len(_apps), 'apps loaded.')
+    if len(_overlays) == 1:
+        print(len(_overlays), 'overlay loaded.')
+    else:
+        print(len(_overlays), 'overlays loaded.')
+    if len(_services) == 1:
+        print(len(_services), 'service loaded.')
+    else:
+        print(len(_services), 'services loaded.')
+    print()
+    print(_overlays)
+    return _apps, _services, _overlays
 
 
 def handle_main_events(main_events):
@@ -124,8 +135,8 @@ def run():
     Main function of the PiWatch
     """
     # PiWatch boot procedure
-    global apps, services, current_app, current_services, current_overlays, screen, main_variables, main_eventqueue
-    apps, services = load_apps_and_services()
+    global apps, services, overlays, current_app, current_services, current_overlays, screen, main_variables, main_eventqueue
+    apps, services, overlays = load_apps_and_services()
     pygame.init()
     if sys.platform == 'linux' and not debug_mode:
         screen = pygame.display.set_mode(screenres, pygame.FULLSCREEN)

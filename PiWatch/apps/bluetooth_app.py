@@ -7,6 +7,7 @@ client_address = None
 abort_connection = False
 connection_active = False
 
+
 def define_services():
     service = Service(
         name='bluetooth service'
