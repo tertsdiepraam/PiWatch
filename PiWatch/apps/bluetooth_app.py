@@ -121,7 +121,8 @@ def define_services():
 
 def define_app():
     app = App(
-        name='bluetooth app'
+        name='bluetooth',
+        icon='bluetooth.png'
     )
     main = Activity(
         name='main'

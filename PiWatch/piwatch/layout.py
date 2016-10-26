@@ -93,3 +93,39 @@ class List(Group):
         self.rect = self.get_standalone_rect()
         setattr(self.rect, alignment, getattr(rect, alignment))
         self.set_pos_from_rect_children()
+
+
+class EvenlySpacedList(List):
+    def get_standalone_rect(self):
+        child_rects = [child.get_standalone_rect() for child in self.children]
+        if self.direction in ['left', 'right']:
+            return pygame.Rect(0, 0,
+                               max(rect.width for rect in child_rects) * len(self.children)
+                               + (len(self.children) - 1) * self.padding[0],
+                               max(rect.height for rect in child_rects)
+                               )
+        elif self.direction in ['up', 'down']:
+            return pygame.Rect(0, 0,
+                               max(rect.width for rect in child_rects),
+                               max(rect.height for rect in child_rects) * len(self.children)
+                               + (len(self.children) - 1) * self.padding[1]
+                               )
+
+    def set_pos_from_rect_children(self):
+        child_rects = [child.get_standalone_rect() for child in self.children]
+        if self.direction == 'right':
+            max_width = max(rect.width for rect in child_rects)
+            offset = self.rect.left
+            for child in self.children:
+                child.set_pos_from_rect(
+                    pygame.Rect(offset, self.rect.top, max_width, self.rect.height),
+                    self.alignment)
+                offset += max_width + self.padding[0]
+        elif self.direction == 'down':
+            max_height = max(rect.height for rect in child_rects)
+            offset = self.rect.top
+            for child in self.children:
+                child.set_pos_from_rect(
+                    pygame.Rect(self.rect.left, offset, self.rect.width, max_height),
+                    self.alignment)
+                offset += max_height + self.padding[1]

@@ -77,11 +77,11 @@ def define_app():
                         textattrs,
                         message='No Name'
                     )
-                items_in_row.append(List(
+                items_in_row.append(EvenlySpacedList(
                     itemattrs,
                     children=[icon, title]
                 ))
-            rows_in_grid.append(List(
+            rows_in_grid.append(EvenlySpacedList(
                 rowattrs,
                 children=items_in_row
             ))

@@ -7,7 +7,7 @@ def define_app():
     # App object and settings
     app = App(
         name='home',
-        icon=None,
+        icon='home.png',
         bg_color=(0, 0, 0))
 
     # Components
