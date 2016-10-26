@@ -132,39 +132,37 @@ def run():
     main_eventqueue = Eventqueue()
     main_eventqueue.add(Event('boot'))
 
-    start_app('bluetooth app', screen)
-
     current_services = [services['bluetooth service']]
     current_overlays = []
 
     fps = pygame.time.Clock()
-    fpstext = Text(
-        position='topleft',
-        size=15
-    )
-    fpstext.setup(screen)
+    main_variables['fps'] = 0
+
+    start_app('bluetooth app', screen)
+    start_overlay('fps counter', screen)
+    start_overlay('bluetooth_overlay', screen)
     # mainloop
     while True:
         # events
         main_eventqueue.import_events(current_app, *current_services)
+        main_eventqueue.add(Event('new frame', data=main_variables['fps']))
         events_for_main = filter(lambda e: e.type[:4] == 'main', main_eventqueue.events)
         handle_main_events(events_for_main)
         main_eventqueue.handle_events()
         main_eventqueue.broadcast(current_app, *(current_services + current_overlays))
+
+        # fps counter
+        fps.tick()
+        try:
+            main_variables['fps'] = int(fps.get_fps())
+        except OverflowError:
+            main_variables['fps'] = 'Infinity'
 
         # Draw
         screen.fill(current_app.bg_color)
         current_app.draw(screen)
         for overlay in current_overlays:
             overlay.draw(screen)
-
-        # fps counter
-        fps.tick()
-        try:
-            fpstext.update(message=str(int(fps.get_fps())))
-        except OverflowError:
-            fpstext.update(message="Infinity, BITCH!!!!!")
-        fpstext.draw(screen)
 
         pygame.display.flip()
 

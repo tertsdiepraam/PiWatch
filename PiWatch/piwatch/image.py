@@ -14,14 +14,14 @@ class ImageAttrs(AttrSet):
 
 
 class Image(PiDrawable):
-    DEFAULTATTRS = ImageAttrs
+    DEFAULTATTRS = ImageAttrs()
 
     def setup(self, parent):
-        self.parent = parent
         self.file = pygame.image.load(self.filename)
+        self.image = self.file
         self.rect = self.image.get_rect()
         self.render_image()
-        self.set_position()
+        super().setup(parent)
 
     def render_image(self):
         if not (self.size_x or self.size_y):
@@ -38,9 +38,9 @@ class Image(PiDrawable):
             size_y = self.size_y
         self.image = pygame.transform.scale(self.file, (size_x, size_y))
 
-    def update(self, filename=None):
-        if filename:
-            self.filename = filename
+    def update(self, **kwargs):
+        if 'filename' in kwargs.keys():
+            self.filename = kwargs['filename']
             self.file = pygame.image.load(self.filename)
-        self.render_image()
-        self.set_position()
+            del kwargs['filename']
+        super().update(**kwargs)
