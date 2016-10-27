@@ -1,4 +1,5 @@
 from piwatch import *
+import copy
 
 
 def define_app():
@@ -10,19 +11,13 @@ def define_app():
         name='main'
     )
 
-    grid = List(
+    grid = Grid(
         List.attributes,
-        direction='right',
-        alignment='topleft',
+        children=[],
+        direction='down',
+        alignment='midtop',
         padding=5,
-        position=('center', 0, 0),
-        id='grid'
-    )
-    rowattrs = dict(
-        List.attributes,
-        direction='right',
-        alignment='topleft',
-        padding=5
+        position=('center', 0, 0)
     )
 
     itemattrs = dict(
@@ -43,15 +38,14 @@ def define_app():
         size=15
     )
 
-    rowsize = 1
-
     @app.event_listener('start app ' + app.name)
     def start(event):
         app.global_eventqueue.add(Event('main get variable', data='apps'))
 
     @app.event_listener('variable return')
     def got_apps(event):
-        apps = list(event.data[1].values())
+        rowsize = 2
+        apps = sorted(list(event.data[1].values()), key=lambda x: x.name)
         rows = (apps[x:x+rowsize] for x in range(0, len(apps), rowsize))
         rows_in_grid = []
         for row in rows:
@@ -77,14 +71,11 @@ def define_app():
                         textattrs,
                         message='No Name'
                     )
-                items_in_row.append(EvenlySpacedList(
+                items_in_row.append(List(
                     itemattrs,
                     children=[icon, title]
                 ))
-            rows_in_grid.append(EvenlySpacedList(
-                rowattrs,
-                children=items_in_row
-            ))
+            rows_in_grid.append(copy.deepcopy(items_in_row))
         grid.clear()
         grid.add(*rows_in_grid)
 

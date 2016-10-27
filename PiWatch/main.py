@@ -130,7 +130,7 @@ def handle_main_events(main_events):
         elif event.type == 'main exit':
             sys.exit()
         else:
-            print("Main event not recognised:", event)
+            print("Main event not recognised: ", event)
 
 
 def run():
