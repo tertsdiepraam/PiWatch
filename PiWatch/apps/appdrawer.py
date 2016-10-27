@@ -42,6 +42,12 @@ def define_app():
     def start(event):
         app.global_eventqueue.add(Event('main get variable', data='apps'))
 
+    def start_app_at_click(item):
+        def func(event):
+            if item.check_collision(event.pos):
+                app.global_eventqueue.add(Event('main start app', data=item.app_to_start))
+        return func
+
     @app.event_listener('variable return')
     def got_apps(event):
         rowsize = 2
@@ -71,13 +77,18 @@ def define_app():
                         textattrs,
                         message='No Name'
                     )
-                items_in_row.append(List(
+                item = List(
                     itemattrs,
-                    children=[icon, title]
-                ))
+                    children=[icon, title],
+                    app_to_start=_app.name
+                )
+                items_in_row.append(item)
             rows_in_grid.append(copy.deepcopy(items_in_row))
         grid.clear()
         grid.add(*rows_in_grid)
+        for row in rows_in_grid:
+            for item in row:
+                app.event_listener('mouse_down')(start_app_at_click(item))
 
     main.add(grid)
     app.add(main)

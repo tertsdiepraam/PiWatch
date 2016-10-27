@@ -6,7 +6,7 @@ appsfolder = 'apps'
 def define_app():
     # App object and settings
     app = App(
-        name='home',
+        name='Home',
         icon='home.png',
         bg_color=(0, 0, 0))
 

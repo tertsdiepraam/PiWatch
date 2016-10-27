@@ -110,7 +110,6 @@ class Grid(List):
         for row in self.children:
             for item in row:
                 item.setup(parent)
-        print(self.children)
         self.set_position()
 
     def draw(self, surface):
@@ -126,14 +125,17 @@ class Grid(List):
                 item.render_image()
 
     def get_standalone_rect(self):
+        if not self.children:
+            return pygame.Rect(0, 0, 0, 0)
         if self.direction == 'down':
-            width = 0
+            row_widths = []
             height = 0
             for row in self.children:
                 rects = [item.get_standalone_rect() for item in row]
-                width += sum(rect.width for rect in rects) + self.padding[0] * len(rects[:-1])
+                row_widths.append(max(rect.width for rect in rects) * len(rects) + self.padding[0] * len(rects[:-1]))
                 height += max(rect.height for rect in rects)
             height += self.padding[0] * len(self.children[:-1])
+            width = max(row_widths)
         return pygame.Rect(0, 0, width, height)
 
     def set_pos_from_rect_children(self):
