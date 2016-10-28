@@ -79,5 +79,3 @@ class Service(EventHandler):
 
     def pause(self):
         raise NotImplementedError()
-
-
