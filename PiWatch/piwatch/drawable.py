@@ -10,7 +10,8 @@ class PiDrawable:
         position=('center', 0, 0),
         image=None,
         function=None,
-        padding=(0, 0)
+        padding=(0, 0),
+        fixed_size=None
     )
 
     def __init__(self, *attrs, **kwargs):
