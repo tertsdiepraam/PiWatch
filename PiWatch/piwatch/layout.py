@@ -1,6 +1,7 @@
 from .drawable import *
 import pygame
 
+
 class Group(PiDrawable):
     DEFAULTATTRS = dict(
         PiDrawable.DEFAULTATTRS,
@@ -47,6 +48,12 @@ class List(Group):
         padding=0,
         alignment='midtop'
     )
+
+    def update(self, **kwargs):
+        if kwargs:
+            self.set_attrs(kwargs)
+        self.render_image()
+        self.set_position()
 
     def get_standalone_rect(self):
         child_rects = [child.get_standalone_rect() for child in self.children]

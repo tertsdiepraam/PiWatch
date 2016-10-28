@@ -131,19 +131,19 @@ def define_app():
     title = Text(
         message='Bluetooth Settings',
         size=30,
-        position=('midtop', 0, 15)
+        position=('midtop', 0, 25)
     )
 
     status = Text(
         message='Not Connected',
         size=20,
-        position=('midtop', 0, 60),
+        position=('midtop', 0, 70),
     )
 
     instructions = Text(
         message='Touch "start server"',
         size=20,
-        position=('midtop', 0, 90)
+        position=('midtop', 0, 100)
     )
 
     server_bttn = Text(
