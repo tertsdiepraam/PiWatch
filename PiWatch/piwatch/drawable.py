@@ -49,6 +49,8 @@ class PiDrawable:
             self.rect.move_ip(self.position[1], self.position[2])
         else:
             raise AttributeError
+        if self.padding and self.fixed_size:
+            raise AttributeError('Drawable')
 
     def get_standalone_rect(self):
         rect = self.image.get_rect()
