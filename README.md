@@ -6,6 +6,7 @@ Dependencies:
  - Pygame
  - SDL
  - pybluez
+ - RPi.GPIO module
 
 Current Features:
  - Load custom apps
