@@ -6,6 +6,7 @@ import pygame
 
 if sys.platform == 'linux':
     import RPi.GPIO as GPIO
+    GPIO.setmode(GPIO.BOARD)
     GPIO.add_event_detect(12, GPIO.RISING)
     GPIO.add_event_detect(16, GPIO.RISING)
     GPIO.add_event_detect(18, GPIO.RISING)
