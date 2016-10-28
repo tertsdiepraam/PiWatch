@@ -4,6 +4,11 @@ import sys
 
 import pygame
 
+if sys.platform == 'linux':
+    import RPi.GPIO as GPIO
+    GPIO.add_event_detect(12, GPIO.RISING)
+    GPIO.add_event_detect(16, GPIO.RISING)
+    GPIO.add_event_detect(18, GPIO.RISING)
 
 class Event:
     def __init__(self, event_type, key=None, pos=None, data=None):
@@ -32,6 +37,15 @@ class Eventqueue:
             self.time = new_time
             self.add(Event('time'))
 
+        # RPi GPIO input event handling
+        if sys.platform == 'linux':
+            if GPIO.event_detected(12):
+                pass
+            if GPIO.event_detected(16):
+                self.add(Event('main start app', data='Home'))
+            if GPIO.event_detected(18):
+                self.add(Event('main start app', data='appdrawer'))
+
         # pygame specific event handling
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONUP:
@@ -43,6 +57,12 @@ class Eventqueue:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     sys.exit()
+                elif event.key == pygame.K_q:
+                    pass
+                elif event.key == pygame.K_a:
+                    self.add(Event('main start app', data='Home'))
+                elif event.key == pygame.K_z:
+                    self.add(Event('main start app', data='appdrawer'))
 
             elif event.type == pygame.QUIT:
                 sys.exit()

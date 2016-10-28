@@ -27,6 +27,7 @@ if not sys.platform in ['win32', 'win64']:
     os.putenv('SDL_FBDEV', '/dev/fb1')
     os.putenv('SDL_MOUSEDRV', 'TSLIB')
     os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
+    import RPi.GPIO as GPIO
 
 if sys.version_info >= (3, 5):
     def load_module(name):
@@ -43,7 +44,6 @@ else:
 
 def start_app(app_name, screen):
     global apps, current_app, main_eventqueue
-    print(apps)
     current_app = apps[app_name]
     current_app.start(screen)
     main_eventqueue.add(Event('start app ' + app_name))
@@ -170,10 +170,10 @@ def run():
     while True:
         # events
         main_eventqueue.import_events(current_app, *current_services)
+        main_eventqueue.handle_events()
         main_eventqueue.add(Event('new frame', data=main_variables['fps']))
         events_for_main = filter(lambda e: e.type[:4] == 'main', main_eventqueue.events)
         handle_main_events(events_for_main)
-        main_eventqueue.handle_events()
         main_eventqueue.broadcast(current_app, *(current_services + current_overlays))
 
         # fps counter
