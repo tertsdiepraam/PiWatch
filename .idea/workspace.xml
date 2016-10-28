@@ -39,16 +39,16 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            <state relative-caret-position="260">
+              <caret line="148" column="59" selection-start-line="148" selection-start-column="59" selection-end-line="148" selection-end-column="59" />
               <folding>
                 <element signature="e#35#51#0" expanded="true" />
-                <element signature="e#778#1005#0" expanded="false" />
-                <element signature="e#1016#1195#0" expanded="false" />
-                <element signature="e#1435#1601#0" expanded="false" />
-                <element signature="e#1649#1863#0" expanded="false" />
-                <element signature="e#1900#3389#0" expanded="false" />
-                <element signature="e#3433#4784#0" expanded="false" />
+                <element signature="e#753#980#0" expanded="false" />
+                <element signature="e#991#1170#0" expanded="false" />
+                <element signature="e#1410#1576#0" expanded="false" />
+                <element signature="e#1624#1838#0" expanded="false" />
+                <element signature="e#1875#3364#0" expanded="false" />
+                <element signature="e#3408#4759#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -527,13 +527,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00042" summary="tried some more bluetooth shit">
-      <created>1473596394017</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1473596394017</updated>
-    </task>
     <task id="LOCAL-00043" summary="Bluetooth works">
       <created>1473611849319</created>
       <option name="number" value="00043" />
@@ -870,7 +863,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477647833090</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="added icons to git">
+      <created>1477648128930</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1477648128930</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1028,12 +1028,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#778#1005#0" expanded="false" />
-            <element signature="e#1016#1195#0" expanded="false" />
-            <element signature="e#1435#1601#0" expanded="false" />
-            <element signature="e#1649#1863#0" expanded="false" />
-            <element signature="e#1900#3389#0" expanded="false" />
-            <element signature="e#3433#4784#0" expanded="false" />
+            <element signature="e#753#980#0" expanded="false" />
+            <element signature="e#991#1170#0" expanded="false" />
+            <element signature="e#1410#1576#0" expanded="false" />
+            <element signature="e#1624#1838#0" expanded="false" />
+            <element signature="e#1875#3364#0" expanded="false" />
+            <element signature="e#3408#4759#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1078,12 +1078,12 @@
           <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#778#1005#0" expanded="false" />
-            <element signature="e#1016#1195#0" expanded="false" />
-            <element signature="e#1435#1601#0" expanded="false" />
-            <element signature="e#1649#1863#0" expanded="false" />
-            <element signature="e#1900#3389#0" expanded="false" />
-            <element signature="e#3433#4784#0" expanded="false" />
+            <element signature="e#753#980#0" expanded="false" />
+            <element signature="e#991#1170#0" expanded="false" />
+            <element signature="e#1410#1576#0" expanded="false" />
+            <element signature="e#1624#1838#0" expanded="false" />
+            <element signature="e#1875#3364#0" expanded="false" />
+            <element signature="e#3408#4759#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1128,12 +1128,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#778#1005#0" expanded="false" />
-            <element signature="e#1016#1195#0" expanded="false" />
-            <element signature="e#1435#1601#0" expanded="false" />
-            <element signature="e#1649#1863#0" expanded="false" />
-            <element signature="e#1900#3389#0" expanded="false" />
-            <element signature="e#3433#4784#0" expanded="false" />
+            <element signature="e#753#980#0" expanded="false" />
+            <element signature="e#991#1170#0" expanded="false" />
+            <element signature="e#1410#1576#0" expanded="false" />
+            <element signature="e#1624#1838#0" expanded="false" />
+            <element signature="e#1875#3364#0" expanded="false" />
+            <element signature="e#3408#4759#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1382,16 +1382,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        <state relative-caret-position="260">
+          <caret line="148" column="59" selection-start-line="148" selection-start-column="59" selection-end-line="148" selection-end-column="59" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#778#1005#0" expanded="false" />
-            <element signature="e#1016#1195#0" expanded="false" />
-            <element signature="e#1435#1601#0" expanded="false" />
-            <element signature="e#1649#1863#0" expanded="false" />
-            <element signature="e#1900#3389#0" expanded="false" />
-            <element signature="e#3433#4784#0" expanded="false" />
+            <element signature="e#753#980#0" expanded="false" />
+            <element signature="e#991#1170#0" expanded="false" />
+            <element signature="e#1410#1576#0" expanded="false" />
+            <element signature="e#1624#1838#0" expanded="false" />
+            <element signature="e#1875#3364#0" expanded="false" />
+            <element signature="e#3408#4759#0" expanded="false" />
           </folding>
         </state>
       </provider>
