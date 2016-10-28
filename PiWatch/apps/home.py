@@ -37,11 +37,6 @@ def define_app():
     def mouse_event(event):
         if mainclock.check_collision(event.pos):
             pass
-        if hello_text.check_collision(event.pos):
-            pass
-        if other_text.check_collision(event.pos):
-            pass
-
     # Add the activity to the app
     app.add(main)
 
