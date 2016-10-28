@@ -5,18 +5,18 @@ Core features, in order of priority:
  4. Text Wrapping --> Paragraph
 
 Apps:
- 1. Stopwatch
- 2. Timer
- 3. Calculator
- 4. Spotify
- 5. Remote Picture
- 6. Snake
+ 1. Timer
+ 2. Calculator
+ 3. Spotify
+ 4. Remote Picture
+ 5. Snake
 
 Not going to be implemented:
  - Button
  - ImageClickable
 
 Completed tasks:
+ - Stopwatch
  - Grid
  - List
  - Bluetooth Streamlining
