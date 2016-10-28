@@ -33,10 +33,6 @@ def define_app():
     main = Activity(name='main')
     main.add(mainclock, maindate, cursor)
 
-    @main.event_listener('mouse_down')
-    def mouse_event(event):
-        if mainclock.check_collision(event.pos):
-            pass
     # Add the activity to the app
     app.add(main)
 

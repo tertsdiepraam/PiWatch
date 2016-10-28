@@ -43,9 +43,11 @@ else:
 
 def start_app(app_name, screen):
     global apps, current_app, main_eventqueue
+    if current_app:
+        main_eventqueue.add(Event('closed app ' + current_app.name))
     current_app = apps[app_name]
     current_app.start(screen)
-    main_eventqueue.add(Event('start app ' + app_name))
+    main_eventqueue.add(Event('started app ' + current_app.name))
 
 
 def start_service(service_name):
@@ -167,17 +169,18 @@ def run():
     start_app('appdrawer', screen)
     start_overlay('fps counter', screen)
     start_overlay('bluetooth_overlay', screen)
+    start_overlay('clock', screen)
     start_service('bluetooth service')
 
     # mainloop
     while True:
         # events
         main_eventqueue.import_events(current_app, *current_services)
-        main_eventqueue.handle_events()
         main_eventqueue.add(Event('new frame', data=main_variables['fps']))
         events_for_main = filter(lambda e: e.type[:4] == 'main', main_eventqueue.events)
-        handle_main_events(events_for_main)
+        main_eventqueue.handle_events()
         main_eventqueue.broadcast(current_app, *(current_services + current_overlays))
+        handle_main_events(events_for_main)
 
         # fps counter
         fps.tick()

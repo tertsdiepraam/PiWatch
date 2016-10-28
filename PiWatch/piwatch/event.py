@@ -17,7 +17,7 @@ if sys.platform == 'linux':
 class Event:
     def __init__(self, event_type, key=None, pos=None, data=None):
         self.timestamp = datetime.datetime.now().time()
-        self.type = event_type.lower()
+        self.type = event_type
         self.key = key
         self.pos = pos
         self.data = data

@@ -38,7 +38,7 @@ def define_app():
         size=15
     )
 
-    @app.event_listener('start app ' + app.name)
+    @app.event_listener('started app ' + app.name)
     def start(event):
         app.global_eventqueue.add(Event('main get variable', data='apps'))
 

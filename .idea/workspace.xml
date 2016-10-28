@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PiWatch/apps/clock_overlay.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" afterPath="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/home.py" afterPath="$PROJECT_DIR$/PiWatch/apps/home.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/main.py" afterPath="$PROJECT_DIR$/PiWatch/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/app.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/event.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/event.py" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +32,7 @@
       <file leaf-file-name="layout.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/layout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3160">
+            <state relative-caret-position="2680">
               <caret line="158" column="21" selection-start-line="158" selection-start-column="21" selection-end-line="158" selection-end-column="21" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
@@ -39,16 +44,15 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="148" column="59" selection-start-line="148" selection-start-column="59" selection-end-line="148" selection-end-column="59" />
+            <state relative-caret-position="363">
+              <caret line="182" column="43" selection-start-line="182" selection-start-column="43" selection-end-line="182" selection-end-column="43" />
               <folding>
                 <element signature="e#35#51#0" expanded="true" />
                 <element signature="e#753#980#0" expanded="false" />
                 <element signature="e#991#1170#0" expanded="false" />
-                <element signature="e#1410#1576#0" expanded="false" />
-                <element signature="e#1624#1838#0" expanded="false" />
-                <element signature="e#1875#3364#0" expanded="false" />
-                <element signature="e#3408#4759#0" expanded="false" />
+                <element signature="e#1509#1675#0" expanded="false" />
+                <element signature="e#1723#1937#0" expanded="false" />
+                <element signature="e#1974#3463#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,20 +62,8 @@
         <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
-              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appdrawer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/appdrawer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-860">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -104,11 +96,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stopwatch.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/stopwatch.py">
+      <file leaf-file-name="clock_overlay.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PiWatch/apps/clock_overlay.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+            <state relative-caret-position="420">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bluetooth_overlay.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_overlay.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appdrawer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PiWatch/apps/appdrawer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -117,8 +129,8 @@
       <file leaf-file-name="event.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/event.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="384">
+              <caret line="66" column="66" selection-start-line="66" selection-start-column="66" selection-end-line="66" selection-end-column="66" />
               <folding>
                 <element signature="e#20#35#0" expanded="true" />
               </folding>
@@ -126,21 +138,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/functions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+            <state relative-caret-position="320">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -202,14 +204,15 @@
         <option value="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" />
         <option value="$PROJECT_DIR$/TODO.md" />
         <option value="$PROJECT_DIR$/PiWatch/apps/Stopwatch.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/stopwatch.py" />
-        <option value="$PROJECT_DIR$/PiWatch/piwatch/event.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/drawable.py" />
+        <option value="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/app.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/home.py" />
+        <option value="$PROJECT_DIR$/PiWatch/apps/clock_overlay.py" />
+        <option value="$PROJECT_DIR$/PiWatch/piwatch/event.py" />
         <option value="$PROJECT_DIR$/PiWatch/main.py" />
       </list>
     </option>
@@ -526,13 +529,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Bluetooth works">
-      <created>1473611849319</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1473611849319</updated>
     </task>
     <task id="LOCAL-00044" summary="Bluetooth works">
       <created>1473613484620</created>
@@ -870,7 +866,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477648128930</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="tying things">
+      <created>1477648233559</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1477648233559</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TodoView">
@@ -936,7 +939,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tried some more bluetooth shit" />
     <MESSAGE value="Bluetooth works" />
     <MESSAGE value="Threads can be stopped using threading.Event" />
     <MESSAGE value="Fixed closing threads" />
@@ -961,7 +963,8 @@
     <MESSAGE value="filtered appdrawer from appdrawer" />
     <MESSAGE value="started stopwatch and fixed GPIO, hopefully" />
     <MESSAGE value="added icons to git" />
-    <option name="LAST_COMMIT_MESSAGE" value="added icons to git" />
+    <MESSAGE value="tying things" />
+    <option name="LAST_COMMIT_MESSAGE" value="tying things" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -972,18 +975,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/drawable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1030,10 +1026,9 @@
             <element signature="e#35#51#0" expanded="true" />
             <element signature="e#753#980#0" expanded="false" />
             <element signature="e#991#1170#0" expanded="false" />
-            <element signature="e#1410#1576#0" expanded="false" />
-            <element signature="e#1624#1838#0" expanded="false" />
-            <element signature="e#1875#3364#0" expanded="false" />
-            <element signature="e#3408#4759#0" expanded="false" />
+            <element signature="e#1509#1675#0" expanded="false" />
+            <element signature="e#1723#1937#0" expanded="false" />
+            <element signature="e#1974#3463#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1080,10 +1075,9 @@
             <element signature="e#35#51#0" expanded="true" />
             <element signature="e#753#980#0" expanded="false" />
             <element signature="e#991#1170#0" expanded="false" />
-            <element signature="e#1410#1576#0" expanded="false" />
-            <element signature="e#1624#1838#0" expanded="false" />
-            <element signature="e#1875#3364#0" expanded="false" />
-            <element signature="e#3408#4759#0" expanded="false" />
+            <element signature="e#1509#1675#0" expanded="false" />
+            <element signature="e#1723#1937#0" expanded="false" />
+            <element signature="e#1974#3463#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1130,10 +1124,9 @@
             <element signature="e#35#51#0" expanded="true" />
             <element signature="e#753#980#0" expanded="false" />
             <element signature="e#991#1170#0" expanded="false" />
-            <element signature="e#1410#1576#0" expanded="false" />
-            <element signature="e#1624#1838#0" expanded="false" />
-            <element signature="e#1875#3364#0" expanded="false" />
-            <element signature="e#3408#4759#0" expanded="false" />
+            <element signature="e#1509#1675#0" expanded="false" />
+            <element signature="e#1723#1937#0" expanded="false" />
+            <element signature="e#1974#3463#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1202,13 +1195,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="204" column="2" selection-start-line="204" selection-start-column="2" selection-end-line="204" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_overlay.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1289,13 +1275,19 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/appdrawer.py">
+    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-860">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="440">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/stopwatch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1318,28 +1310,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/functions.py">
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_overlay.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+        <state relative-caret-position="700">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/stopwatch.py">
+    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+        <state relative-caret-position="320">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/event.py">
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/appdrawer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="480">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/layout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2680">
+          <caret line="158" column="21" selection-start-line="158" selection-start-column="21" selection-end-line="158" selection-end-column="21" />
           <folding>
-            <element signature="e#20#35#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1354,44 +1354,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/layout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3160">
-          <caret line="158" column="21" selection-start-line="158" selection-start-column="21" selection-end-line="158" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/clock_overlay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/event.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="66" column="66" selection-start-line="66" selection-start-column="66" selection-end-line="66" selection-end-column="66" />
+          <folding>
+            <element signature="e#20#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="148" column="59" selection-start-line="148" selection-start-column="59" selection-end-line="148" selection-end-column="59" />
+        <state relative-caret-position="363">
+          <caret line="182" column="43" selection-start-line="182" selection-start-column="43" selection-end-line="182" selection-end-column="43" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
             <element signature="e#753#980#0" expanded="false" />
             <element signature="e#991#1170#0" expanded="false" />
-            <element signature="e#1410#1576#0" expanded="false" />
-            <element signature="e#1624#1838#0" expanded="false" />
-            <element signature="e#1875#3364#0" expanded="false" />
-            <element signature="e#3408#4759#0" expanded="false" />
+            <element signature="e#1509#1675#0" expanded="false" />
+            <element signature="e#1723#1937#0" expanded="false" />
+            <element signature="e#1974#3463#0" expanded="false" />
           </folding>
         </state>
       </provider>

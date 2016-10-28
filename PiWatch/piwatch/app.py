@@ -16,6 +16,9 @@ class Activity(EventListener):
         for object in args:
             self.objects.append(object)
 
+    def clear(self):
+        self.objects = []
+
     def setup(self, parent):
         for object in self.objects:
             object.setup(parent)
