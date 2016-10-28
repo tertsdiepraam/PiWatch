@@ -34,7 +34,7 @@ class App(EventHandler):
         self.activities = {}
         self.mainactivity = 'main'
         self.current_activity = None
-        self.folder = 'apps' + os.sep + name + os.sep
+        self.folder = 'apps' + os.sep + name.lower() + os.sep
         EventHandler.__init__(self)
 
     def start(self, parent):
