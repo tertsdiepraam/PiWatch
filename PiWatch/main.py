@@ -145,10 +145,6 @@ def run():
     if sys.platform == 'linux' and not debug_mode:
         screen = pygame.display.set_mode(screenres, pygame.FULLSCREEN)
         pygame.mouse.set_visible(False)
-        os.putenv('SDL_VIDEODRIVER', 'fbcon')
-        os.putenv('SDL_FBDEV', '/dev/fb1')
-        os.putenv('SDL_MOUSEDRV', 'TSLIB')
-        os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
     else:
         screen = pygame.display.set_mode(screenres)
     main_variables = {
