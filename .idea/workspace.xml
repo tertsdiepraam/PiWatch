@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/Stopwatch.py" afterPath="$PROJECT_DIR$/PiWatch/apps/Stopwatch.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/home.py" afterPath="$PROJECT_DIR$/PiWatch/apps/home.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/text.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/text.py" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -542,13 +539,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00049" summary="idk">
-      <created>1473630923935</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1473630923935</updated>
-    </task>
     <task id="LOCAL-00050" summary="idk">
       <created>1473633189835</created>
       <option name="number" value="00050" />
@@ -885,7 +875,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478983769196</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="separator option for Clock">
+      <created>1478983993885</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1478983993885</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TodoView">
@@ -951,7 +948,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="back to bluetooth basics" />
     <MESSAGE value="Fixed them BLUETOOTH FINALLY, cleaned up home and update TODO" />
     <MESSAGE value="notification first thingy thingy" />
     <MESSAGE value="fuck you pycharm" />
@@ -976,7 +972,8 @@
     <MESSAGE value="stopwatch fixed" />
     <MESSAGE value="blabla" />
     <MESSAGE value="WATERPROOF IS BACK BITCHES (and btw, there's transparency, spacing for lists and some &quot;unimportant&quot; optimizations)" />
-    <option name="LAST_COMMIT_MESSAGE" value="WATERPROOF IS BACK BITCHES (and btw, there's transparency, spacing for lists and some &quot;unimportant&quot; optimizations)" />
+    <MESSAGE value="separator option for Clock" />
+    <option name="LAST_COMMIT_MESSAGE" value="separator option for Clock" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
