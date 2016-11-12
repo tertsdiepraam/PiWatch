@@ -3,7 +3,7 @@ from piwatch import *
 
 def define_app():
     app = App(
-        name='test'
+        name='list test'
     )
     main = Activity(
         name='main'

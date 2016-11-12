@@ -29,7 +29,8 @@ class Activity(EventListener):
 
 
 class App(EventHandler):
-    """The object that represents the app itself. Used for screen-filling graphical applications."""
+    """The object that represents the app itself. Used for screen-filling graphical applications.
+    """
     def __init__(self, name='app', bg_color=(0, 0, 0), icon=None):
         self.name = name
         self.icon = icon
@@ -63,13 +64,16 @@ class App(EventHandler):
         return d1
 
 
-class Overlay(App): # just an alias for App
-    """Represents a little bit of graphical information, drawn over the main application."""
+class Overlay(App):
+    """Represents a little bit of graphical information, drawn over the main application.
+    It is just an alias for App.
+    """
     pass
 
 
 class Service(EventHandler):
-    """Represents a non-graphical application, which is run in the background."""
+    """Represents a non-graphical application, which is run in the background.
+    """
     def __init__(self, name='Anonymous Service'):
         self.name = name
         EventHandler.__init__(self)

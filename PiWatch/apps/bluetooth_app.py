@@ -121,7 +121,7 @@ def define_services():
 
 def define_app():
     app = App(
-        name='bluetooth',
+        name='Bluetooth',
         icon='bluetooth.png'
     )
     main = Activity(
@@ -170,8 +170,8 @@ def define_app():
             bg_color=(0, 0, 70)
         )
 
-    @main.event_listener('mouse_down')
-    def mouse_down_handler(event):
+    @main.event_listener('mouse down')
+    def mouse_down(event):
         global connection_active
         if server_bttn.check_collision(event.pos):
             if connection_active:

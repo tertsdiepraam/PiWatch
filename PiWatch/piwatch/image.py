@@ -13,21 +13,21 @@ class Image(PiDrawable):
     )
 
     def setup(self, parent):
-        self.file = pygame.image.load(self.filename)
+        self.file = pygame.image.load(self.filename).convert_alpha()
         self.image = self.file
-        self.rect = self.image.get_rect()
+        self.fg_rect = self.image.get_rect()
         self.render_image()
         super().setup(parent)
 
     def render_image(self):
         if not (self.size_x or self.size_y):
-            size_x = self.rect.width
-            size_y = self.rect.height
+            size_x = self.fg_rect.width
+            size_y = self.fg_rect.height
         elif self.size_x and not self.size_y:
             size_x = self.size_x
-            size_y = int(self.size_x * self.rect.height / self.rect.width)
+            size_y = int(self.size_x * self.fg_rect.height / self.fg_rect.width)
         elif self.size_y and not self.size_x:
-            size_x = int(self.size_y * self.rect.width / self.rect.height)
+            size_x = int(self.size_y * self.fg_rect.width / self.fg_rect.height)
             size_y = self.size_y
         else:
             size_x = self.size_x

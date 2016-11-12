@@ -12,7 +12,8 @@ class PiDrawable:
         image=None,
         function=None,
         padding=None,
-        fixed_size=None
+        fixed_size=None,
+        color=(0, 0, 0, 255)
     )
 
     def __init__(self, *attrs, **kwargs):
@@ -26,6 +27,12 @@ class PiDrawable:
             self.padding = (self.padding, self.padding)
         if type(self.fixed_size) is int:
             self.fixed_size = (self.fixed_size, self.fixed_size)
+        if hasattr(self, 'color'):
+            if len(self.color) == 3:
+                self.color += (255,)
+        if hasattr(self, 'bg_color'):
+            if self.bg_color and len(self.bg_color) == 3:
+                self.bg_color += (255,)
 
     def set_attrs(self, attrdict):
         for attr, value in attrdict.items():
@@ -34,6 +41,7 @@ class PiDrawable:
     def setup(self, parent):
         self.parent = parent
         self.set_position()
+        self.create_surfaces()
 
     def update(self, **kwargs):
         if kwargs:
@@ -41,25 +49,42 @@ class PiDrawable:
         self.render_image()
         if 'position' in kwargs.keys():
             self.set_position()
+        if 'color'in kwargs.keys():
+            if len(self.color) == 3:
+                self.color += (255,)
+            self.create_fg_surf()
+        if hasattr(self, 'bg_color') and self.bg_color:
+            if len(self.bg_color) == 3:
+                self.bg_color += (255,)
+                self.create_bg_surf()
+        if type(self.padding) is int:
+            self.padding = (self.padding, self.padding)
+            self.create_bg_surf()
+        if type(self.fixed_size) is int:
+            self.fixed_size = (self.fixed_size, self.fixed_size)
+            self.create_bg_surf()
 
     def set_position(self):
-        self.rect = self.image.get_rect()
+        self.fg_rect = self.image.get_rect()
         self.parent_rect = self.parent.get_rect()
         if type(self.position) is str:
-            exec('self.rect.' + self.position + ' = self.parent_rect.' + self.position)
+            setattr(self.fg_rect, self.position, getattr(self.parent_rect, self.position))
         elif type(self.position) is tuple:
-            exec('self.rect.' + self.position[0] + ' = self.parent_rect.' + self.position[0])
-            self.rect.move_ip(self.position[1], self.position[2])
+            setattr(self.fg_rect, self.position[0], getattr(self.parent_rect, self.position[0]))
+            self.fg_rect.move_ip(self.position[1], self.position[2])
         else:
             raise AttributeError
         if self.padding and self.fixed_size:
             raise AttributeError("Drawable " + str(type(self)) + " can't have both padding and fixed_size attributes")
         if self.padding:
-            self.background_rect = self.rect.inflate(self.padding[0], self.padding[1])
+            self.bg_rect = self.fg_rect.inflate(self.padding[0], self.padding[1])
+            self.create_bg_surf()
         elif self.fixed_size:
-            self.background_rect = pygame.Rect(0, 0, self.fixed_size[0], self.fixed_size[1])
+            self.bg_rect = pygame.Rect(0, 0, self.fixed_size[0], self.fixed_size[1])
+            self.create_bg_surf()
         else:
-            self.background_rect = self.rect
+            self.bg_rect = self.fg_rect
+            self.create_bg_surf()
 
     def get_standalone_rect(self):
         rect = self.image.get_rect()
@@ -70,27 +95,57 @@ class PiDrawable:
         return pygame.Rect(0, 0, rect.width, rect.height)
 
     def set_pos_from_rect(self, rect, alignment):
-        self.rect = self.get_standalone_rect()
+        self.bg_rect = self.get_standalone_rect()
         if self.padding and self.fixed_size:
             raise AttributeError("Drawable " + str(type(self)) + " can't have both padding and fixed_size attributes")
+
         if self.padding:
-            setattr(self.rect, alignment, getattr(rect.inflate(-self.padding[0], -self.padding[1]), alignment))
-            self.background_rect = self.rect.inflate(self.padding[0], self.padding[1])
+            setattr(self.bg_rect, alignment, getattr(rect.inflate(-self.padding[0], -self.padding[1]), alignment))
+            self.fg_rect = self.bg_rect.inflate(-self.padding[0], -self.padding[1])
+
         elif self.fixed_size:
-            setattr(self.rect, alignment, getattr(rect, alignment))
-            self.rect.move_ip((rect.width-self.rect.width)/2, (rect.height-self.rect.height)/2)
-            self.background_rect = rect
+            setattr(self.bg_rect, alignment, getattr(rect, alignment))
+            self.fg_rect = self.image.get_rect()
+            setattr(self.fg_rect, self.position[0], getattr(self.bg_rect, self.position[0]))
+
         else:
-            setattr(self.rect, alignment, getattr(rect, alignment))
-            self.background_rect = self.rect
+            setattr(self.bg_rect, alignment, getattr(rect, alignment))
+            self.fg_rect = self.bg_rect
+
+    def create_bg_surf(self):
+        """Create the surface that represents the background of the object."""
+        if self.bg_color:
+            self.bg_surf = pygame.Surface((self.bg_rect.width, self.bg_rect.height))
+            self.bg_surf.fill(self.bg_color)
+            if len(self.bg_color) == 4 and self.bg_color[3] != 255:
+                self.bg_surf.set_alpha(self.bg_color[3])
+
+    def create_fg_surf(self):
+        """Create the surface that represents the foreground of the object."""
+        if self.image:
+            if len(self.color) == 4 and self.color[3] != 255:
+                self.fg_surf = self.image.copy()
+                pixelarray = pygame.PixelArray(self.fg_surf)
+                for x in range(self.image.get_width()):
+                    for y in range(self.image.get_height()):
+                        pixel = self.image.unmap_rgb(pixelarray[x, y])
+                        if not pixel[3] == 0:
+                            pixelarray[x, y] = self.image.map_rgb(pixel[:3] + (int(pixel[3] * self.color[3] / 255),))
+            else:
+                self.fg_surf = self.image
+
+    def create_surfaces(self):
+        self.create_bg_surf()
+        self.create_fg_surf()
 
     def draw(self, surface):
-        if self.bg_color:
-            surface.fill(self.bg_color, self.background_rect)
-        surface.blit(self.image, self.rect)
+        if hasattr(self, 'bg_surf') and self.bg_surf:
+            surface.blit(self.bg_surf, self.bg_rect)
+        if hasattr(self, 'fg_surf') and self.fg_surf:
+            surface.blit(self.fg_surf, self.fg_rect)
 
     def check_collision(self, point):
-        return self.rect.collidepoint(point)
+        return self.bg_rect.collidepoint(point)
 
     @property
     def attributes(self):

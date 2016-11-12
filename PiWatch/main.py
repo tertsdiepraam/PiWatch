@@ -44,16 +44,17 @@ else:
 def start_app(app_name, screen):
     global apps, current_app, main_eventqueue
     if current_app:
-        main_eventqueue.add(Event('closed app ' + current_app.name))
+        main_eventqueue.add(Event('closed app {}'.format(current_app.name)))
     current_app = apps[app_name]
     current_app.start(screen)
-    main_eventqueue.add(Event('started app ' + current_app.name))
+    main_eventqueue.add(Event('started app {}'.format(current_app.name)))
+    print('started app ' + current_app.name)
 
 
 def start_service(service_name):
     global services, current_services, main_eventqueue
     current_services.append(services[service_name])
-    main_eventqueue.add(Event('start service ' + service_name))
+    main_eventqueue.add(Event('started service {}'.format(service_name)))
 
 
 def start_overlay(overlay_name, screen):
@@ -61,7 +62,7 @@ def start_overlay(overlay_name, screen):
     overlay = overlays[overlay_name]
     current_overlays.append(overlay)
     overlay.start(screen)
-    main_eventqueue.add(Event('start overlay ' + overlay_name))
+    main_eventqueue.add(Event('started overlay {}'.format(overlay_name)))
 
 
 def load_apps_and_services():

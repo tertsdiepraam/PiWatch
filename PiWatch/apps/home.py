@@ -31,7 +31,7 @@ def define_app():
 
     # Activities
     main = Activity(name='main')
-    main.add(mainclock, maindate, cursor)
+    main.add(mainclock, maindate)
 
     # Add the activity to the app
     app.add(main)

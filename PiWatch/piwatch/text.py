@@ -1,9 +1,6 @@
 """This file provides the text classes for PiWatch-apps."""
-
 import time
-
 import pygame
-
 from .drawable import *
 
 
@@ -22,13 +19,12 @@ class Text(PiDrawable):
         self.pyfont = pygame.font.SysFont(self.font, self.size)
         self.render_image()
         self.set_position()
+        self.create_surfaces()
 
     def render_image(self):
-        if self.bg_color:
-            self.image = self.pyfont.render(self.message, True, self.color, self.bg_color)
-        else:
-            self.image = self.pyfont.render(self.message, True, self.color)
+        self.image = self.pyfont.render(self.message, True, self.color).convert_alpha()
         self.set_position()
+        self.create_surfaces()
 
 
 class Clock(Text):
@@ -53,8 +49,8 @@ class Clock(Text):
 
 class TextCursor(Text):  # just for testing. Provides a cursor when pygame.mouse.get_visible == False
     def set_position(self):
-        self.rect = self.image.get_rect()
-        self.rect.center = pygame.mouse.get_pos()
+        self.fg_rect = self.image.get_rect()
+        self.fg_rect.center = pygame.mouse.get_pos()
 
     def draw(self, surface):
         self.set_position()
@@ -71,11 +67,11 @@ class Date(Text):
         super().setup(parent)
         newtime = time.localtime()
         self.time = (newtime[2], newtime[1])
-        self.update(message=time.strftime("%A, %d %B",newtime))
+        self.update(message=time.strftime("%A, %d %B", newtime))
 
     def draw(self, surface):
         newtime = time.localtime()
         if self.time[0] != newtime[2] or self.time[1] != newtime[1]:
             self.time = (newtime[2], newtime[1])
-            self.update(message=time.strftime("%A, %d %B",newtime))
+            self.update(message=time.strftime("%A, %d %B", newtime))
         super().draw(surface)

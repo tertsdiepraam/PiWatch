@@ -50,7 +50,7 @@ def define_app():
 
     @app.event_listener('variable return')
     def got_apps(event):
-        rowsize = 2
+        rowsize = 4
         apps = sorted(filter(lambda x: x.name != 'appdrawer', list(event.data[1].values())), key=lambda x: x.name)
         rows = (apps[x:x+rowsize] for x in range(0, len(apps), rowsize))
         rows_in_grid = []
@@ -88,7 +88,7 @@ def define_app():
         grid.add(*rows_in_grid)
         for row in rows_in_grid:
             for item in row:
-                app.event_listener('mouse_down')(start_app_at_click(item))
+                app.event_listener('mouse down')(start_app_at_click(item))
 
     main.add(grid)
     app.add(main)

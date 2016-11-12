@@ -5,6 +5,7 @@ import sys
 import pygame
 
 if sys.platform == 'linux':
+    # Raspberry Pi GPIO setup
     import RPi.GPIO as GPIO
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -56,7 +57,7 @@ class Eventqueue:
                 self.add(Event('mouse_up', pos=event.pos))
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                self.add(Event('mouse_down', pos=event.pos))
+                self.add(Event('mouse down', pos=event.pos))
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
