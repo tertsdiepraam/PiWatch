@@ -13,20 +13,13 @@ def define_app():
     # Components
     mainclock = Clock(
         size=96,
-        position=('center', 0, -25)
+        position=('center', 0, -25),
+        separator=':'
     )
 
     maindate = Date(
         position=('center', 0, 30),
         size=25
-    )
-
-    cursor = TextCursor(
-        size=30,
-        color=(255, 255, 255),
-        position='midbottom',
-        font="Times New Roman",
-        message='O'
     )
 
     # Activities

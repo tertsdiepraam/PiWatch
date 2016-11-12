@@ -30,7 +30,8 @@ class Text(PiDrawable):
 class Clock(Text):
     DEFAULTATTRS = dict(
         Text.DEFAULTATTRS,
-        twentyfour=False
+        twentyfour=False,
+        separator=':'
     )
 
     def __init__(self, *attrs, **kwargs):
@@ -43,7 +44,7 @@ class Clock(Text):
             self.time = time.localtime()[3:5]
             hours = str(self.time[0]) if self.twentyfour else str(self.time[0] % 12)
             minutes = str(self.time[1]) if len(str(self.time[1])) > 1 else '0' + str(self.time[1])
-            self.update(message=hours+':'+minutes)
+            self.update(message=hours+self.separator+minutes)
         super().draw(surface)
 
 
