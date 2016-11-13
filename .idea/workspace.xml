@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/bluetooth/bluetooth.png" afterPath="$PROJECT_DIR$/PiWatch/apps/bluetooth/bluetooth.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" afterPath="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/calculator.py" afterPath="$PROJECT_DIR$/PiWatch/apps/calculator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/snake.py" afterPath="$PROJECT_DIR$/PiWatch/apps/snake.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TODO.md" afterPath="$PROJECT_DIR$/TODO.md" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -536,13 +531,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00053" summary="back to bluetooth basics">
-      <created>1475932367924</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1475932367924</updated>
-    </task>
     <task id="LOCAL-00054" summary="back to bluetooth basics">
       <created>1476292495504</created>
       <option name="number" value="00054" />
@@ -879,7 +867,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479031432234</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="first draft of snake (unplayable)">
+      <created>1479037203371</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1479037203371</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TodoView">
@@ -945,7 +940,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fuck you pycharm" />
     <MESSAGE value="fixed notification timing" />
     <MESSAGE value="..." />
     <MESSAGE value="bettah bluetooth&#10;" />
@@ -970,7 +964,8 @@
     <MESSAGE value="separator option for Clock" />
     <MESSAGE value="ADDED THE FREAKING CALCULATOR!!!" />
     <MESSAGE value="Updated TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated TODO" />
+    <MESSAGE value="first draft of snake (unplayable)" />
+    <option name="LAST_COMMIT_MESSAGE" value="first draft of snake (unplayable)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
