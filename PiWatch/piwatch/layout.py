@@ -173,9 +173,9 @@ class Grid(List):
             height = 0
             for row in self.children:
                 rects = [item.get_standalone_rect() for item in row]
-                row_widths.append(max(rect.width for rect in rects) * len(rects) + self.padding[0] * len(rects[:-1]))
+                row_widths.append(max(rect.width for rect in rects) * len(rects) + self.spacing * len(rects[:-1]))
                 height += max(rect.height for rect in rects)
-            height += self.padding[0] * len(self.children[:-1])
+            height += self.spacing * len(self.children[:-1])
             width = max(row_widths)
         return pygame.Rect(0, 0, width, height)
 
@@ -184,10 +184,10 @@ class Grid(List):
             child_rects = [item.get_standalone_rect() for row in self.children for item in row]
             item_height = max(rect.height for rect in child_rects)
             item_width = max(rect.width for rect in child_rects)
-            init_offset_x = self.bg_rect.left
-            init_offset_y = self.bg_rect.top
-            item_offset_x = item_width + self.padding[0]
-            item_offset_y = item_height + self.padding[1]
+            init_offset_x = self.fg_rect.left
+            init_offset_y = self.fg_rect.top
+            item_offset_x = item_width + self.spacing
+            item_offset_y = item_height + self.spacing
             if self.direction == 'down':
                 for y_index, row in enumerate(self.children):
                     for x_index, item in enumerate(row):

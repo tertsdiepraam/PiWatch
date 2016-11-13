@@ -28,5 +28,4 @@ def define_app():
 
     # Add the activity to the app
     app.add(main)
-
     return app

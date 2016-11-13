@@ -18,8 +18,6 @@ class Text(PiDrawable):
         self.parent = parent
         self.pyfont = pygame.font.SysFont(self.font, self.size)
         self.render_image()
-        self.set_position()
-        self.create_surfaces()
 
     def render_image(self):
         self.image = self.pyfont.render(self.message, True, self.color).convert_alpha()

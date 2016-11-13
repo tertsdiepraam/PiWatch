@@ -81,6 +81,7 @@ class PiDrawable:
             self.create_bg_surf()
         elif self.fixed_size:
             self.bg_rect = pygame.Rect(0, 0, self.fixed_size[0], self.fixed_size[1])
+            self.bg_rect.center = self.fg_rect.center
             self.create_bg_surf()
         else:
             self.bg_rect = self.fg_rect
