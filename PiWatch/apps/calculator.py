@@ -8,7 +8,8 @@ bttns = {}
 def define_app():
     # declare the app
     app = App(
-        name='Calculator'
+        name='Calculator',
+        icon='background.png'
     )
 
     # declare the main activity

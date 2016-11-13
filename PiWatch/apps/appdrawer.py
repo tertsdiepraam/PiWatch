@@ -24,6 +24,7 @@ def define_app():
         List.attributes,
         direction='down',
         alignment='midtop',
+        spacing=3,
         padding=3
     )
 
@@ -80,7 +81,7 @@ def define_app():
                 item = List(
                     itemattrs,
                     children=[icon, title],
-                    app_to_start=_app.name
+                    app_to_start=_app.name,
                 )
                 items_in_row.append(item)
             rows_in_grid.append(copy.deepcopy(items_in_row))
