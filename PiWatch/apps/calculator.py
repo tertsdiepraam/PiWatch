@@ -36,7 +36,7 @@ def define_app():
         size=23,
         bg_color=(76, 106, 156),
         message='1',
-        fixed_size=(55, 30)
+        fixed_size=(56, 30)
     )
 
     bttn_grid = Grid(
@@ -82,10 +82,19 @@ def define_app():
                     pass
                 else:
                     current_calc += char
-                calculation_text.update(message=current_calc)
+                if len(current_calc) > 14:
+                    calc_text = '...' + current_calc[int(len(current_calc)/14)*14-1:]
+                else:
+                    calc_text = current_calc
+                calculation_text.update(message=calc_text)
                 prev_answer = answer
                 try:
                     answer = eval(current_calc)
+                    if type(answer) is float:
+                        if answer % 1 == 0:
+                            answer = int(answer)
+                        else:
+                            answer = round(answer, 10)
                 except SyntaxError:
                     answer = prev_answer
                 answer_text.update(message=str(answer))

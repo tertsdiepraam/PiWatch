@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PiWatch/apps/snake.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/calculator.py" afterPath="$PROJECT_DIR$/PiWatch/apps/calculator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/home.py" afterPath="$PROJECT_DIR$/PiWatch/apps/home.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/drawable.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/drawable.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/text.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/text.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TODO.md" afterPath="$PROJECT_DIR$/TODO.md" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +29,7 @@
       <file leaf-file-name="layout.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/layout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
+            <state relative-caret-position="3600">
               <caret line="194" column="68" selection-start-line="194" selection-start-column="68" selection-end-line="194" selection-end-column="68" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
@@ -39,6 +37,32 @@
                 <element signature="e#5450#5626#0" expanded="false" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="snake.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PiWatch/apps/snake.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TODO.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TODO.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="120">
+                <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
           </provider>
         </entry>
       </file>
@@ -55,7 +79,7 @@
       <file leaf-file-name="bluetooth_app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
+            <state relative-caret-position="307">
               <caret line="173" column="18" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
               <folding>
                 <element signature="e#2860#3060#0" expanded="false" />
@@ -79,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calculator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="calculator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/apps/calculator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="720">
+              <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -116,26 +140,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
               <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notification.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -194,7 +198,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/PiWatch/apps/Stopwatch.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/clock_overlay.py" />
-        <option value="$PROJECT_DIR$/TODO.md" />
         <option value="$PROJECT_DIR$/PiWatch/apps/stopwatch.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/app.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/event.py" />
@@ -209,6 +212,8 @@
         <option value="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/calculator.py" />
+        <option value="$PROJECT_DIR$/TODO.md" />
+        <option value="$PROJECT_DIR$/PiWatch/apps/snake.py" />
       </list>
     </option>
   </component>
@@ -525,13 +530,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
-    </task>
-    <task id="LOCAL-00051" summary="idk">
-      <created>1475612051187</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1475612051188</updated>
     </task>
     <task id="LOCAL-00052" summary="back to bluetooth basics">
       <created>1475932362246</created>
@@ -869,7 +867,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478983998687</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="ADDED THE FREAKING CALCULATOR!!!">
+      <created>1479027181964</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1479027181965</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TodoView">
@@ -935,7 +940,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed them BLUETOOTH FINALLY, cleaned up home and update TODO" />
     <MESSAGE value="notification first thingy thingy" />
     <MESSAGE value="fuck you pycharm" />
     <MESSAGE value="fixed notification timing" />
@@ -960,7 +964,8 @@
     <MESSAGE value="blabla" />
     <MESSAGE value="WATERPROOF IS BACK BITCHES (and btw, there's transparency, spacing for lists and some &quot;unimportant&quot; optimizations)" />
     <MESSAGE value="separator option for Clock" />
-    <option name="LAST_COMMIT_MESSAGE" value="separator option for Clock" />
+    <MESSAGE value="ADDED THE FREAKING CALCULATOR!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADDED THE FREAKING CALCULATOR!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -982,13 +987,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="62" column="47" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1540">
@@ -1172,24 +1170,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TODO.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="140">
-            <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -1285,6 +1265,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#60#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/appdrawer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1305,7 +1303,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
+        <state relative-caret-position="307">
           <caret line="173" column="18" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
           <folding>
             <element signature="e#2860#3060#0" expanded="false" />
@@ -1316,17 +1314,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/calculator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+        <state relative-caret-position="720">
+          <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TODO.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="120">
+            <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/layout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
+        <state relative-caret-position="3600">
           <caret line="194" column="68" selection-start-line="194" selection-start-column="68" selection-end-line="194" selection-end-column="68" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
@@ -1336,20 +1353,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/snake.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#60#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/calculator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,21 +1,19 @@
 Core features, in order of priority:
- 1. Notification Alert
- 2. GPIO keys and PC counterparts for emulation
- 3. Animation
- 4. Text Wrapping --> Paragraph
+ 1. Notification Alert (kind of done)
+ 2. Animation
+ 3. Text Wrapping --> Paragraph
 
 Apps:
  1. Timer
- 2. Calculator
  3. Spotify
  4. Remote Picture
  5. Snake
 
-Not going to be implemented:
- - Button
- - ImageClickable
-
 Completed tasks:
+ - GPIO keys and PC counterparts ('Q', 'A' & 'Z' keys)
+ - WATERPROOF
+ - Calculator
+ - Transparency
  - Stopwatch
  - Grid
  - List
@@ -27,3 +25,7 @@ Completed tasks:
  - Services
  - Multithreading
  - Bluetooth Basics
+
+Not going to be implemented:
+ - Button, use: Text with event_listener('mouse down')
+ - ImageClickable, use: Text with event_listener('mouse down')
