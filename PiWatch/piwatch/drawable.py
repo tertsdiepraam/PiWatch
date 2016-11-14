@@ -13,7 +13,8 @@ class PiDrawable:
         function=None,
         padding=None,
         fixed_size=None,
-        color=(0, 0, 0, 255)
+        color=(0, 0, 0, 255),
+        visible=True
     )
 
     def __init__(self, *attrs, **kwargs):

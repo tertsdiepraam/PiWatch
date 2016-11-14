@@ -102,6 +102,7 @@ class EventListener:
             if event_type not in self.event_listeners.keys():
                 self.event_listeners[event_type] = []
             self.event_listeners[event_type].append(func)
+            return func
         return add_listener
 
     def get_event_listeners(self):

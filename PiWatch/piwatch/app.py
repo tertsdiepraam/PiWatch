@@ -6,7 +6,8 @@ from .event import EventListener
 
 
 class Activity(EventListener):
-    """Represents one "page" of an application. This contains Drawables."""
+    """Represents one "page" of an application. This contains Drawables.
+    """
     def __init__(self, name):
         self.name = name
         self.objects = []  # later objects are drawn OVER earlier objects
@@ -25,7 +26,8 @@ class Activity(EventListener):
 
     def draw(self, surface):
         for object in self.objects:
-            object.draw(surface)
+            if object.visible:
+                object.draw(surface)
 
 
 class App(EventHandler):
