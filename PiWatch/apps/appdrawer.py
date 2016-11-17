@@ -89,7 +89,7 @@ def define_app():
         grid.add(*rows_in_grid)
         for row in rows_in_grid:
             for item in row:
-                app.event_listener('mouse down')(start_app_at_click(item))
+                app.event_listener('mouse up')(start_app_at_click(item))
 
     main.add(grid)
     app.add(main)

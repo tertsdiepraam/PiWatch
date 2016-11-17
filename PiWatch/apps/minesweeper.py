@@ -4,6 +4,7 @@ import random
 running = False
 rows = 10
 columns = 7
+amount_of_mines = 15
 exclude_position = None
 
 
@@ -28,13 +29,33 @@ def define_app():
         position=('midbottom', 0, -3)
     )
 
-    def generate_grid(size_x, size_y, exclude_pos=None):
+    victory = Text(
+        message='VICTORY',
+        font='impact',
+        size=70,
+        color=(255, 255, 0)
+    )
+
+    start_again = Text(
+        message='click to start again',
+        size=20,
+        color=Color.WHITE
+    )
+
+    vic_text = List(
+        children=[victory, start_again],
+        direction='down',
+        bg_color=(0, 0, 0, 200),
+        padding=(200, 0),
+        visible=False
+    )
+
+    def generate_grid(size_x, size_y, num_mines, exclude_pos=None):
         """Creates a grid of mines and numbers in fields indicating the number of mines around them.
             -1 = mine
             0-8 = no mine"""
-        num_mines = 20
-        all_possible_positions = filter(lambda pos: pos != reversed(exclude_pos), ((iii, jjj) for jjj in range(size_x) for iii in range(size_y)))
-        mine_positions = random.sample(list(all_possible_positions), num_mines)
+        all_possible_positions = ((iii, jjj) for jjj in range(size_x) for iii in range(size_y))
+        mine_positions = random.sample(list(filter(lambda pos: pos != tuple(reversed(exclude_pos)), all_possible_positions)), num_mines)
         grid = []
         for row_num in range(size_x):
             row = []
@@ -55,15 +76,7 @@ def define_app():
                     grid[row][column] = neighbours
         return grid
 
-    @app.event_listener('started app {}'.format(app.name))
-    def boot(event):
-        global running, rows, columns
-        running = False
-        board.children = []
-        board.add(*[[Text(field_attrs, num=0) for _ in range(rows)] for _ in range(columns)])
-
-
-    @app.event_listener('mouse down')
+    @app.event_listener('mouse up')
     def mouse_down(event):
         global running, exclude_position
         if not running:
@@ -78,14 +91,15 @@ def define_app():
                     break
             if not exit_loop:
                 return
-            num_grid = generate_grid(columns, rows, exclude_position)
+            num_grid = generate_grid(columns, rows, amount_of_mines, exclude_position)
             grid = []
             for num_row in num_grid:
                 row = []
                 for num_field in num_row:
                     field = Text(
                         field_attrs,
-                        num=num_field
+                        num=num_field,
+                        uncovered=False
                     )
                     row.append(field)
                 grid.append(row)
@@ -94,15 +108,18 @@ def define_app():
             excluded_field = board.children[exclude_position[0]][exclude_position[1]]
             if excluded_field.num == 0:
                 excluded_field.update(
-                    bg_color=Color.BLACK
+                    bg_color=Color.BLACK,
+                    uncovered=True
                 )
             else:
                 excluded_field.update(
                     message=str(excluded_field.num),
-                    bg_color=Color.BLACK
+                    bg_color=Color.BLACK,
+                    uncovered=True
                 )
             board.update()
             running = True
+            vic_text.update(visible=False)
         else:
             for field in filter(lambda x: x.message == '', board.flat_children):
                 if field.check_collision(event.pos):
@@ -110,18 +127,29 @@ def define_app():
                         field.update(
                             message='X',
                             bg_color=Color.RED)
-                        running = True
+                        running = False
+                        break
                     elif field.num == 0:
                         field.update(
-                            bg_color=Color.BLACK
+                            bg_color=Color.BLACK,
+                            uncovered=True
                         )
                     else:
                         field.update(
                             message=str(field.num),
-                            bg_color=Color.BLACK)
+                            bg_color=Color.BLACK,
+                            uncovered=True)
+                    print(len(list(board.flat_children)))
+                    print(rows*columns - len(list(filter(lambda x: x.uncovered, board.flat_children))))
+                    if len(list(board.flat_children)) - len(list(filter(lambda x: x.uncovered, board.flat_children))) == amount_of_mines:
+                        running = False
+                        vic_text.update(visible=True)
                     break
             board.update()
 
-    main.add(board)
+    board.children = []
+    board.add(*[[Text(field_attrs, num=0) for _ in range(rows)] for _ in range(columns)])
+
+    main.add(board, vic_text)
     app.add(main)
     return app

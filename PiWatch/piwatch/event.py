@@ -54,7 +54,7 @@ class Eventqueue:
         # pygame specific event handling
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONUP:
-                self.add(Event('mouse_up', pos=event.pos))
+                self.add(Event('mouse up', pos=event.pos))
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 self.add(Event('mouse down', pos=event.pos))

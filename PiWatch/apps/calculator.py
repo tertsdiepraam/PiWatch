@@ -68,7 +68,7 @@ def define_app():
         bttn_grid.clear()
         bttn_grid.add(*grid)
 
-    @app.event_listener('mouse down')
+    @app.event_listener('mouse up')
     def mouse_down(event):
         global current_calc
         answer = ''
@@ -88,7 +88,6 @@ def define_app():
                 else:
                     calc_text = current_calc
                 calculation_text.update(message=calc_text)
-                prev_answer = answer
                 try:
                     answer = eval(current_calc)
                     if type(answer) is float:
@@ -97,7 +96,9 @@ def define_app():
                         else:
                             answer = round(answer, 10)
                 except SyntaxError:
-                    answer = prev_answer
+                    pass
+                except ZeroDivisionError:
+                    answer = 'division by zero'
                 answer_text.update(message=str(answer))
 
     main.add(calculation_text, answer_text, bttn_grid)
