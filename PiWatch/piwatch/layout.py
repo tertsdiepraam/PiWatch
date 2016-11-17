@@ -1,5 +1,6 @@
 from .drawable import *
 import pygame
+import itertools
 
 
 class Group(PiDrawable):
@@ -200,4 +201,4 @@ class Grid(List):
 
     @property
     def flat_children(self):
-        return [val for sublist in self.children for val in sublist]
+        return itertools.chain.from_iterable(self.children)
