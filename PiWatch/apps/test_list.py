@@ -1,7 +1,7 @@
 from piwatch import *
 
 
-def define_app():
+def define_bapp():
     app = App(
         name='list test'
     )

@@ -197,3 +197,7 @@ class Grid(List):
                             pygame.Rect(_x, _y, item_width, item_height),
                             self.alignment
                         )
+
+    @property
+    def flat_children(self):
+        return [val for sublist in self.children for val in sublist]

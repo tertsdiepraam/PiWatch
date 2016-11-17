@@ -71,7 +71,7 @@ def define_app():
         direction='right',
         position=('midbottom', 0, -40),
         children=[bttn_start_pause, bttn_reset],
-        padding=50,
+        spacing=50,
         alignment='center'
     )
 

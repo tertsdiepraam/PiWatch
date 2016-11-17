@@ -51,7 +51,7 @@ def define_app():
 
     @app.event_listener('variable return')
     def got_apps(event):
-        rowsize = 4
+        rowsize = 3
         apps = sorted(filter(lambda x: x.name != 'appdrawer', list(event.data[1].values())), key=lambda x: x.name)
         rows = (apps[x:x+rowsize] for x in range(0, len(apps), rowsize))
         rows_in_grid = []
