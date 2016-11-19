@@ -58,6 +58,7 @@ class Eventqueue:
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 self.add(Event('mouse down', pos=event.pos))
+                print("mouse up at {}".format(event.pos))
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
