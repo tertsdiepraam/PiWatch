@@ -41,29 +41,48 @@ class PiDrawable:
 
     def setup(self, parent):
         self.parent = parent
-        self.set_position()
-        self.create_surfaces()
+        self.full_render()
 
     def update(self, **kwargs):
+        set_pos, set_fg, set_bg, full_render = False, False, False, False
         if kwargs:
             self.set_attrs(kwargs)
-        self.render_image()
-        if 'position' in kwargs.keys():
+        else:
+            self.full_render()
+            return
+        if not {'message', 'font', 'size_x', 'size_y', 'filename'}.isdisjoint(set(kwargs.keys())):
+            full_render = True
+        else:
+            if 'position' in kwargs.keys():
+                set_pos = True
+            if 'color' in kwargs.keys():
+                if len(self.color) == 3:
+                    self.color += (255,)
+                set_fg = True
+            if not {'bg_color', 'padding', 'fixed_size'}.isdisjoint(set(kwargs.keys())):
+                if hasattr(self, 'bg_color') and self.bg_color:
+                    if len(self.bg_color) == 3:
+                        self.bg_color += (255,)
+                if type(self.padding) is int:
+                    self.padding = (self.padding, self.padding)
+                if type(self.fixed_size) is int:
+                    self.fixed_size = (self.fixed_size, self.fixed_size)
+                set_bg = True
+
+        if full_render:
+            self.full_render()
+            return
+        if set_pos:
             self.set_position()
-        if 'color'in kwargs.keys():
-            if len(self.color) == 3:
-                self.color += (255,)
+        if set_fg:
             self.create_fg_surf()
-        if hasattr(self, 'bg_color') and self.bg_color:
-            if len(self.bg_color) == 3:
-                self.bg_color += (255,)
-                self.create_bg_surf()
-        if type(self.padding) is int:
-            self.padding = (self.padding, self.padding)
+        if set_bg:
             self.create_bg_surf()
-        if type(self.fixed_size) is int:
-            self.fixed_size = (self.fixed_size, self.fixed_size)
-            self.create_bg_surf()
+
+    def full_render(self):
+        self.render_image()
+        self.set_position()
+        self.create_surfaces()
 
     def set_position(self):
         self.fg_rect = self.image.get_rect()
@@ -79,14 +98,11 @@ class PiDrawable:
             raise AttributeError("Drawable " + str(type(self)) + " can't have both padding and fixed_size attributes")
         if self.padding:
             self.bg_rect = self.fg_rect.inflate(self.padding[0], self.padding[1])
-            self.create_bg_surf()
         elif self.fixed_size:
             self.bg_rect = pygame.Rect(0, 0, self.fixed_size[0], self.fixed_size[1])
             self.bg_rect.center = self.fg_rect.center
-            self.create_bg_surf()
         else:
             self.bg_rect = self.fg_rect
-            self.create_bg_surf()
 
     def get_standalone_rect(self):
         rect = self.image.get_rect()
@@ -148,6 +164,9 @@ class PiDrawable:
 
     def check_collision(self, point):
         return self.bg_rect.collidepoint(point)
+
+    def render_image(self):
+        raise NotImplementedError("Render Image is specific for subclasses and needs to be defined.")
 
     @property
     def attributes(self):

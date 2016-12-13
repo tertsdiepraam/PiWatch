@@ -16,12 +16,14 @@ if sys.platform == 'linux':
     GPIO.add_event_detect(18, GPIO.RISING)
 
 class Event:
-    def __init__(self, event_type, key=None, pos=None, data=None):
+    def __init__(self, event_type, source=None, target=None, data=None, key=None, pos=None):
         self.timestamp = datetime.datetime.now().time()
         self.type = event_type
+        self.source = source
+        self.target = target
+        self.data = data
         self.key = key
         self.pos = pos
-        self.data = data
 
 
 class Eventqueue:
@@ -29,8 +31,15 @@ class Eventqueue:
         self.events = []
         self.time = datetime.datetime.now().time()
 
-    def add(self, *args):
+    def add(self, *args, **kwargs):
+        if len(args) == 1 and type(args[0]) is str:
+            if 'data' in kwargs.keys():
+                self.events.append(Event(args[0], data=kwargs['data'], source=self))
+            else:
+                self.events.append(Event(args[0]), source=self)
         for event in args:
+            if not hasattr(event, 'source'):
+                event.source = self
             self.events.append(event)
 
     def clear(self):
@@ -62,6 +71,7 @@ class Eventqueue:
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
                     sys.exit()
                 elif event.key == pygame.K_q:
                     pass
@@ -86,10 +96,14 @@ class Eventqueue:
     def broadcast(self, *targets, clear=True):
         for event in self.events:
             if not event: continue
-            for target in targets:
-                if event.type in target.get_event_listeners().keys():
-                    for func in target.get_event_listeners()[event.type]:
-                        func(event)
+            if event.target:
+                for func in event.target.get_event_listeners()[event.type]:
+                    func(event)
+            else:
+                for target in targets:
+                    if event.type in target.get_event_listeners().keys():
+                        for func in target.get_event_listeners()[event.type]:
+                            func(event)
         if clear:
             self.clear()
 

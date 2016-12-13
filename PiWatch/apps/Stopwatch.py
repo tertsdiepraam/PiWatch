@@ -5,7 +5,8 @@ import time
 def define_app():
     app = App(
         name='Stopwatch',
-        bg_color=(63, 68, 84)
+        bg_color=(63, 68, 84),
+        icon='icon.png'
     )
 
     main = Activity(

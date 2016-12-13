@@ -126,7 +126,7 @@ def handle_main_events(main_events):
                 start_overlay('notification', screen)
             main_eventqueue.add(Event('notification', data=event.data))
         elif event.type == 'main get variable':
-            main_eventqueue.add(Event('variable return', data=(event.data, main_variables[event.data])))
+            main_eventqueue.add(Event('variable return', target=event.source, data=(event.data, main_variables[event.data])))
         elif event.type == 'main set variable':
             main_variables[event.data[0]] = event.data[1]
         elif event.type == 'main exit':
@@ -148,10 +148,12 @@ def run():
         pygame.mouse.set_visible(False)
     else:
         screen = pygame.display.set_mode(screenres)
+    pygame.display.set_caption("PiWatch")
     main_variables = {
         'apps': apps,
         'overlays': overlays,
-        'services': services
+        'services': services,
+        'bt_connected': False
     }
     main_eventqueue = Eventqueue()
     main_eventqueue.add(Event('boot'))

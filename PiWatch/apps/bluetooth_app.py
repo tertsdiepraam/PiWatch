@@ -7,7 +7,6 @@ client_address = None
 abort_connection = False
 connection_active = False
 
-
 def define_services():
     service = Service(
         name='bluetooth service'
@@ -35,7 +34,7 @@ def define_services():
         self_sock.listen(1)
 
         uuid = "bcfa2015-0e37-429b-8907-5b434f9b9093"
-        bt_service_name = "PiWatch Android Connection Server"
+        bt_service_name = "PiWatch Android Connection Service"
         bluetooth.advertise_service(self_sock, bt_service_name,
                                     service_id=uuid,
                                     service_classes=[uuid, bluetooth.SERIAL_PORT_CLASS],
@@ -47,11 +46,14 @@ def define_services():
             client_sock, client_address = self_sock.accept()
         except OSError:
             if abort_connection:
+                print('bt connection aborted')
                 service.global_eventqueue.add(Event('bt connection aborted'))
             else:
+                print('bt connection failed')
                 service.global_eventqueue.add(Event('bt connection failed'))
             bt_clean_up()
         except:
+            print('bt connection failed')
             service.global_eventqueue.add(Event('bt connection failed'))
             bt_clean_up()
         else:

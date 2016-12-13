@@ -15,15 +15,11 @@ class Text(PiDrawable):
     )
 
     def setup(self, parent):
-        """Called when the app is opened"""
-        self.parent = parent
         self.pyfont = pygame.freetype.SysFont(self.font, self.size)
-        self.render_image()
+        super().setup(parent)
 
     def render_image(self):
         self.image = self.pyfont.render(self.message, self.color)[0].convert_alpha()
-        self.set_position()
-        self.create_surfaces()
 
 
 class Clock(Text):

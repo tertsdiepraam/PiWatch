@@ -5,28 +5,29 @@ import itertools
 from piwatch import *
 import time
 
-seconds_till_frame = 0.25
+seconds_till_frame = 0.15
 score = 0
 time_prev_frame = time.time()
 snake = []
 rows = 13
 columns = 20
-box_size = 14
+box_size = 15
 LEFT = 'left'
-RIGHT = 'RIGHT'
+RIGHT = 'right'
 UP = 'up'
 DOWN = 'down'
 direction = 'right'
-snake_color = Color.RED
-goal_color = Color.GREEN
-board_color = (50, 50, 50)
+snake_color = (255, 255, 255)
+goal_color = (50, 50, 255)
+board_color = (0, 0, 0)
 running = True
 goal = None
 
 
 def define_app():
     app = App(
-        name='Snake'
+        name='Snake',
+        icon='icon.png'
     )
 
     main = Activity(
@@ -38,13 +39,14 @@ def define_app():
         message='',
         size=1,
         fixed_size=box_size,
-        bg_color=board_color
+        bg_color=board_color,
     )
 
     board = Grid(
-        children=[[Text(box_attrs) for j in range(columns)] for i in range(rows)],
-        spacing=2,
-        position=('center', 0, 10)
+        children=[[Text(box_attrs) for _ in range(columns)] for _ in range(rows)],
+        spacing=1,
+        position=('center', 0, 10),
+        bg_color=(30, 30, 30)
     )
 
     score_text = Text(
@@ -65,8 +67,8 @@ def define_app():
         font='impact',
         message='Try Again',
         padding=10,
-        bg_color=Color.GREEN,
-        color=Color.BLACK,
+        bg_color=(0, 0, 255),
+        color=Color.WHITE,
         position=('center', 0, 60)
     )
 

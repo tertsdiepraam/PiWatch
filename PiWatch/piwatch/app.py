@@ -40,7 +40,7 @@ class App(EventHandler):
         self.activities = {}
         self.mainactivity = 'main'
         self.current_activity = None
-        self.folder = 'apps' + os.sep + name.lower() + os.sep
+        self.folder = ('apps' + os.sep + name.lower() + os.sep).replace(' ', '_')
         EventHandler.__init__(self)
 
     def start(self, parent):

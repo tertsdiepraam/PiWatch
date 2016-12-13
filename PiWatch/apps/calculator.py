@@ -2,6 +2,7 @@ from piwatch import *
 
 # variables
 current_calc = ''
+answer = ''
 bttns = {}
 
 
@@ -68,10 +69,9 @@ def define_app():
         bttn_grid.clear()
         bttn_grid.add(*grid)
 
-    @app.event_listener('mouse up')
+    @app.event_listener('mouse down')
     def mouse_down(event):
-        global current_calc
-        answer = ''
+        global current_calc, answer
         for button in bttns.keys():
             if button.check_collision(event.pos):
                 char = bttns[button]
@@ -80,7 +80,8 @@ def define_app():
                 elif char == 'C':
                     current_calc = ''
                 elif char == '=':
-                    pass
+                    if answer != 'division by zero':
+                        current_calc = str(answer)
                 else:
                     current_calc += char
                 if len(current_calc) > 14:
