@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="Added some pictures to Git">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PiWatch/apps/camera/bttn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PiWatch/apps/camera/bttn2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PiWatch/apps/camera_remote.py" />
+    <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/Stopwatch.py" afterPath="$PROJECT_DIR$/PiWatch/apps/Stopwatch.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" afterPath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/calculator.py" afterPath="$PROJECT_DIR$/PiWatch/apps/calculator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/home.py" afterPath="$PROJECT_DIR$/PiWatch/apps/home.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/snake.py" afterPath="$PROJECT_DIR$/PiWatch/apps/snake.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/main.py" afterPath="$PROJECT_DIR$/PiWatch/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/app.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/drawable.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/drawable.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/event.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/event.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/text.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/text.py" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -595,13 +582,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00062" summary="...">
-      <created>1476797016513</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1476797016513</updated>
-    </task>
     <task id="LOCAL-00063" summary="...">
       <created>1476797456183</created>
       <option name="number" value="00063" />
@@ -938,7 +918,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479570379572</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="A lot">
+      <created>1481658898614</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1481658898615</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1004,7 +991,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got rid of the horrible AttrSets, which were a terrible idea in the first place" />
     <MESSAGE value="Fixed lists" />
     <MESSAGE value="Added icons for home and bluetooth&#10;" />
     <MESSAGE value="Started grid, not well aligned" />
@@ -1029,7 +1015,8 @@
     <MESSAGE value="Minesweeper is playable!!!!" />
     <MESSAGE value="Converted pygame.font to pygame.freetype" />
     <MESSAGE value="Added some pictures to Git" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some pictures to Git" />
+    <MESSAGE value="A lot" />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
