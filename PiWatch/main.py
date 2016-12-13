@@ -22,7 +22,7 @@ services = {}
 
 # Settings
 screenres = (320, 240)  # Resolution of our TFT touchscreen
-if sys.platform == 'linux':
+if sys.platform == 'linux' and not debug_mode:
     os.putenv('SDL_VIDEODRIVER', 'fbcon')
     os.putenv('SDL_FBDEV', '/dev/fb1')
     os.putenv('SDL_MOUSEDRV', 'TSLIB')
