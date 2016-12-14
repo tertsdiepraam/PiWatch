@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/main.py" afterPath="$PROJECT_DIR$/PiWatch/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" afterPath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/text.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/text.py" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,9 +42,11 @@
           <file leaf-file-name="bluetooth_app.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-                  <folding />
+                <state relative-caret-position="800">
+                  <caret line="41" column="76" selection-start-line="41" selection-start-column="76" selection-end-line="41" selection-end-column="76" />
+                  <folding>
+                    <element signature="e#4582#6912#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -58,11 +61,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="text.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="text.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="500">
-                  <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+                <state relative-caret-position="120">
+                  <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
                   <folding>
                     <element signature="e#60#71#0" expanded="true" />
                   </folding>
@@ -70,7 +73,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="400">
@@ -256,16 +259,16 @@
         <option value="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/minesweeper.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/app.py" />
-        <option value="$PROJECT_DIR$/PiWatch/piwatch/text.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/drawable.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/camera_remote.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/event.py" />
-        <option value="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/home.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/calculator.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/snake.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/stopwatch.py" />
         <option value="$PROJECT_DIR$/PiWatch/main.py" />
+        <option value="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
+        <option value="$PROJECT_DIR$/PiWatch/piwatch/text.py" />
       </list>
     </option>
   </component>
@@ -366,6 +369,204 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="waterproof" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stopwatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="snake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="camera" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="calculator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bluetooth_overlay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bluetooth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiWatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appdrawer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -582,20 +783,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
-    </task>
-    <task id="LOCAL-00065" summary="...">
-      <created>1476797705863</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1476797705863</updated>
-    </task>
-    <task id="LOCAL-00066" summary="...">
-      <created>1476797730958</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1476797730958</updated>
     </task>
     <task id="LOCAL-00067" summary="...">
       <created>1476797759982</created>
@@ -926,7 +1113,21 @@
       <option name="project" value="LOCAL" />
       <updated>1481658970387</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="A lot">
+      <created>1481659606953</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1481659606953</updated>
+    </task>
+    <task id="LOCAL-00115" summary="A lot">
+      <created>1481659741643</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1481659741643</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TodoView">
@@ -945,20 +1146,20 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11643836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.50421494" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20043337" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20021646" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.49578503" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18959913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35211268" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18959913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35211268" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1163,6 +1364,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="160">
@@ -1170,9 +1374,6 @@
           </first_editor>
           <second_editor />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/functions.py">
@@ -1218,6 +1419,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TODO.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="200">
@@ -1230,9 +1434,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/__init__.py">
@@ -1292,24 +1493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
           <caret line="46" column="68" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-          <folding>
-            <element signature="e#60#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/appdrawer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1388,14 +1571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -1407,6 +1582,34 @@
             <element signature="e#1589#1765#0" expanded="false" />
             <element signature="e#1813#2037#0" expanded="false" />
             <element signature="e#2074#3563#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="41" column="76" selection-start-line="41" selection-start-column="76" selection-end-line="41" selection-end-column="76" />
+          <folding>
+            <element signature="e#4582#6912#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/appdrawer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#60#71#0" expanded="true" />
           </folding>
         </state>
       </provider>

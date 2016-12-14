@@ -7,6 +7,7 @@ client_address = None
 abort_connection = False
 connection_active = False
 
+
 def define_services():
     service = Service(
         name='bluetooth service'
@@ -151,9 +152,9 @@ def define_app():
     server_bttn = Text(
         message='start server',
         size=30,
-        position=('midbottom', 0, -30),
+        position=('midbottom', 0, -50),
         bg_color=(0, 0, 70),
-        padding=(30, 10)
+        padding=(30, 30)
     )
 
     def bttn_connection_active():
