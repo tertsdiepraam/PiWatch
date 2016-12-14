@@ -10,7 +10,7 @@ class Text(PiDrawable):
         PiDrawable.DEFAULTATTRS,
         size=20,
         color=(255, 255, 255),
-        font='robotothin',
+        font='roboto',
         message='Example Text'
     )
 
