@@ -1,6 +1,6 @@
 """This file provides the text classes for PiWatch-apps."""
 import time
-import pygame
+import os
 import pygame.freetype
 from .drawable import *
 
@@ -10,12 +10,16 @@ class Text(PiDrawable):
         PiDrawable.DEFAULTATTRS,
         size=20,
         color=(255, 255, 255),
-        font='roboto',
+        font='Roboto-Regular',
         message='Example Text'
     )
 
     def setup(self, parent):
-        self.pyfont = pygame.freetype.SysFont(self.font, self.size)
+        try:
+            self.pyfont = pygame.freetype.Font(
+                os.path.join(os.getcwd(), 'resources', 'fonts', self.font + '.ttf'), self.size)
+        except OSError:
+            self.pyfont = pygame.freetype.SysFont(self.font, self.size)
         super().setup(parent)
 
     def render_image(self):

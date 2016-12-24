@@ -7,8 +7,6 @@ Apps:
  1. Timer
  3. Spotify
  4. Remote Picture
- 5. Snake
- 6. Minesweeper
 
 Completed tasks:
  - GPIO keys and PC counterparts ('Q', 'A' & 'Z' keys)
@@ -26,6 +24,8 @@ Completed tasks:
  - Services
  - Multithreading
  - Bluetooth Basics
+ - Snake
+ - Minesweeper
 
 Not going to be implemented:
  - Button, use: Text with event_listener('mouse down')

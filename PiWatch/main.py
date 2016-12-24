@@ -155,7 +155,7 @@ def run():
         'services': services,
         'bt_connected': False
     }
-    main_eventqueue = Eventqueue()
+    main_eventqueue = Eventqueue('main')
     main_eventqueue.add(Event('boot'))
 
     current_services = []

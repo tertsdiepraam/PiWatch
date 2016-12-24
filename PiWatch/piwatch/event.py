@@ -15,6 +15,7 @@ if sys.platform == 'linux':
     GPIO.add_event_detect(16, GPIO.RISING)
     GPIO.add_event_detect(18, GPIO.RISING)
 
+
 class Event:
     def __init__(self, event_type, source=None, target=None, data=None, key=None, pos=None):
         self.timestamp = datetime.datetime.now().time()
@@ -27,20 +28,22 @@ class Event:
 
 
 class Eventqueue:
-    def __init__(self):
+    def __init__(self, link):
         self.events = []
         self.time = datetime.datetime.now().time()
+        self.link = link
 
     def add(self, *args, **kwargs):
         if len(args) == 1 and type(args[0]) is str:
             if 'data' in kwargs.keys():
-                self.events.append(Event(args[0], data=kwargs['data'], source=self))
+                self.events.append(Event(args[0], data=kwargs['data'], source=self.link))
             else:
-                self.events.append(Event(args[0]), source=self)
-        for event in args:
-            if not hasattr(event, 'source'):
-                event.source = self
-            self.events.append(event)
+                self.events.append(Event(args[0], source=self.link))
+        else:
+            for event in args:
+                if not hasattr(event, 'source'):
+                    event.source = self.link
+                self.events.append(event)
 
     def clear(self):
         self.events = []
@@ -126,7 +129,7 @@ class EventListener:
 
 class EventHandler(EventListener):
     def __init__(self):
-        self.eventqueue = Eventqueue()
-        self.global_eventqueue = Eventqueue()
+        self.eventqueue = Eventqueue(self)
+        self.global_eventqueue = Eventqueue(self)
         EventListener.__init__(self)
 

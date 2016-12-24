@@ -40,9 +40,9 @@ def define_app():
             connected = event.data[1]
             if connected:
                 if status != take_picture:
-                    app.eventqueue.add('bt send', data='camera remote open')
+                    app.global_eventqueue.add('bt send', data='camera remote open')
                 else:
-                    app.eventqueue.add('bt send', data='camera take picture')
+                    app.global_eventqueue.add('bt send', data='camera take picture')
             else:
                 info.update(message='Not connected to a smartphone')
 
