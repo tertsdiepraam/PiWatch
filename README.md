@@ -20,13 +20,16 @@ Make sure you have Python 3.5+.
 Make sure your device is Bluetooth compatible.
 
 The NOOBS installation of Rasbian should have the correct versions of
-Python, SDL, PyGame and the GPIO module. However, PyBluez must be
+Python, PyGame and the GPIO module. However, PyBluez must be
 installed separately with the following commands:
 ```
 sudo apt-get install python-bluez
 sudo apt-get install libbluetooth-dev
 sudo pip3 install pybluez
 ```
+
+Furthermore, SDL could be version 2, which is incompatible with PyGame.
+Make sure you have SDL 1.2
 
 Clone from this GitHub repository and you should be ready to rock your
 very own smartwatch.
