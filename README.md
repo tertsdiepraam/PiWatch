@@ -28,8 +28,11 @@ sudo apt-get install libbluetooth-dev
 sudo pip3 install pybluez
 ```
 
-Pull from this GitHub repository and you should be ready to rock your
+Clone from this GitHub repository and you should be ready to rock your
 very own smartwatch.
+```
+git clone https://github.com/TertsDiepraam/PiWatch.git 
+```
 
 ## Running
 Enter the PiWatch directory **inside** this repository and run:

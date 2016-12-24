@@ -61,8 +61,8 @@
               </provider>
               <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
                 <state split_layout="FIRST">
-                  <first_editor relative-caret-position="625">
-                    <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+                  <first_editor relative-caret-position="540">
+                    <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
                     <folding />
                   </first_editor>
                   <second_editor />
@@ -569,13 +569,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00071" summary="Separated fps counter into own overlay&#10;Created bluetooth overlay&#10;">
-      <created>1477473476039</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1477473476039</updated>
-    </task>
     <task id="LOCAL-00072" summary="Added the overlay type alias and differentiated them from normal apps in main.py">
       <created>1477476250441</created>
       <option name="number" value="00072" />
@@ -912,7 +905,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482576723913</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Updated README">
+      <created>1482577287511</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1482577287511</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TodoView">
@@ -978,7 +978,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started grid, not well aligned" />
     <MESSAGE value="appdrawer has functionality now" />
     <MESSAGE value="added buttons" />
     <MESSAGE value="updated dependencies" />
@@ -1003,7 +1002,8 @@
     <MESSAGE value="A lot" />
     <MESSAGE value="Roboto instead of Yu Gothic" />
     <MESSAGE value="Added fonts to github" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added fonts to github" />
+    <MESSAGE value="Updated README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1391,8 +1391,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="625">
-            <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+          <first_editor relative-caret-position="540">
+            <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
             <folding />
           </first_editor>
           <second_editor />
