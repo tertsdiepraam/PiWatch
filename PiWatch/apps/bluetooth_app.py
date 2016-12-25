@@ -30,7 +30,11 @@ def define_services():
             to incoming data."""
         global client_sock, self_sock, abort_connection, connection_active
         if sys.platform == 'linux':
-            subprocess.run(['sudo', 'hciconfig', 'hci0', 'piscan'])
+            process = subprocess.run(['sudo', 'hciconfig', 'hci0', 'piscan'])
+            if process.returncode == 0:
+                print("hci successful")
+            else:
+                print("Fuck you")
         connection_active = True
         self_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         port = 0
