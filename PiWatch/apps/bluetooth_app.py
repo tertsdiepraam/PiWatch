@@ -30,7 +30,7 @@ def define_services():
             to incoming data."""
         global client_sock, self_sock, abort_connection, connection_active
         if sys.platform == 'linux':
-            subprocess.call('sudo hciconfig hci0 piscan')
+            subprocess.run(['sudo', 'hciconfig', 'hci0', 'piscan'])
         connection_active = True
         self_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         port = 0
