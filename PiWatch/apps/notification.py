@@ -8,20 +8,22 @@ def define_overlay():
         name="notification"
     )
     title = Text(
-        color=(0, 0, 0),
-        size=20,
-        position=('midtop', 0, 0)
+        color=(255, 255, 255),
+        size=25,
     )
 
     text = Text(
-        color=(0, 0, 0),
-        size=17,
-        position=('midtop', 0, 25)
+        color=(255, 255, 255),
+        size=20,
     )
-    notification = Group(
+    notification = List(
         children=[title, text],
-        bg_color=(200, 200, 200),
-        padding=(40, 5)
+        bg_color=(150, 150, 150, 100),
+        fixed_size=(250, 55),
+        direction='down',
+        alignment='center',
+        spacing=5,
+        position=('midtop', 0, 20)
     )
 
     main = Activity(
@@ -39,10 +41,10 @@ def define_overlay():
         app.thread_count += 1
         title.update(message=event.data[1])
         text.update(message=event.data[2])
-        app.current_activity = main
+        app.set_activity('main')
         time.sleep(3)
         if app.thread_count == 1:
-            app.current_activity = empty
+            app.set_activity('empty')
         app.thread_count -= 1
 
     main.add(notification)

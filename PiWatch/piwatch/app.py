@@ -44,8 +44,8 @@ class App(EventHandler):
         EventHandler.__init__(self)
 
     def start(self, parent):
-        self.current_activity = self.activities[self.mainactivity]
-        self.current_activity.setup(parent)
+        self.parent = parent
+        self.set_activity('main')
 
     def add(self, *args):
         for activity in args:
@@ -64,6 +64,10 @@ class App(EventHandler):
             else:
                 d1[key] = value
         return d1
+
+    def set_activity(self, act_name):
+        self.current_activity = self.activities[act_name]
+        self.current_activity.setup(self.parent)
 
 
 class Overlay(App):
