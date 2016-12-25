@@ -19,10 +19,10 @@ def define_overlay():
         position=('midtop', 0, 25)
     )
     notification = Group(
+        children=[title, text],
         bg_color=(200, 200, 200),
         padding=(40, 5)
     )
-    notification.add(title, text)
 
     main = Activity(
         name='main'
