@@ -54,6 +54,11 @@ sudo python3 main.py -d
 ```
 
 ## Connecting to the Android device
+Before connecting with the smartphone, make sure grant every permission
+the app asks. Some of these must be granted in the setting of the phone.
+These include: Notification Access, Camera, Location, Bluetooth and
+Storage.
+
 Connecting the Android device to the smartphone is easy:
 First, open the bluetooth app on the smartwatch. This app has a button
 that says: `start server`. Touch it and watch the icon in the top right

@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" afterPath="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/notification.py" afterPath="$PROJECT_DIR$/PiWatch/apps/notification.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/waterproof.py" afterPath="$PROJECT_DIR$/PiWatch/apps/waterproof.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/app.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,26 +26,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="minesweeper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/minesweeper.py">
+      <file leaf-file-name="bluetooth_app.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="103" column="29" selection-start-line="103" selection-start-column="29" selection-end-line="103" selection-end-column="29" />
+            <state relative-caret-position="640">
+              <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#16#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bluetooth_app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding>
-                <element signature="e#178#4557#0" expanded="false" />
-              </folding>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="625">
+                <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -71,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notification.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="notification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state relative-caret-position="40">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -129,7 +132,7 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="-236">
               <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="e#564#735#0" expanded="false" />
@@ -209,12 +212,12 @@
         <option value="$PROJECT_DIR$/PiWatch/piwatch/text.py" />
         <option value="$PROJECT_DIR$/TODO.md" />
         <option value="$PROJECT_DIR$/PiWatch/apps/snake.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/waterproof.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/app.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/notification.py" />
+        <option value="$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -547,13 +550,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Added icons for home and bluetooth&#10;">
-      <created>1477503489551</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1477503489551</updated>
     </task>
     <task id="LOCAL-00078" summary="Added icons for home and bluetooth&#10;">
       <created>1477503493842</created>
@@ -891,7 +887,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482665999235</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="trying to fix notifications">
+      <created>1482667449484</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1482667449484</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1270,20 +1273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="701">
-            <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/snake.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="856">
@@ -1306,30 +1295,6 @@
           <caret line="51" column="42" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="42" />
           <folding>
             <element signature="e#60#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="e#178#4557#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding>
-            <element signature="e#564#735#0" expanded="false" />
-            <element signature="e#772#999#0" expanded="false" />
-            <element signature="e#1010#1189#0" expanded="false" />
-            <element signature="e#1589#1765#0" expanded="false" />
-            <element signature="e#2074#3563#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1361,14 +1326,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_overlay.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/waterproof.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -1377,11 +1334,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-236">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding>
+            <element signature="e#564#735#0" expanded="false" />
+            <element signature="e#772#999#0" expanded="false" />
+            <element signature="e#1010#1189#0" expanded="false" />
+            <element signature="e#1589#1765#0" expanded="false" />
+            <element signature="e#2074#3563#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_overlay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="625">
+            <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        <state relative-caret-position="40">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

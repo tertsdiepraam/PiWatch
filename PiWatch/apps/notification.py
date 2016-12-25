@@ -18,11 +18,11 @@ def define_overlay():
     )
     notification = List(
         children=[title, text],
-        bg_color=(150, 150, 150, 100),
+        bg_color=(50, 50, 50, 230),
         fixed_size=(250, 55),
         direction='down',
         alignment='center',
-        spacing=5,
+        spacing=10,
         position=('midtop', 0, 20)
     )
 
