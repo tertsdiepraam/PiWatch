@@ -30,9 +30,9 @@ def define_services():
             to incoming data."""
         global client_sock, self_sock, abort_connection, connection_active
         if sys.platform == 'linux':
-            process = subprocess.run(['sudo', 'hciconfig', 'hci0', 'piscan'])
-            if process.returncode == 0:
-                print("hci successful")
+            code = subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan'])
+            if not code:
+                print("ooowww yeah motherf*cker")
             else:
                 print("Fuck you")
         connection_active = True
