@@ -35,7 +35,7 @@ class Group(PiDrawable):
     def set_position(self):
         for child in self.children:
             child.set_position()
-        self.bg_rect = self.children[0].rect.unionall([child.rect for child in self.children[1:]])
+        self.bg_rect = self.children[0].bg_rect.unionall([child.bg_rect for child in self.children[1:]])
         print(self.bg_rect)
 
     def draw(self, surface):
