@@ -16,6 +16,7 @@ def define_overlay():
     )
 
     @overlay.event_listener('started app Home')
+    @overlay.event_listener('resumed app Home')
     def disappear(event):
         main.clear()
 
