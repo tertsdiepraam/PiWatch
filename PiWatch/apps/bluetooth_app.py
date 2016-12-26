@@ -30,7 +30,7 @@ def define_services():
             to incoming data."""
         global client_sock, self_sock, abort_connection, connection_active
         if sys.platform == 'linux':
-            # saves users the pain of making their device discoverable
+            # saves users the horrible pain of making their device discoverable
             code = subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan'])
             if not code:
                 print("ooowww yeah motherf*cker")

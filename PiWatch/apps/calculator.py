@@ -48,7 +48,6 @@ def define_app():
         padding=10
     )
 
-    # functions
     @app.event_listener('started app {}'.format(app.name))
     def boot(event):
         char_list = ['789+<',

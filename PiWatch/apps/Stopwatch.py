@@ -73,7 +73,7 @@ def define_app():
         position=('midbottom', 0, -40),
         children=[bttn_start_pause, bttn_reset],
         spacing=50,
-        alignment='center'
+        alignment='midtop'
     )
 
     stopwatch = Stopwatch(

@@ -46,8 +46,11 @@ def start_app(app_name, screen):
     if current_app:
         main_eventqueue.add(Event('closed app {}'.format(current_app.name)))
     current_app = apps[app_name]
-    current_app.start(screen)
-    main_eventqueue.add(Event('started app {}'.format(current_app.name)))
+    if not current_app.started:
+        current_app.start(screen)
+        main_eventqueue.add(Event('started app {}'.format(current_app.name)))
+    else:
+        main_eventqueue.add(Event('resumed app {}'.format(current_app.name)))
     print('started app ' + current_app.name)
 
 

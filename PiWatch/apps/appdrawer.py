@@ -43,12 +43,6 @@ def define_app():
     def start(event):
         app.global_eventqueue.add(Event('main get variable', data='apps'))
 
-    def start_app_at_click(item):
-        def func(event):
-            if item.check_collision(event.pos):
-                app.global_eventqueue.add(Event('main start app', data=item.app_to_start))
-        return func
-
     @app.event_listener('variable return')
     def got_apps(event):
         rowsize = 3
@@ -87,9 +81,14 @@ def define_app():
             rows_in_grid.append(copy.deepcopy(items_in_row))
         grid.clear()
         grid.add(*rows_in_grid)
-        for row in rows_in_grid:
+
+    @app.event_listener('mouse up')
+    def mouse_up(event):
+        for row in grid.children:
             for item in row:
-                app.event_listener('mouse up')(start_app_at_click(item))
+                if item.check_collision(event.pos):
+                    app_name = item.children[1].message
+                    app.global_eventqueue.add('main start app', data=app_name)
 
     main.add(grid)
     app.add(main)

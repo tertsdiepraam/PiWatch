@@ -12,7 +12,7 @@ def define_overlay():
     bt_icon = Image(
         filename=overlay.folder + '0.png',
         size_x=16,
-        position=('topright', -5, 5)
+        position=('topright', -5, 2)
     )
 
     @overlay.event_listener('bt start rfcomm server')

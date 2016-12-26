@@ -42,10 +42,12 @@ class App(EventHandler):
         self.current_activity = None
         self.folder = ('apps' + os.sep + name.lower() + os.sep).replace(' ', '_')
         EventHandler.__init__(self)
+        self.started = False
 
     def start(self, parent):
         self.parent = parent
         self.set_activity('main')
+        self.started = True
 
     def add(self, *args):
         for activity in args:
