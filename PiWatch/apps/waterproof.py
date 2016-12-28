@@ -33,6 +33,7 @@ def define_app():
         children=[instruction_1, instruction_2],
         position=('midtop', 0, 50),
         bg_color=(255, 255, 255, 150),
+        spacing=5
     )
 
     bttn = Text(

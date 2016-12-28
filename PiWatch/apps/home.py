@@ -2,17 +2,18 @@ from piwatch import *
 
 appsfolder = 'apps'
 
-
 NORMAL = 0
 HEX = 1
 BIN = 2
 NOW = 3
 num_states = 4
 
+
 class FunClock(Text):
     DEFAULTATTRS = dict(
         Clock.DEFAULTATTRS,
-        state=NORMAL
+        state=NORMAL,
+        twentyfour=True
     )
 
     def __init__(self, *attrs, **kwargs):

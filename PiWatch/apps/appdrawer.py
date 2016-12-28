@@ -17,7 +17,8 @@ def define_app():
         direction='down',
         alignment='midtop',
         padding=5,
-        position=('center', 0, 0)
+        position=('center', 0, 0),
+        spacing=5
     )
 
     itemattrs = dict(

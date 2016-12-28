@@ -12,7 +12,8 @@ def define_overlay():
 
     clock = Clock(
         size=17,
-        position=('topright', -25, 4)
+        position=('topright', -25, 4),
+        twentyfour=True
     )
 
     @overlay.event_listener('started app Home')
