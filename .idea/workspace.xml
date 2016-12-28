@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PiWatch/apps/notification_app.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/PiWatch/apps/notification.py" afterPath="$PROJECT_DIR$/PiWatch/apps/notification_overlay.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" afterPath="$PROJECT_DIR$/PiWatch/apps/appdrawer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/clock_overlay.py" afterPath="$PROJECT_DIR$/PiWatch/apps/clock_overlay.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/home.py" afterPath="$PROJECT_DIR$/PiWatch/apps/home.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/waterproof.py" afterPath="$PROJECT_DIR$/PiWatch/apps/waterproof.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/notification_app.py" afterPath="$PROJECT_DIR$/PiWatch/apps/notification_app.py" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -147,8 +141,8 @@
           <file leaf-file-name="notification_app.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification_app.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="214">
-                  <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+                <state relative-caret-position="274">
+                  <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -618,13 +612,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00085" summary="started stopwatch and fixed GPIO, hopefully">
-      <created>1477645727865</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1477645727865</updated>
-    </task>
     <task id="LOCAL-00086" summary="started stopwatch and fixed GPIO, hopefully">
       <created>1477645944361</created>
       <option name="number" value="00086" />
@@ -961,7 +948,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482747459523</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="First try at notifications app">
+      <created>1482929068966</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1482929068967</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1027,7 +1021,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="started stopwatch and fixed GPIO, hopefully" />
     <MESSAGE value="added icons to git" />
     <MESSAGE value="tying things" />
     <MESSAGE value="created a clock overlay" />
@@ -1052,7 +1045,8 @@
     <MESSAGE value="I'll be happy forever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever and ever..." />
     <MESSAGE value="Fixed multiple bugs concerning multiple starts of apps." />
     <MESSAGE value="Fixed clock overlay, which didn't respond to the new &quot;resumed app&quot; command." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed clock overlay, which didn't respond to the new &quot;resumed app&quot; command." />
+    <MESSAGE value="First try at notifications app" />
+    <option name="LAST_COMMIT_MESSAGE" value="First try at notifications app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1436,18 +1430,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/bluetooth_app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="126" column="13" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
           <folding />
         </state>
       </provider>
