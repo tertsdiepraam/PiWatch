@@ -33,9 +33,9 @@ def define_services():
             # saves users the horrible pain of making their device discoverable
             code = subprocess.call(['sudo', 'hciconfig', 'hci0', 'piscan'])
             if not code:
-                print("ooowww yeah motherf*cker")
+                print("enabled bluetooth")
             else:
-                print("Fuck you")
+                print("failed to enable bluetooth")
         connection_active = True
         self_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         port = 0
