@@ -76,7 +76,6 @@ def define_services():
                     data = client_sock.recv(data_size)
                     if data:
                         service.global_eventqueue.add(Event('bt data received', data=data))
-                        client_sock.send(data)
                         print("Received bluetooth data: " + str(data))
             except:
                 pass

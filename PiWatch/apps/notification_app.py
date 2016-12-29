@@ -46,6 +46,7 @@ def define_app():
         notification_list.clear()
         itemlist = []
         for notification in list:
+            print(notification)
             app_str, title_str, text_str = notification.split("|")
 
             itemlist.append(
