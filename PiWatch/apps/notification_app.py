@@ -16,7 +16,7 @@ def define_app():
     loadscreen.add(load_text)
 
     notification_list = List(
-        position=("topleft", 40, 25),
+        position=("topleft", 20, 25),
         alignment="topleft",
         spacing=5
     )
@@ -46,14 +46,13 @@ def define_app():
         notification_list.clear()
         itemlist = []
         for notification in list:
-            print(notification)
             app_str, title_str, text_str = notification.split("|")
 
             itemlist.append(
                 List(
                     alignment="topleft",
                     bg_color=(200, 200, 200),
-                    fixed_size=(240, 37),
+                    fixed_size=(280, 37),
                     children=[
                         Text(
                             color=(0, 0, 0),
