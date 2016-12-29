@@ -59,15 +59,15 @@ class PiDrawable:
                 if len(self.color) == 3:
                     self.color += (255,)
                 set_fg = True
-            if not {'bg_color', 'padding', 'fixed_size'}.isdisjoint(set(kwargs.keys())):
-                if hasattr(self, 'bg_color') and self.bg_color:
-                    if len(self.bg_color) == 3:
-                        self.bg_color += (255,)
-                if type(self.padding) is int:
-                    self.padding = (self.padding, self.padding)
-                if type(self.fixed_size) is int:
-                    self.fixed_size = (self.fixed_size, self.fixed_size)
-                set_bg = True
+        if not {'bg_color', 'padding', 'fixed_size'}.isdisjoint(set(kwargs.keys())):
+            if hasattr(self, 'bg_color') and self.bg_color:
+                if len(self.bg_color) == 3:
+                    self.bg_color += (255,)
+            if type(self.padding) is int:
+                self.padding = (self.padding, self.padding)
+            if type(self.fixed_size) is int:
+                self.fixed_size = (self.fixed_size, self.fixed_size)
+            set_bg = True
 
         if full_render:
             self.full_render()
