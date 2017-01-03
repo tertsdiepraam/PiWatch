@@ -5,7 +5,8 @@ status = 0
 
 def define_app():
     app = App(
-        name='Camera'
+        name='Camera',
+        icon='icon.png'
     )
 
     main = Activity(

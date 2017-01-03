@@ -3,20 +3,25 @@ from piwatch import *
 
 def define_bapp():
     app = App(
-        name='list test'
+        name='example'
     )
     main = Activity(
         name='main'
     )
-    listy = List(
-        children=[
-            Text(message='333'),
-            Text(message='22'),
-            Text(message='1')
-        ],
-        direction='down',
-        padding=5
+    text_1 = Text(
+        message="Click me!",
+        size=30
     )
-    main.add(listy)
+
+    @app.event_listener("mouse up")
+    def mouse_up(event):
+        if text_1.check_collision(event.pos):
+            text_1.update(size=text_1.size*1.2)
+
+    @app.event_listener("resumed app example")
+    def resume(event):
+        text_1.update(size=30)
+
+    main.add(text_1)
     app.add(main)
     return app

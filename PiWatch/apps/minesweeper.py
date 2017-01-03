@@ -10,7 +10,8 @@ exclude_position = None
 
 def define_app():
     app = App(
-        name='Minesweeper'
+        name='Minesweeper',
+        icon="icon.png"
     )
 
     main = Activity(

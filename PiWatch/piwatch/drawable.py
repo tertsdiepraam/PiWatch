@@ -50,7 +50,7 @@ class PiDrawable:
         else:
             self.full_render()
             return
-        if not {'message', 'font', 'size_x', 'size_y', 'filename'}.isdisjoint(set(kwargs.keys())):
+        if not {'message', 'font', 'size_x', 'size_y', 'filename', 'size'}.isdisjoint(set(kwargs.keys())):
             full_render = True
         else:
             if 'position' in kwargs.keys():
