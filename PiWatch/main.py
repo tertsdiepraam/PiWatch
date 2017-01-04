@@ -169,10 +169,10 @@ def run():
 
     # boot apps and services
     start_app('appdrawer', screen)
-    #start_overlay('fps counter', screen)
-    #start_overlay('bluetooth_overlay', screen)
-    #start_overlay('clock', screen)
-    #start_service('bluetooth service')
+    start_overlay('fps counter', screen)
+    start_overlay('bluetooth_overlay', screen)
+    start_overlay('clock', screen)
+    start_service('bluetooth service')
 
     # mainloop
     while True:

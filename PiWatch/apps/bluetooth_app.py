@@ -188,7 +188,6 @@ def define_app():
             if connection_active:
                 app.global_eventqueue.add(Event('bt abort connection'))
             else:
-                print("Starting rfcomm")
                 app.global_eventqueue.add(Event('bt start rfcomm server'))
                 status.update(message='Waiting for connection')
                 instructions.update(message='connect using the app')
