@@ -30,7 +30,7 @@ def define_app():
     @app.event_listener('resumed app Notifications')
     def get_notifications(event):
         load_text.update(message="Receiving Notifications...")
-        app.global_eventqueue.add('bt send', data="list notifications")
+        app.eventqueue.add('bt send', data="list notifications")
 
     @app.event_listener('bt send failed')
     def not_connected(event):

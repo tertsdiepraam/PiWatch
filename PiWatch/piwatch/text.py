@@ -5,9 +5,9 @@ import pygame.freetype
 from .drawable import *
 
 
-class Text(PiDrawable):
+class Text(Drawable):
     DEFAULTATTRS = dict(
-        PiDrawable.DEFAULTATTRS,
+        Drawable.DEFAULTATTRS,
         size=20,
         color=(255, 255, 255),
         font='Roboto-Regular',

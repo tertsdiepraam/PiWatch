@@ -3,6 +3,7 @@ start_app = 0
 take_picture = 1
 status = 0
 
+
 def define_app():
     app = App(
         name='Camera',
@@ -25,7 +26,7 @@ def define_app():
 
     @app.event_listener('started app {}'.format(app.name))
     def boot(event):
-        app.global_eventqueue.add('bt send', data='camera remote open')
+        app.eventqueue.add('bt send', data='camera remote open')
         bttn.update(
             visible=True
         )
@@ -34,7 +35,7 @@ def define_app():
     def mouse_down(event):
         if bttn.check_collision(event.pos):
             bttn.update(filename=app.folder + 'bttn2.png')
-            app.global_eventqueue.add('bt send', data='camera take picture')
+            app.eventqueue.add('bt send', data='camera take picture')
 
     @app.event_listener('bt send failed')
     def failed(event):

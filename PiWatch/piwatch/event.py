@@ -17,9 +17,9 @@ if sys.platform == 'linux':
 
 
 class Event:
-    def __init__(self, event_type, source=None, target=None, data=None, key=None, pos=None):
+    def __init__(self, tag, source=None, target=None, data=None, key=None, pos=None):
         self.timestamp = datetime.datetime.now().time()
-        self.type = event_type
+        self.tag = tag
         self.source = source
         self.target = target
         self.data = data
@@ -91,7 +91,7 @@ class Eventqueue:
             if type(handler) is Eventqueue:
                 queue = handler
             else:
-                queue = handler.global_eventqueue
+                queue = handler.eventqueue
             self.events += queue.events
             if clear:
                 queue.clear()
@@ -100,12 +100,12 @@ class Eventqueue:
         for event in self.events:
             if not event: continue
             if event.target:
-                for func in event.target.get_event_listeners()[event.type]:
+                for func in event.target.get_event_listeners()[event.tag]:
                     func(event)
             else:
                 for target in targets:
-                    if event.type in target.get_event_listeners().keys():
-                        for func in target.get_event_listeners()[event.type]:
+                    if event.tag in target.get_event_listeners().keys():
+                        for func in target.get_event_listeners()[event.tag]:
                             func(event)
         if clear:
             self.clear()
@@ -130,6 +130,5 @@ class EventListener:
 class EventHandler(EventListener):
     def __init__(self):
         self.eventqueue = Eventqueue(self)
-        self.global_eventqueue = Eventqueue(self)
         EventListener.__init__(self)
 

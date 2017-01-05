@@ -42,7 +42,7 @@ def define_app():
 
     @app.event_listener('started app ' + app.name)
     def start(event):
-        app.global_eventqueue.add(Event('main get variable', data='apps'))
+        app.eventqueue.add(Event('main get variable', data='apps'))
 
     @app.event_listener('variable return')
     def got_apps(event):
@@ -89,7 +89,7 @@ def define_app():
             for item in row:
                 if item.check_collision(event.pos):
                     app_name = item.children[1].message
-                    app.global_eventqueue.add('main start app', data=app_name)
+                    app.eventqueue.add('main start app', data=app_name)
 
     main.add(grid)
     app.add(main)

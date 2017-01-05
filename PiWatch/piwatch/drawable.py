@@ -4,12 +4,11 @@ import pygame
 
 
 # All drawable classes must inherit from this class
-class PiDrawable:
+class Drawable:
     """Base class for drawables, takes an AttrSet object and additional kwargs as arguments"""
     DEFAULTATTRS = dict(
         bg_color=None,
         position=('center', 0, 0),
-        image=None,
         function=None,
         padding=None,
         fixed_size=None,
@@ -34,6 +33,7 @@ class PiDrawable:
         if hasattr(self, 'bg_color'):
             if self.bg_color and len(self.bg_color) == 3:
                 self.bg_color += (255,)
+        self.image = None
 
     def set_attrs(self, attrdict):
         for attr, value in attrdict.items():

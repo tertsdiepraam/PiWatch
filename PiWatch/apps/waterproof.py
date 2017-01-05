@@ -65,7 +65,7 @@ def define_app():
             instructions.update()
             bttn.update(color=(0, 0, 0, 150),
                         bg_color=(255, 255, 255, 50))
-            #app.global_eventqueue.add(Event('main notification', data=["lala", "blablabla", "lololol"])) # for testing notifications
+            #app.eventqueue.add(Event('main notification', data=["lala", "blablabla", "lololol"])) # for testing notifications
 
     main.add(background_image, instructions, bttn)
     app.add(main)

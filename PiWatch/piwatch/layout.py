@@ -3,9 +3,9 @@ import pygame
 import itertools
 
 
-class Group(PiDrawable):
+class Group(Drawable):
     DEFAULTATTRS = dict(
-        PiDrawable.DEFAULTATTRS,
+        Drawable.DEFAULTATTRS,
         children=[]
     )
 
@@ -47,7 +47,7 @@ class Group(PiDrawable):
 
 class List(Group):
     DEFAULTATTRS = dict(
-        PiDrawable.DEFAULTATTRS,
+        Drawable.DEFAULTATTRS,
         direction='down',
         alignment='midtop',
         children=[],

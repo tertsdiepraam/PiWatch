@@ -4,9 +4,9 @@ import pygame
 from .drawable import *
 
 
-class Image(PiDrawable):
+class Image(Drawable):
     DEFAULTATTRS = dict(
-        PiDrawable.DEFAULTATTRS,
+        Drawable.DEFAULTATTRS,
         filename=None,
         size_x=None,
         size_y=None

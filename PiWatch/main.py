@@ -111,28 +111,28 @@ def load_apps_and_services():
 
 def handle_main_events(main_events):
     for event in main_events:
-        if event.type == 'main start app':
+        if event.tag == 'main start app':
             start_app(event.data, screen)
-        elif event.type == 'main start service':
+        elif event.tag == 'main start service':
             start_service(event.data)
-        elif event.type == 'main close service':
+        elif event.tag == 'main close service':
             for service in filter(lambda s: s.name == event.data, current_services):
                 current_services.remove(service)
-        elif event.type == 'main start overlay':
+        elif event.tag == 'main start overlay':
             start_overlay(event.data, screen)
-        elif event.type == 'main close overlay':
+        elif event.tag == 'main close overlay':
             print("Closing:", event.data)
             for overlay in filter(lambda o: o.name == event.data, current_overlays):
                 current_overlays.remove(overlay)
-        elif event.type == 'main notification':
+        elif event.tag == 'main notification':
             if 'notification' not in (overlay.name for overlay in current_overlays):
                 start_overlay('notification', screen)
             main_eventqueue.add(Event('notification', data=event.data))
-        elif event.type == 'main get variable':
+        elif event.tag == 'main get variable':
             main_eventqueue.add(Event('variable return', target=event.source, data=(event.data, main_variables[event.data])))
-        elif event.type == 'main set variable':
+        elif event.tag == 'main set variable':
             main_variables[event.data[0]] = event.data[1]
-        elif event.type == 'main exit':
+        elif event.tag == 'main exit':
             sys.exit()
         else:
             print("Main event not recognised: ", event)
@@ -179,7 +179,7 @@ def run():
         # events
         main_eventqueue.import_events(current_app, *current_services)
         main_eventqueue.add(Event('new frame', data=main_variables['fps']))
-        events_for_main = filter(lambda e: e.type[:4] == 'main', main_eventqueue.events)
+        events_for_main = filter(lambda e: e.tag[:4] == 'main', main_eventqueue.events)
         main_eventqueue.handle_events()
         main_eventqueue.broadcast(current_app, *(current_services + current_overlays))
         handle_main_events(events_for_main)
