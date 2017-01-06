@@ -23,8 +23,11 @@ class Text(Drawable):
         super().setup(parent)
 
     def render_image(self):
-        self.pyfont = pygame.freetype.Font(
-            os.path.join(os.getcwd(), 'resources', 'fonts', self.font + '.ttf'), self.size)
+        try:
+            self.pyfont = pygame.freetype.Font(
+                os.path.join(os.getcwd(), 'resources', 'fonts', self.font + '.ttf'), self.size)
+        except OSError:
+            self.pyfont = pygame.freetype.SysFont(self.font, self.size)
         self.image = self.pyfont.render(self.message, self.color)[0].convert_alpha()
 
 
