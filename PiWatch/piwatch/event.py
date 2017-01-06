@@ -57,11 +57,11 @@ class Eventqueue:
         # RPi GPIO input event handling
         if sys.platform == 'linux':
             if GPIO.event_detected(12):
-                pass
+                self.add('main sleep')
             if GPIO.event_detected(16):
-                self.add(Event('main start app', data='Home'))
+                self.add('main start app', data='Home')
             if GPIO.event_detected(18):
-                self.add(Event('main start app', data='appdrawer'))
+                self.add('main start app', data='appdrawer')
 
         # pygame specific event handling
         for event in pygame.event.get():
@@ -77,11 +77,11 @@ class Eventqueue:
                     pygame.quit()
                     sys.exit()
                 elif event.key == pygame.K_q:
-                    pass
+                    self.add('main sleep')
                 elif event.key == pygame.K_a:
-                    self.add(Event('main start app', data='Home'))
+                    self.add('main start app', data='Home')
                 elif event.key == pygame.K_z:
-                    self.add(Event('main start app', data='appdrawer'))
+                    self.add('main start app', data='appdrawer')
 
             elif event.type == pygame.QUIT:
                 sys.exit()

@@ -95,12 +95,13 @@ def define_services():
 
     @service.event_listener('bt data received')
     def send_notifications(event):
-        info = event.data.decode("utf-8").split("|")
-        if info[0] == 'notification posted':
-            app = info[1].split(".")[1]
-            title = info[2]
-            text = info[3] if info[3] != 'null' else ""
-            service.eventqueue.add(Event('main notification', data=[app, title, text]))
+        for thing in event.data.decode("utf-8").split("||"):
+            info = thing.split("|")
+            if info[0] == 'notification posted':
+                app = info[1].split(".")[1]
+                title = info[2]
+                text = info[3] if info[3] != 'null' else ""
+                service.eventqueue.add(Event('main notification', data=[app, title, text]))
 
     @service.event_listener('bt discover')
     @threaded

@@ -4,6 +4,7 @@ import os
 import sys
 from piwatch import *
 import pygame
+import time
 
 assert sys.version_info >= (3, 0)
 
@@ -19,6 +20,7 @@ main_eventqueue = None
 apps = {}
 overlays = {}
 services = {}
+sleep = False
 
 # Settings
 screenres = (320, 240)  # Resolution of our TFT touchscreen
@@ -110,6 +112,7 @@ def load_apps_and_services():
 
 
 def handle_main_events(main_events):
+    global sleep
     for event in main_events:
         if event.tag == 'main start app':
             start_app(event.data, screen)
@@ -132,6 +135,8 @@ def handle_main_events(main_events):
             main_eventqueue.add(Event('variable return', target=event.source, data=(event.data, main_variables[event.data])))
         elif event.tag == 'main set variable':
             main_variables[event.data[0]] = event.data[1]
+        elif event.tag == 'main sleep':
+            pass
         elif event.tag == 'main exit':
             sys.exit()
         else:
@@ -143,7 +148,7 @@ def run():
     Main function of the PiWatch
     """
     # PiWatch boot procedure
-    global apps, services, overlays, current_app, current_services, current_overlays, screen, main_variables, main_eventqueue
+    global apps, services, overlays, current_app, current_services, current_overlays, screen, main_variables, main_eventqueue, sleep
     apps, services, overlays = load_apps_and_services()
     pygame.init()
     if sys.platform == 'linux' and not debug_mode:
@@ -178,9 +183,21 @@ def run():
     while True:
         # events
         main_eventqueue.import_events(current_app, *current_services)
-        main_eventqueue.add(Event('new frame', data=main_variables['fps']))
+        main_eventqueue.add('new frame', data=main_variables['fps'])
         events_for_main = filter(lambda e: e.tag[:4] == 'main', main_eventqueue.events)
         main_eventqueue.handle_events()
+        if sleep:
+            if 'main sleep' in (event.tag for event in main_eventqueue.events):
+                sleep = False
+            else:
+                main_eventqueue.clear()
+                pygame.time.wait(300)
+                screen.fill((0, 0, 0))
+                pygame.display.flip()
+                continue
+        else:
+            if 'main sleep' in (event.tag for event in main_eventqueue.events):
+                sleep = True
         main_eventqueue.broadcast(current_app, *(current_services + current_overlays))
         handle_main_events(events_for_main)
 
