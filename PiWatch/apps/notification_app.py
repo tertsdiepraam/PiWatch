@@ -72,13 +72,6 @@ def define_app():
 
         notification_list.add(*itemlist)
         app.set_activity("list")
-        print(notification_list.fg_rect)
-        print(notification_list.children[0].bg_rect)
-        print(notification_list.children[0].children[0].bg_rect)
-        print()
-        print(notification_list.alignment)
-        print(notification_list.children[0].alignment)
-        print()
 
     app.add(loadscreen, list_screen)
     return app
