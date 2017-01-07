@@ -3,7 +3,8 @@ from piwatch import *
 
 def define_app():
     app = App(
-        name='Waterproof'
+        name='Waterproof',
+        icon='icon.png'
     )
 
     main = Activity(

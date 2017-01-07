@@ -3,7 +3,8 @@ from piwatch import *
 
 def define_app():
     app = App(
-        name='Notifications'
+        name='Notifications',
+        icon='icon.png'
     )
 
     loadscreen = Activity(
