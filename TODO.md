@@ -1,12 +1,10 @@
 Core features, in order of priority:
- 1. Notification Alert (kind of done)
- 2. Animation
- 3. Text Wrapping --> Paragraph
+ 1. Animation
+ 2. Text Wrapping --> Paragraph
 
 Apps:
  1. Timer
- 3. Spotify
- 4. Remote Picture
+ 2. Spotify
 
 Completed tasks:
  - GPIO keys and PC counterparts ('Q', 'A' & 'Z' keys)
@@ -26,7 +24,10 @@ Completed tasks:
  - Bluetooth Basics
  - Snake
  - Minesweeper
+ - Camera Remote
+ - Notification Alert
+ - Notifications App
 
 Not going to be implemented:
- - Button, use: Text with event_listener('mouse down')
- - ImageClickable, use: Text with event_listener('mouse down')
+ - Button, use: Text with event_listener('mouse up')
+ - ImageClickable, use: Text with event_listener('mouse up')
