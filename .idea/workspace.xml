@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ad0c6845-437f-4709-b378-4009b18d0dfe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/minesweeper.py" afterPath="$PROJECT_DIR$/PiWatch/apps/minesweeper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/snake.py" afterPath="$PROJECT_DIR$/PiWatch/apps/snake.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/waterproof.py" afterPath="$PROJECT_DIR$/PiWatch/apps/waterproof.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" afterPath="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PiWatch/apps/home.py" afterPath="$PROJECT_DIR$/PiWatch/apps/home.py" />
     </list>
     <ignored path="PiWatch_redo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,126 +23,128 @@
     <favorites_list name="PiWatch_redo" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="notification_overlay.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification_overlay.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="636">
-              <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calculator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/calculator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-124">
-              <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="300">
-                <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TODO.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TODO.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="120">
-                <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notification_app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification_app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="waterproof.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/waterproof.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/layout.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
-              <folding>
-                <element signature="e#84#1206#0" expanded="false" />
-                <element signature="e#5687#5960#0" expanded="false" />
-                <element signature="e#5999#6175#0" expanded="false" />
-                <element signature="e#6214#6382#0" expanded="false" />
-                <element signature="e#6420#6510#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="minesweeper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/minesweeper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="snake.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PiWatch/apps/snake.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1584">
-              <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="notification_overlay.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/PiWatch/apps/notification_overlay.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="636">
+                  <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="waterproof.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/PiWatch/apps/waterproof.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="620">
+                  <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="home.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="373">
+                  <caret line="214" column="16" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
+                  <folding>
+                    <element signature="e#0#21#0" expanded="true" />
+                    <element signature="e#198#2909#0" expanded="false" />
+                    <element signature="e#228#1836#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="event.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/event.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="190">
+                  <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#974#1415#0" expanded="false" />
+                    <element signature="e#1446#1462#0" expanded="false" />
+                    <element signature="e#1501#2906#0" expanded="false" />
+                    <element signature="e#2974#3233#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="670">
+                  <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#590#761#0" expanded="false" />
+                    <element signature="e#798#1025#0" expanded="false" />
+                    <element signature="e#1036#1215#0" expanded="false" />
+                    <element signature="e#1743#1919#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="layout.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/layout.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="580">
+                  <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+                  <folding>
+                    <element signature="e#84#1206#0" expanded="false" />
+                    <element signature="e#5687#5960#0" expanded="false" />
+                    <element signature="e#5999#6175#0" expanded="false" />
+                    <element signature="e#6214#6382#0" expanded="false" />
+                    <element signature="e#6420#6510#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="minesweeper.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/PiWatch/apps/minesweeper.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="520">
+                  <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="snake.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/PiWatch/apps/snake.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1584">
+                  <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="text.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="340">
+                  <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+                  <folding>
+                    <element signature="e#60#71#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -200,7 +199,6 @@
         <option value="$PROJECT_DIR$/PiWatch/piwatch/app.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/Notifications.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/clock_overlay.py" />
-        <option value="$PROJECT_DIR$/PiWatch/apps/home.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/calculator.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/stopwatch.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/test_list.py" />
@@ -218,6 +216,7 @@
         <option value="$PROJECT_DIR$/PiWatch/apps/minesweeper.py" />
         <option value="$PROJECT_DIR$/PiWatch/piwatch/layout.py" />
         <option value="$PROJECT_DIR$/PiWatch/apps/waterproof.py" />
+        <option value="$PROJECT_DIR$/PiWatch/apps/home.py" />
       </list>
     </option>
   </component>
@@ -570,13 +569,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00100" summary="ADDED THE FREAKING CALCULATOR!!!">
-      <created>1479027181964</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1479027181965</updated>
-    </task>
     <task id="LOCAL-00101" summary="Updated TODO">
       <created>1479031432234</created>
       <option name="number" value="00101" />
@@ -913,7 +905,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483982151096</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="Fixed bug related to padding with Lists">
+      <created>1484084927658</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1484084927659</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TodoView">
@@ -931,6 +930,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23498419" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.53635406" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.46364594" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19826652" sideWeight="0.49367756" order="7" side_tool="false" content_ui="tabs" />
@@ -979,7 +979,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ADDED THE FREAKING CALCULATOR!!!" />
     <MESSAGE value="Updated TODO" />
     <MESSAGE value="first draft of snake (unplayable)" />
     <MESSAGE value="SNAKE IS PLAYABLE and a new constants file with some colors" />
@@ -1004,7 +1003,8 @@
     <MESSAGE value="Added impact font to git to increase compatibility" />
     <MESSAGE value="added icons for notifications and waterproof" />
     <MESSAGE value="Deleted style.py, updated TODO.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted style.py, updated TODO.md" />
+    <MESSAGE value="Fixed bug related to padding with Lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug related to padding with Lists" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1015,7 +1015,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="46" />
+      <option name="time" value="58" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -1023,24 +1023,11 @@
         <watch expression="self.DEFAULTATTRS" language="Python" />
         <watch expression="self.DEFAULTATTRS" />
         <watch expression="snake" />
+        <watch expression="mainclock" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1540">
-          <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/pi_utils/request.py" />
     <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/event.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1182,13 +1169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/stopwatch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1242,34 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1047">
           <caret line="106" column="13" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="198" column="79" selection-start-line="198" selection-start-column="79" selection-end-line="198" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/event.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
-          <folding>
-            <element signature="e#974#1415#0" expanded="false" />
-            <element signature="e#1446#1462#0" expanded="false" />
-            <element signature="e#1501#2906#0" expanded="false" />
-            <element signature="e#2974#3233#0" expanded="false" />
-            <element signature="e#3290#3776#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1389,6 +1341,70 @@
         <state relative-caret-position="620">
           <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="e#60#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/piwatch/event.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="e#974#1415#0" expanded="false" />
+            <element signature="e#1446#1462#0" expanded="false" />
+            <element signature="e#1501#2906#0" expanded="false" />
+            <element signature="e#2974#3233#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="308" column="0" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+          <folding>
+            <element signature="e#590#761#0" expanded="false" />
+            <element signature="e#798#1025#0" expanded="false" />
+            <element signature="e#1036#1215#0" expanded="false" />
+            <element signature="e#1743#1919#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="214" column="16" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#198#2909#0" expanded="false" />
+            <element signature="e#228#1836#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
