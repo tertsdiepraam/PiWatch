@@ -66,29 +66,37 @@ class List(Group):
         self.create_bg_surf()
 
     def get_standalone_rect(self):
-        if not self.children:
-            return pygame.Rect(0, 0, 0, 0)
         if self.fixed_size:
             return pygame.Rect(0, 0, self.fixed_size[0], self.fixed_size[1])
-        child_rects = [child.get_standalone_rect() for child in self.children]
+        rect = self.get_standalone_fg_rect()
+        if self.padding:
+            return rect.inflate(self.padding[0], self.padding[1])
+        return rect
+
+    def get_standalone_fg_rect(self):
+        if not self.children:
+            return pygame.Rect(0, 0, 0, 0)
+        try:
+            child_rects = [child.get_standalone_rect() for child in self.children]
+        except AttributeError:
+            print(self, self.children)
+            raise AttributeError
         if self.direction in ['left', 'right']:
             rect = pygame.Rect(0, 0,
                                sum(rect.width for rect in child_rects)
-                               + (len(self.children)-1) * self.spacing,
+                               + (len(self.children) - 1) * self.spacing,
                                max(rect.height for rect in child_rects)
                                )
         elif self.direction in ['up', 'down']:
             rect = pygame.Rect(0, 0,
                                max(rect.width for rect in child_rects),
                                sum(rect.height for rect in child_rects)
-                               + (len(self.children)-1) * self.spacing
+                               + (len(self.children) - 1) * self.spacing
                                )
-        if self.padding:
-            return rect.inflate(self.padding[0], self.padding[1])
         return rect
 
     def set_position(self):
-        self.fg_rect = self.get_standalone_rect()
+        self.fg_rect = self.get_standalone_fg_rect()
         self.parent_rect = self.parent.get_rect()
         if type(self.position) is str:
             setattr(self.fg_rect, self.position, getattr(self.parent_rect, self.position))
@@ -127,7 +135,7 @@ class List(Group):
                 offset += child_rect.height + self.spacing
 
     def set_pos_from_rect(self, rect, alignment):
-        self.fg_rect = self.get_standalone_rect()
+        self.fg_rect = self.get_standalone_fg_rect()
         setattr(self.fg_rect, alignment, getattr(rect, alignment))
         self.set_pos_from_rect_children()
 
@@ -186,6 +194,9 @@ class Grid(List):
             height += self.spacing * len(self.children[:-1])
             width = max(row_widths)
         return pygame.Rect(0, 0, width, height)
+
+    def get_standalone_fg_rect(self):
+        return self.get_standalone_rect()
 
     def set_pos_from_rect_children(self):
         if self.children:

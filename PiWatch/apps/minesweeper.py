@@ -47,8 +47,9 @@ def define_app():
         children=[victory, start_again],
         direction='down',
         bg_color=(0, 0, 0, 200),
-        padding=(200, 0),
-        visible=False
+        padding=(200, 10),
+        visible=False,
+        spacing=15,
     )
 
     def generate_grid(size_x, size_y, num_mines, exclude_pos=None):
@@ -120,7 +121,7 @@ def define_app():
                 )
             board.update()
             running = True
-            vic_text.update(visible=False)
+            vic_text.update(visible=True)
         else:
             for field in filter(lambda x: x.message == '', board.flat_children):
                 if field.check_collision(event.pos):

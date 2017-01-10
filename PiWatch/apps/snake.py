@@ -147,25 +147,18 @@ def define_app():
             reset(event)
         elif running:
             global direction
-            x = event.pos[0]
-            y_1 = 0.75 * x
-            y_2 = -0.75 * x + 240
-            if x < 160:
-                # left side of the screen
-                if event.pos[1] <= y_1:
-                    direction = UP
-                elif event.pos[1] >= y_2:
+            if direction in [LEFT, RIGHT]:
+                # Checks if the upper or the lower part of the screen is clicked
+                if event.pos[1] > 120:
                     direction = DOWN
+                else:
+                    direction = UP
+            else:
+                # Checks if the left or right part of the screen is clicked
+                if event.pos[0] > 160:
+                    direction = RIGHT
                 else:
                     direction = LEFT
-            else:
-                # right side of the screen
-                if event.pos[1] <= y_2:
-                    direction = UP
-                elif event.pos[1] >= y_1:
-                    direction = DOWN
-                else:
-                    direction = RIGHT
 
     main.add(board, game_over, try_again, score_text)
     app.add(main)

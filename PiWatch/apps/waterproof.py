@@ -64,8 +64,10 @@ def define_app():
             instruction_1.update(message='If you really kept it under water')
             instruction_2.update(message='your device is WATERPROOF!')
             instructions.update()
-            bttn.update(color=(0, 0, 0, 150),
-                        bg_color=(255, 255, 255, 50))
+            bttn.update(
+                color=(0, 0, 0, 150),
+                bg_color=(255, 255, 255, 50)
+            )
 
     main.add(background_image, instructions, bttn)
     app.add(main)
