@@ -47,12 +47,20 @@
       <file leaf-file-name="home.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="320">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#198#2909#0" expanded="false" />
-                <element signature="e#228#1836#0" expanded="false" />
+                <element signature="e#138#170#0" expanded="false" />
+                <element signature="e#202#2935#0" expanded="false" />
+                <element signature="e#232#1840#0" expanded="false" />
+                <element signature="e#2964#5431#0" expanded="false" />
+                <element signature="e#3116#3175#0" expanded="false" />
+                <element signature="e#3215#3472#0" expanded="false" />
+                <element signature="e#3509#3781#0" expanded="false" />
+                <element signature="e#3818#4043#0" expanded="false" />
+                <element signature="e#4085#4801#0" expanded="false" />
+                <element signature="e#4840#5431#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -549,13 +557,6 @@
       <option name="presentableId" value="Default" />
       <updated>1471022627384</updated>
     </task>
-    <task id="LOCAL-00103" summary="first draft of snake (unplayable)">
-      <created>1479037207048</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1479037207048</updated>
-    </task>
     <task id="LOCAL-00104" summary="SNAKE IS PLAYABLE and a new constants file with some colors">
       <created>1479158616746</created>
       <option name="number" value="00104" />
@@ -892,7 +893,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484089931619</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="Added a word clock!">
+      <created>1484128057722</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1484128057723</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1370,12 +1378,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PiWatch/apps/home.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="320">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#198#2909#0" expanded="false" />
-            <element signature="e#228#1836#0" expanded="false" />
+            <element signature="e#138#170#0" expanded="false" />
+            <element signature="e#202#2935#0" expanded="false" />
+            <element signature="e#232#1840#0" expanded="false" />
+            <element signature="e#2964#5431#0" expanded="false" />
+            <element signature="e#3116#3175#0" expanded="false" />
+            <element signature="e#3215#3472#0" expanded="false" />
+            <element signature="e#3509#3781#0" expanded="false" />
+            <element signature="e#3818#4043#0" expanded="false" />
+            <element signature="e#4085#4801#0" expanded="false" />
+            <element signature="e#4840#5431#0" expanded="false" />
           </folding>
         </state>
       </provider>

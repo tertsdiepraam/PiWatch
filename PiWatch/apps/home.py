@@ -15,71 +15,71 @@ def hexify(num):
     return str(hex(num))[2:].upper()
 
 
-def text_time(time):
-    def int_to_word(int):
-        if int == 0:
+def text_time(time_obj):
+    def int_to_word(num):
+        if num == 0:
             return 'zero'
-        elif int == 1:
+        elif num == 1:
             return 'one'
-        elif int == 2:
+        elif num == 2:
             return 'two'
-        elif int == 3:
+        elif num == 3:
             return 'three'
-        elif int == 4:
+        elif num == 4:
             return 'four'
-        elif int == 5:
+        elif num == 5:
             return 'five'
-        elif int == 6:
+        elif num == 6:
             return 'six'
-        elif int == 7:
+        elif num == 7:
             return 'seven'
-        elif int == 8:
+        elif num == 8:
             return 'eight'
-        elif int == 9:
+        elif num == 9:
             return 'nine'
-        elif int == 10:
+        elif num == 10:
             return 'ten'
-        elif int == 11:
+        elif num == 11:
             return 'eleven'
-        elif int == 12:
+        elif num == 12:
             return 'twelve'
-        elif int == 13:
+        elif num == 13:
             return 'thirteen'
-        elif int == 14:
+        elif num == 14:
             return 'fourteen'
-        elif int == 15:
+        elif num == 15:
             return 'fifteen'
-        elif int == 18:
+        elif num == 18:
             return 'eighteen'  # just one "t"
         # 16 - 19 except 18
-        elif int < 20:
-            return int_to_word(int - 10) + 'teen'
+        elif num < 20:
+            return int_to_word(num - 10) + 'teen'
         # 20 - 29
-        elif int == 20:
+        elif num == 20:
             return 'twenty'
-        elif int < 30:
-            return 'twenty-' + int_to_word(int - 20)
+        elif num < 30:
+            return 'twenty-' + int_to_word(num - 20)
         # 30 - 39
-        elif int == 30:
+        elif num == 30:
             return 'thirty'
-        elif int < 40:
-            return 'thirty-' + int_to_word(int - 30)
+        elif num < 40:
+            return 'thirty-' + int_to_word(num - 30)
         # 40 - 49
-        elif int == 40:
+        elif num == 40:
             return 'forty'
-        elif int < 50:
-            return 'forty-' + int_to_word(int - 40)
+        elif num < 50:
+            return 'forty-' + int_to_word(num - 40)
         # 50 - 59
-        elif int == 40:
+        elif num == 40:
             return 'fifty'
-        elif int < 60:
-            return 'fifty-' + int_to_word(int - 50)
+        elif num < 60:
+            return 'fifty-' + int_to_word(num - 50)
         # 60
-        elif int == 60:
+        elif num == 60:
             return 'sixty'
 
-    time = time[3:5]
-    hour = time[0]
+    time_tuple = time_obj[3:5]
+    hour = time_tuple[0]
     if hour == 12:
         next_hour = 1
     elif hour > 12:
@@ -87,7 +87,7 @@ def text_time(time):
         next_hour = hour + 1
     else:
         next_hour = hour + 1
-    minutes = time[1]
+    minutes = time_tuple[1]
 
     if hour == 0:
         if minutes == 0:
