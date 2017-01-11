@@ -24,10 +24,14 @@ def define_app():
         size=35,
         message=''
     )
+
+    # the text that will show what the user entered
     calculation_text = Text(
         display_attrs,
         position=('topleft', 10, 20)
     )
+
+    # the text that will show the answer
     answer_text = Text(
         display_attrs,
         position=('topright', -10, 53)
