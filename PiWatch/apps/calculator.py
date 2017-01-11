@@ -26,7 +26,7 @@ def define_app():
     )
     calculation_text = Text(
         display_attrs,
-        position=('topleft', 10, 17)
+        position=('topleft', 10, 20)
     )
     answer_text = Text(
         display_attrs,
