@@ -11,8 +11,8 @@ TEXT = 4
 num_states = 5
 
 
-def hexify(int):
-    return str(hex(int))[2:].upper()
+def hexify(num):
+    return str(hex(num))[2:].upper()
 
 
 def text_time(time):
