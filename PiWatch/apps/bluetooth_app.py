@@ -101,7 +101,7 @@ def define_services():
                 app = info[1].split(".")[1]
                 title = info[2]
                 text = info[3] if info[3] != 'null' else ""
-                service.eventqueue.add(Event('main notification', data=[app, title, text]))
+                service.eventqueue.add('main notification', data=[app, title, text])
 
     @service.event_listener('bt discover')
     @threaded

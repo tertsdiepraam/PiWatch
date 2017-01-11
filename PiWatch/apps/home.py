@@ -197,7 +197,7 @@ def define_app():
     # Components
     mainclock = FunClock(
         size=96,
-        position=('midbottom', 0, -110),
+        position=('midbottom', 0, -115),
         separator=':'
     )
 
