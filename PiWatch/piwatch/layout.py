@@ -108,11 +108,11 @@ class List(Group):
 
         if self.padding and self.fixed_size:
             raise AttributeError("Drawable " + str(type(self)) + " can't have both padding and fixed_size attributes")
-        if self.padding:
+        elif self.padding:
             self.bg_rect = self.fg_rect.inflate(self.padding[0], self.padding[1])
         elif self.fixed_size:
             self.bg_rect = pygame.Rect(0, 0, self.fixed_size[0], self.fixed_size[1])
-            self.bg_rect.center = self.fg_rect.center
+            setattr(self.bg_rect, self.alignment, getattr(self.fg_rect, self.alignment))
         else:
             self.bg_rect = self.fg_rect
         self.create_bg_surf()
@@ -145,7 +145,7 @@ class List(Group):
             self.bg_rect = self.fg_rect.inflate(self.padding[0], self.padding[1])
         elif self.fixed_size:
             self.bg_rect = pygame.Rect(0, 0, self.fixed_size[0], self.fixed_size[1])
-            self.bg_rect.center = self.fg_rect.center
+            setattr(self.bg_rect, self.alignment, getattr(self.fg_rect, self.alignment))
         else:
             self.bg_rect = self.fg_rect
 

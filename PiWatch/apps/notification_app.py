@@ -32,8 +32,9 @@ def define_app():
     def get_notifications(event):
         load_text.update(message="Receiving Notifications...")
         app.eventqueue.add('bt send', data="list notifications")
+        app.eventqueue.add('bt data received', data=b'notification list||whatsapp|sjoerd|ayyy||genius|lyrics of Superstition|Very superstitious!')
 
-    @app.event_listener('bt send failed')
+    #@app.event_listener('bt send failed')
     def not_connected(event):
         load_text.update(message="Not connected.")
 

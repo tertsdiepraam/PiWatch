@@ -121,7 +121,7 @@ def define_app():
                 )
             board.update()
             running = True
-            vic_text.update(visible=True)
+            vic_text.update(visible=False)
         else:
             for field in filter(lambda x: x.message == '', board.flat_children):
                 if field.check_collision(event.pos):
