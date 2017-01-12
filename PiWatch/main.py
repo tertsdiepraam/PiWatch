@@ -202,7 +202,7 @@ def run():
         handle_main_events(events_for_main)
 
         # fps counter
-        fps.tick()
+        fps.tick(15)
         try:
             main_variables['fps'] = int(fps.get_fps())
         except OverflowError:
