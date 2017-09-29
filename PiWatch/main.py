@@ -1,5 +1,6 @@
 """"Main Program of the PiWatch"""
 import importlib
+from importlib import util as importutil
 import os
 import sys
 from piwatch import *
@@ -33,8 +34,8 @@ if sys.platform == 'linux' and not debug_mode:
 if sys.version_info >= (3, 5):
     def load_module(name):
         """Load module for Python 3.5+"""
-        spec = importlib.util.find_spec(name)
-        module = importlib.util.module_from_spec(spec)
+        spec = importutil.find_spec(name)
+        module = importutil.module_from_spec(spec)
         spec.loader.exec_module(module)
         return module
 else:
